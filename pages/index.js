@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import { urlFor, client } from '../lib/client'
 import Product from '../component/Product';
 
@@ -8,7 +7,7 @@ import Product from '../component/Product';
 export default function Home({products}) {
   
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Kinox</title>
         <meta name="description" content="This is a website created for kinox apparel" />

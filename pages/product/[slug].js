@@ -1,14 +1,16 @@
 import React from "react";
 import { urlFor, client } from "../../lib/client";
+  {/* <img src={urlFor(product.image[0])} alt="" />
+        <h4>{product.name}</h4>
+        <p>₦{product.price}</p>
+        <p>{product.description}</p>  */}
 
+        
 function ProductDetails({ product }) {
   return (
     <div>
       <div>
-        <img src={urlFor(product.image[0])} alt="" />
-        <h4>{product.name}</h4>
-        <p>₦{product.price}</p>
-        <p>{product.description}</p>
+     
       </div>
     </div>
   );
