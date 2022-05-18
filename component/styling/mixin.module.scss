@@ -1,0 +1,20 @@
+$crimson: crimson;
+$black: #0d0d0d;
+$light_black: #1a1a1a;
+$white: #fff;
+$light_white: #aaa;
+$box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.3);
+
+
+
+@mixin button{
+    -moz-window-dragging: 5px;
+    padding: 10px 35px;
+    font-size: 20px;
+    color: $white;
+    background-color:$black;
+
+    a{
+        color: $white;
+    }
+}

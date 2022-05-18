@@ -1,0 +1,121 @@
+@import "./mixin.module";
+
+.nav {
+  padding: 0px 10px;
+  position: sticky;
+  width: 100%;
+  font-size: 15px;
+  padding: 20px 20px;
+  height: 130px;
+  position: relative;
+  z-index: 100;
+
+
+  @media screen and (max-width: 768px) {
+    padding: 30px 20px;
+  }
+  background-color: rgba(255, 0, 0, 0.589);
+  transition: 0.3s ease-in-out;
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+    }
+
+    .nav_items {
+      display: flex;
+      align-items: center;
+
+      .nav_logo {
+        padding-right: 70px;
+      }
+    }
+
+    .nav_link {
+      a {
+        padding: 0px 20px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $light_black;
+        transition: 0.3s ease-in-out;
+        position: relative;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+
+    .nav_icons {
+      display: flex;
+      gap: 15px;
+
+      .nav_icon_menu{
+          display:none;
+        @media screen and (max-width: 768px) {
+
+            display: block;
+        }
+
+
+      }
+    }
+
+    .nav_active{
+        display: none
+    } 
+
+    @media screen and (max-width: 768px) {
+      .nav_link {
+        transition: 0.3s;
+        position: absolute;
+        display: block;
+        display: flex;
+        align-items: center;
+        padding-top: 10rem;
+        gap: 30px;
+        background-color: red;
+        width: 300px;
+        height: 100vh;
+        flex-direction: column;
+        top: 13rem;
+        left: -100%;
+        bottom: 0;
+      }
+
+      .nav_active {
+        transition: 0.3s;
+        position: absolute;
+        display: block;
+        display: flex;
+        align-items: center;
+        padding-top: 10rem;
+        gap: 30px;
+        background-color: rgb(255, 0, 0);
+        width: 300px;
+        height: 100vh;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        top: 13rem;
+
+
+        a {
+          padding: 0px 20px;
+          text-transform: uppercase;
+          font-weight: 600;
+          color: $light_black;
+          transition: 0.3s ease-in-out;
+          position: relative;
+          color: $white;
+        }
+      }
+    }
+
+    
+  }
+}
