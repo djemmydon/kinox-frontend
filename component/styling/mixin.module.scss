@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Poppins:wght@200&display=swap');
 $crimson: crimson;
 $black: #0d0d0d;
 $light_black: #1a1a1a;
 $white: #fff;
 $light_white: #aaa;
 $box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.3);
+$font_small:  'Poppins', sans-serif;
+$font_big: 'Oxygen', sans-serif;
 
 
 
@@ -13,8 +17,22 @@ $box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.3);
     font-size: 20px;
     color: $white;
     background-color:$black;
+    font-family: $font_small;
+    transition:0.1s all ease-in-out;
+
+    &:hover{
+    background: red;
+    }
 
     a{
         color: $white;
     }
+
+    @media screen and (max-width: 768px){
+    padding: 7.5px 20px;
+    font-size: 15px;
+
+    }
 }
+
+

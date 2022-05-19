@@ -4,7 +4,7 @@ import { urlFor, client } from "../lib/client";
 import Product from "../component/Product";
 import HomeSlide from "../component/HomeSlide";
 
-export default function Home({ products }) {
+export default function Home({ products, count }) {
   return (
     <div>
       <Head>
@@ -18,12 +18,17 @@ export default function Home({ products }) {
       <main>
         <HomeSlide />
 
+
+
+      <div className='headings'>
+        <h1>Featured Products</h1>
+        <p>Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum</p>
+      </div>
         <div className="product">
-        {products.map((product) => (
-          
-          <Product key={product._id} product={product} />
-       
-        ))}
+          {products?.map((product) => (
+            <Product simplified key={product._id} product={product} />
+          ))}
         </div>
       </main>
     </div>
@@ -31,10 +36,9 @@ export default function Home({ products }) {
 }
 
 export const getServerSideProps = async () => {
-  const query = `*[_type == 'product']`;
+  const query = `*[_type == 'product' && trending ==true]`;
 
   const products = await client.fetch(query);
-
   return {
     props: {
       products,

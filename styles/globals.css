@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 
 *{
@@ -23,10 +24,52 @@ scroll-behavior: smooth;
 
 .product{
 display: flex;
-gap: 20px;
+gap: 30px;
 flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding-top: 5rem;
   
 }
+
+.headings{
+ text-align: center;
+ padding: 5rem 40px;
+font-family: 'Oxygen', sans-serif;
+
+
+
+}
+
+.headings h1{
+  font-family: 'Oxygen', sans-serif;
+  font-size: 3rem;
+  position: relative;
+  display: inline;
+
+  }
+  
+
+  .headings h1::after{
+   content: "";
+   position: absolute;
+    width: 100%;
+    height: 2px;
+     background-color:red;
+     bottom:0;
+     left: 0;
+     margin-top: 10px;
+     margin: 0;
+    }
+    
+
+    
+.headings p{
+  font-family: 'Oxygen', sans-serif;
+  font-size: 1.3rem;
+  color: rgb(128, 124, 124);
+
+  padding: 2rem;
+  }
+  
+      
