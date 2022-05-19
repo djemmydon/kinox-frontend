@@ -1,6 +1,6 @@
 import React from "react";
 import Head from 'next/head'
-
+import Nav from "./Nav";
 const Layout = ({ children }) => {
   return (
     <div>
@@ -8,7 +8,9 @@ const Layout = ({ children }) => {
         <title>Kinox</title>
       </Head>
 
-      <header></header>
+      <header>
+        <Nav/>
+      </header>
 
       <main>{children}</main>
 
