@@ -6,15 +6,19 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Link from "next/link";
 
+
 SwiperCore.use([Autoplay])
 function HomeSlide() {
+
+  
+
   return (
     <main className={styles.home_slide}>
       <Swiper 
         loop="true"
         
                 autoplay={{
-                    delay: 4000,
+                    delay: 6000,
                     disableOnInteraction: false
                 }}
       className={styles.slideHead}>

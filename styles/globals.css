@@ -73,3 +73,32 @@ font-family: 'Oxygen', sans-serif;
   }
   
       
+
+  .testimonial_slide{
+    display: flex;
+    justify-content:center;
+    height: 300px;
+   
+  }
+  .testimonial_slide .testimonia_slide_home{
+    max-width: 300px;
+  }
+
+  .testimonia_slide_home h4{
+    font-size: 1.7rem;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 100;
+
+  }
+
+  .testimonia_slide_home p{
+    font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  padding-top: 1rem;
+font-weight: 500;
+  }
+
+  .testimonia_slide_home p span{
+    color: 	#ff5252;
+    text-align-last: center;
+  }
