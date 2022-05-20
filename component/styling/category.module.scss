@@ -1,0 +1,44 @@
+@import "./mixin.module";
+
+
+.categories {
+  .category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 0 auto;
+
+    @media screen and (max-width: 988px) {
+
+        
+    }
+
+
+    .category_items {
+      position: relative;
+      max-width: 400px;
+
+      img{
+          object-fit: cover;
+       
+      }
+
+      .category_items_text {
+        position: absolute;
+        left: 5rem;
+        bottom: 3rem;
+        background-color: rgba(255, 255, 255, 0.678);
+        
+        padding: 10px;
+        
+
+
+        h2{
+            font-size: 3rem;
+        }
+      }
+    }
+  }
+}

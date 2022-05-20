@@ -3,8 +3,19 @@ import Image from "next/image";
 import { urlFor, client } from "../lib/client";
 import Product from "../component/Product";
 import HomeSlide from "../component/HomeSlide";
+import Review from "../component/Review";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from 'swiper';
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 
-export default function Home({ products, count }) {
+// import required modules
+import { Pagination } from "swiper";
+import Category from "../component/Category";
+
+export default function Home({ products, review }) {
+  console.log(review);
   return (
     <div>
       <Head>
@@ -18,18 +29,57 @@ export default function Home({ products, count }) {
       <main>
         <HomeSlide />
 
+        <Category/>
 
-
-      <div className='headings'>
-        <h1>Featured Products</h1>
-        <p>Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum</p>
-      </div>
+        <div className="headings">
+          <h1>New in Stored</h1>
+          <p>
+            Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime mollitia, molestiae quas vel sint commodi repudiandae
+            consequuntur voluptatum laborum
+          </p>
+        </div>
         <div className="product">
           {products?.map((product) => (
             <Product simplified key={product._id} product={product} />
           ))}
         </div>
+
+
+        <div className="headings">
+          <h1>Customers Reviews</h1>
+          <p>
+            Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime mollitia, molestiae quas vel sint commodi repudiandae
+            consequuntur voluptatum laborum
+          </p>
+        </div>
+
+        <Swiper
+          slidesPerView={"auto"}
+          loop={true}
+          centeredSlides={true}
+          spaceBetween={30}
+          autoplay={{
+            delay: 6000,
+            
+            disableOnInteraction: false
+        }}
+          modules={[Pagination]}
+          className="testimonial_slide"
+        >
+          {review?.map((item) => (
+            <SwiperSlide key={item._id} className="testimonia_slide_home">
+              <h4>"{item.testimonial}"</h4>
+              <p>
+                {item.name}/<span>{item.company}</span>
+              </p>
+
+            
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div></div>
       </main>
     </div>
   );
@@ -37,11 +87,13 @@ molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum</p>
 
 export const getServerSideProps = async () => {
   const query = `*[_type == 'product' && trending ==true]`;
-
+  const reviewQuery = `*[_type == 'review']`;
   const products = await client.fetch(query);
+  const review = await client.fetch(reviewQuery);
   return {
     props: {
       products,
+      review,
     },
   };
 };

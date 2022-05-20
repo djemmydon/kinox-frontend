@@ -9,6 +9,10 @@ function Products({ products }) {
     <>
 
     
+<div className='headings'>
+        <h1>Shop</h1>
+        <p>Kinox Lorem ipsum dolor sit amet consectetur </p>
+      </div>
       <div className="product">
         {products?.map((item) => (
           <AllProduct key={item._id} product={item} />

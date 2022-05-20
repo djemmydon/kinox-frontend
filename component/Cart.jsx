@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Link from "next/link";
 import { useStateContext } from "../context/StateContex";
+import styles from "./styling/cart.module.scss";
 
 function Cart() {
-  const { cartItems, toggleCartItemQuanitity } = useStateContext();
+  const { cartItems, toggleCartItemQuanitity, setCartItems } =
+    useStateContext();
 
   return (
     <div>
-      {cartItems.length < 1 && <h1>Cart is Empty</h1>}
+      {cartItems?.length < 1 && (
+        <div className={styles.empty_cart}>
+          <h1>Your Shopping Cart Is Empty</h1>
+          <Link href="/products">
+            <button>Continue Shoping</button>
+          </Link>
+        </div>
+      )}
 
       {cartItems?.length >= 1 &&
         cartItems?.map((item) => (
@@ -16,6 +26,7 @@ function Cart() {
               -
             </span>
             <span>{item?.quantity}</span>
+
             <span onClick={() => toggleCartItemQuanitity(item._id, "inc")}>
               +
             </span>
