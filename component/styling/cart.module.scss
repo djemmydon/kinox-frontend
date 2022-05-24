@@ -1,7 +1,8 @@
 @import "./mixin.module";
 
 .ProductDetail{
-
+display:flex;
+gap: 20px;
 
 .empty_cart{
     text-align: center;
@@ -22,6 +23,9 @@
 }
 
 
+img{
+  height:70px;
+}
 
 .ProductDetailShowDecInc {
     display: flex;

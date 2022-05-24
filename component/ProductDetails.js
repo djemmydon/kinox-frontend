@@ -76,6 +76,8 @@ function ProductDetailShow({ product }) {
           
         </div>
       </div>
+
+      
     </div>
   );
 }

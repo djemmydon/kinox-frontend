@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useStateContext } from "../context/StateContex";
 import styles from "./styling/cart.module.scss";
 import { BiUpArrow, BiDownArrow } from "react-icons/bi";
+import { urlFor } from "../lib/client";
 
 function Cart() {
   const { cartItems, toggleCartItemQuanitity, setCartItems } =
@@ -22,21 +23,28 @@ function Cart() {
       {cartItems?.length >= 1 &&
         cartItems?.map((item, index) => (
           <div key={index} className={styles.ProductDetail}>
-            <h1> {item?.name}</h1>
-            <div className={styles.ProductDetailShowDecInc}>
-              <div>
-              <span>{item?.quantity}</span>
-              </div>
-              <div>
-                <BiUpArrow
-                onClick={() => toggleCartItemQuanitity(item._id, "dec")}
-              />
+            <div>
+              <img src={urlFor(item.image[0])} alt="" />
+            </div>
 
-              <BiDownArrow
-                onClick={() => toggleCartItemQuanitity(item._id, "inc")}
-              />
+            <div>
+          
+              <h1> {item?.name}</h1>
+              <h5>₦{item.price}.00</h5>
+              <div className={styles.ProductDetailShowDecInc}>
+                <div>
+                  <span>{item?.quantity}</span>
+                </div>
+                <div>
+                  <BiUpArrow
+                    onClick={() => toggleCartItemQuanitity(item._id, "dec")}
+                  />
+
+                  <BiDownArrow
+                    onClick={() => toggleCartItemQuanitity(item._id, "inc")}
+                  />
+                </div>
               </div>
-              
             </div>
           </div>
         ))}

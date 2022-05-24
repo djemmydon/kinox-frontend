@@ -12,15 +12,19 @@ export const StateContext = ({ children }) => {
   const [qty, setQty] = useState(1);
 
   useEffect(() => {
-    const cartData = JSON.parse(localStorage.getItem("cart" || "[]"));
+    const cartData = JSON.parse(localStorage.getItem("cart" ||  "[]"));
     if (cartData) {
       setCartItems(cartData);
+
     }
+
+ 
   }, []);
 
   useEffect(() => {
     if (cartItems !== initialState) {
       localStorage.setItem("cart", JSON.stringify(cartItems));
+     
     }
   }, [cartItems]);
 
