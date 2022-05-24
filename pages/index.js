@@ -5,7 +5,7 @@ import Product from "../component/Product";
 import HomeSlide from "../component/HomeSlide";
 import Review from "../component/Review";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,7 +15,6 @@ import { Pagination } from "swiper";
 import Category from "../component/Category";
 
 export default function Home({ products, review }) {
-  console.log(review);
   return (
     <div>
       <Head>
@@ -29,7 +28,16 @@ export default function Home({ products, review }) {
       <main>
         <HomeSlide />
 
-        <Category/>
+        <div className="headings">
+          <h1>Category</h1>
+          <p>
+            Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime mollitia, molestiae quas vel sint commodi repudiandae
+            consequuntur voluptatum laborum
+          </p>
+        </div>
+
+        <Category />
 
         <div className="headings">
           <h1>New in Stored</h1>
@@ -45,7 +53,6 @@ export default function Home({ products, review }) {
           ))}
         </div>
 
-
         <div className="headings">
           <h1>Customers Reviews</h1>
           <p>
@@ -56,26 +63,24 @@ export default function Home({ products, review }) {
         </div>
 
         <Swiper
-          slidesPerView={"auto"}
+          slidesPerView="auto"
           loop={true}
           centeredSlides={true}
           spaceBetween={30}
           autoplay={{
             delay: 6000,
-            
-            disableOnInteraction: false
-        }}
+
+            disableOnInteraction: false,
+          }}
           modules={[Pagination]}
           className="testimonial_slide"
         >
           {review?.map((item) => (
             <SwiperSlide key={item._id} className="testimonia_slide_home">
-              <h4>"{item.testimonial}"</h4>
-              <p>
+              <h4> &quot;{item.testimonial}&quot;</h4>
+             <p>
                 {item.name}/<span>{item.company}</span>
               </p>
-
-            
             </SwiperSlide>
           ))}
         </Swiper>

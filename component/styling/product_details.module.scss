@@ -1,0 +1,101 @@
+@import "./mixin.module";
+
+.ProductDetailShow {
+  max-width: 100%;
+  height: 100%;
+  padding: 5rem 0.5rem;
+
+  .ProductDetailShowFlex {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    gap: 3rem;
+    justify-content: center;
+    align-content: center;
+
+    .ProductDetailShowImageFlex {
+      .ProductDetailShowImage {
+          
+        img {
+          width: 400px;
+          height: 550px;
+          @media screen and (max-width: 868px) {
+            width: 100%;
+            max-height: 50%;
+            object-fit: cover;
+            margin: 0;
+          }
+        }
+        
+      }
+
+      .ProductDetailShowImageThumb {
+        img {
+          max-width: 100%;
+          height: 150px;
+          object-fit: cover;
+
+          @media screen and (max-width: 968px) {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+
+    .ProductDetailShowText {
+      padding: 10px;
+      h4 {
+        font-family: $font_big;
+        font-size: 2.5rem;
+        padding: 10px 0px;
+      }
+
+      h5 {
+        font-size: 2rem;
+        font-family: $font_small;
+        padding: 10px 0px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-family: $font_small;
+        color: $light_black;
+      }
+
+      .ProductDetailShowDecInc {
+        display: flex;
+        padding: 20px 0;
+        div {
+          height: 50px;
+          width: 70px;
+          border: 1px solid $light_black;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 2rem;
+        }
+      }
+
+      button {
+        @include button;
+      }
+
+      .btn{
+        background-color: $light_black;
+
+        &:hover{
+          background-color: $light_black;
+        }
+      }
+    }
+    @media screen and (max-width: 868px) {
+        grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)) ;
+        padding: 20px;
+      }
+  
+  }
+
+}

@@ -1,15 +1,35 @@
 import React from "react";
 import { useStateContext } from "../../context/StateContex";
 import { urlFor, client } from "../../lib/client";
+import Image from "next/image";
+import ProductDetailShow from "../../component/ProductDetails";
+import { Trending } from "../../component/Trending";
 
-function ProductDetails({ product }) {
+function ProductDetails({ product, trending }) {
   const { InQty, DeQty, qty, onAdd } = useStateContext();
-  
+  const src = product?.image[0]?.url;
 
   return (
     <div>
       <div>
-        <img src={urlFor(product?.image[0])} alt="" />
+        <ProductDetailShow key={product._id} product={product} />
+
+        <div className="headings">
+          <h1>People also like
+
+          </h1>
+        </div>
+
+              <div className="product">
+          {trending?.map((product) => (
+            <Trending simplified key={product._id} product={product} />
+          ))}
+        </div>
+ 
+        
+
+        {/*         
+        <img src={urlFor(product?.image[0])} alt={urlFor(product?.image[0])}/>
         <h4>{product?.name}</h4>
         <p>₦{product?.price}</p>
         <p>{product?.description}</p>
@@ -19,7 +39,7 @@ function ProductDetails({ product }) {
           <span>{qty}</span>
           <span onClick={InQty}>+</span>
           <button onClick={() => onAdd(product, qty)}>Add to Cart</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -48,10 +68,10 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == 'product' && slug.current == '${slug}'][0]`;
-
+  const trendingQuery = `*[_type == 'product' &&  trending ==true]`;
   const product = await client.fetch(query);
-
+  const trending= await client.fetch(trendingQuery);
   return {
-    props: { product },
+    props: { product, trending },
   };
 };

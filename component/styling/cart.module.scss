@@ -1,5 +1,8 @@
 @import "./mixin.module";
 
+.ProductDetail{
+display:flex;
+gap: 20px;
 
 .empty_cart{
     text-align: center;
@@ -13,6 +16,31 @@
  
     button{
         @include button;
-        margin-top:30px;
+        margin-top:40px;
     }
+    
+ 
+}
+
+
+img{
+  height:70px;
+}
+
+.ProductDetailShowDecInc {
+    display: flex;
+    padding: 10px 0;
+    div {
+      height: 40px;
+      width: 50px;
+      border: 1px solid $light_black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 2rem;
+    }
+  }
+
 }

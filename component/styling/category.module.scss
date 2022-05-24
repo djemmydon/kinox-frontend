@@ -37,7 +37,14 @@
 
         h2{
             font-size: 3rem;
+            font-family: $font_big;
         }
+
+      a{
+        font-family: $font_small;
+        font-size: 1.3rem;
+        text-decoration: underline;
+      }
       }
     }
   }

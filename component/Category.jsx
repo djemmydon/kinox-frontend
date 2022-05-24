@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styling/category.module.scss";
-import Link from 'next/Link'
+import Link from 'next/link'
 import Image from "next/image";
 function Category() {
   return (
@@ -17,7 +17,7 @@ function Category() {
           </div>
         </div>
         <div className={styles.category_items}>
-        <Image src="/imagecompressor/kinox6 (1)-min.jpg"  width={500} height={500}   />
+        <Image src="/imagecompressor/kinox4-min.jpg"  width={500} height={500}   />
 
         <div className={styles.category_items_text}>
           <h2>Branding Wears</h2>
