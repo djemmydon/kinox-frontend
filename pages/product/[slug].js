@@ -15,8 +15,8 @@ function ProductDetails({ product, trending }) {
         <ProductDetailShow key={product._id} product={product} />
 
         <div className="headings">
-          <h1>People also likes
-            
+          <h1>People also like
+
           </h1>
         </div>
 
