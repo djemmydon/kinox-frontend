@@ -6,12 +6,13 @@ import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import styles from "./styling/nav.module.scss";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
+import { useStateContext } from "../context/StateContex";
 
 function Nav() {
-
   const [openNav, setOpenNav] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-
+  const { totalQuantity } = useStateContext();
+  console.log(totalQuantity)
 
   const handleNav = () => setOpenNav(!openNav);
   const handleClose = () => setCartOpen(!cartOpen);
@@ -50,13 +51,17 @@ function Nav() {
             <a>Contact</a>
           </Link>
         </div>
+        
         <div className={styles.nav_icons}>
           <AiOutlineSearch className={styles.nav_icon} size={25} />
+          
           <AiOutlineShoppingCart
             onClick={handleClose}
             className={styles.nav_icon}
             size={25}
           />
+          <span>{totalQuantity}</span>
+          
           <GiHamburgerMenu
             className={styles.nav_icon_menu}
             size={25}
@@ -71,7 +76,7 @@ function Nav() {
           onClick={handleClose}
         />
 
-      <Cart/>
+        <Cart />
       </div>
     </nav>
   );

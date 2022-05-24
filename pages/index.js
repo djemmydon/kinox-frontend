@@ -15,7 +15,7 @@ import { Pagination } from "swiper";
 import Category from "../component/Category";
 
 export default function Home({ products, review }) {
-  console.log(review);
+
   return (
     <div>
       <Head>
@@ -28,6 +28,17 @@ export default function Home({ products, review }) {
 
       <main>
         <HomeSlide />
+
+
+        
+        <div className="headings">
+          <h1>Category</h1>
+          <p>
+            Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Maxime mollitia, molestiae quas vel sint commodi repudiandae
+            consequuntur voluptatum laborum
+          </p>
+        </div>
 
         <Category/>
 
