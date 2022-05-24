@@ -77,8 +77,8 @@ export default function Home({ products, review }) {
         >
           {review?.map((item) => (
             <SwiperSlide key={item._id} className="testimonia_slide_home">
-              <h4>{item.testimonial}</h4>
-              <p>
+              <h4> &quot;{item.testimonial}&quot;</h4>
+             <p>
                 {item.name}/<span>{item.company}</span>
               </p>
             </SwiperSlide>
