@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styling/category.module.scss";
-import Link from 'next/Link'
+import Link from 'next/link'
 import Image from "next/image";
 function Category() {
   return (
