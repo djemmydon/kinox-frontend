@@ -7,7 +7,7 @@ export const StateContext = ({ children }) => {
   const initialState = [];
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState(initialState);
-  const [totalPrice, setTotalPrice] = useState();
+  const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [qty, setQty] = useState(1);
 
@@ -27,6 +27,40 @@ export const StateContext = ({ children }) => {
      
     }
   }, [cartItems]);
+
+  useEffect(() => {
+    const cartData = JSON.parse(localStorage.getItem("totalPrice" ||  "0"));
+    if (cartData) {
+      setTotalPrice(cartData);
+
+    }
+
+ 
+  }, []);
+
+  useEffect(() => {
+    if (totalPrice !== initialState) {
+      localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+     
+    }
+  }, [totalPrice]);
+
+  useEffect(() => {
+    const cartData = JSON.parse(localStorage.getItem("totalquantity" ||  "0"));
+    if (cartData) {
+      setTotalQuantity(cartData);
+
+    }
+
+ 
+  }, []);
+
+  useEffect(() => {
+    if (totalPrice !== initialState) {
+      localStorage.setItem("totalquantity", JSON.stringify(totalQuantity));
+     
+    }
+  }, [totalQuantity]);
 
   let foundProduct;
   let index;
