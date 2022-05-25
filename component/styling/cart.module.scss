@@ -4,6 +4,37 @@
 display:flex;
 gap: 20px;
 
+
+
+img{
+  height:70px;
+}
+
+h5{
+  font-size: 2rem;
+  color: $light_red;
+  font-size: $font_small;
+}
+
+.ProductDetailShowDecInc {
+    display: flex;
+    padding: 5px 0;
+    div {
+      height: 30px;
+      width: 30px;
+      border: 1px solid $light_black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 2rem;
+    }
+  }
+
+}
+
+
 .empty_cart{
     text-align: center;
     padding-top: 20rem;
@@ -20,27 +51,4 @@ gap: 20px;
     }
     
  
-}
-
-
-img{
-  height:70px;
-}
-
-.ProductDetailShowDecInc {
-    display: flex;
-    padding: 10px 0;
-    div {
-      height: 40px;
-      width: 50px;
-      border: 1px solid $light_black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 2rem;
-    }
-  }
-
 }

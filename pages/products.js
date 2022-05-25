@@ -11,7 +11,7 @@ function Products({ products }) {
     
 <div className='headings'>
         <h1>Shop</h1>
-        <p>Kinox Lorem ipsum dolor sit amet consectetur </p>
+        <p>Kinox Lorem ipsum dolor sit amet consectetudfdfr </p>
       </div>
       <div className="product">
         {products?.map((item) => (

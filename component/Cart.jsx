@@ -5,8 +5,9 @@ import styles from "./styling/cart.module.scss";
 import { BiUpArrow, BiDownArrow } from "react-icons/bi";
 import { urlFor } from "../lib/client";
 
+
 function Cart() {
-  const { cartItems, toggleCartItemQuanitity, setCartItems } =
+  const { cartItems, toggleCartItemQuanitity,totalPrice, setCartItems } =
     useStateContext();
 
   return (
@@ -35,7 +36,7 @@ function Cart() {
                 <div>
                   <span>{item?.quantity}</span>
                 </div>
-                <div>
+                {/* <div>
                   <BiUpArrow
                     onClick={() => toggleCartItemQuanitity(item._id, "dec")}
                   />
@@ -43,11 +44,16 @@ function Cart() {
                   <BiDownArrow
                     onClick={() => toggleCartItemQuanitity(item._id, "inc")}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
+            <div>
+        <h2>{totalPrice}</h2>
+      </div>
           </div>
         ))}
+
+    
     </div>
   );
 }

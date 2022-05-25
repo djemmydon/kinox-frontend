@@ -79,7 +79,7 @@ export default function Home({ products, review }) {
             <SwiperSlide key={item._id} className="testimonia_slide_home">
               <h4> &quot;{item.testimonial}&quot;</h4>
              <p>
-                {item.name}/<span>{item.company}</span>
+                {item.name}/ <span>{item.company}</span>
               </p>
             </SwiperSlide>
           ))}
