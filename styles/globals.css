@@ -34,7 +34,7 @@ html {
   font-family: "Oxygen", sans-serif;
   display: block ;
   margin: 0 auto;
-  width: 300px;
+  width: 500px;
 }
 
 .headings h1 {
@@ -44,6 +44,18 @@ html {
   display: inline;
 
 
+}
+
+@media screen and (max-width: 508px) {
+
+  .headings {
+    text-align: center;
+    padding: 5rem 40px;
+    font-family: "Oxygen", sans-serif;
+    display: block ;
+    margin: 0 auto;
+    width: 300px;
+  }
 }
 
 .headings h1::after {
@@ -94,3 +106,4 @@ html {
   color: #ff5252;
   text-align-last: center;
 }
+

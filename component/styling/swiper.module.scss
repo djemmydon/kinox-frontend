@@ -97,5 +97,34 @@
           }
         }
       }
+
+      
+      @media screen and (max-width: 400px) {
+        flex-direction: column-reverse;
+           align-items: center;
+           justify-content: center;
+     
+           img {
+             margin: 5rem 0;
+           height: 400px;
+             
+            
+   
+           }
+     
+           .home_slide_text {
+             margin-top: 6rem;
+             text-align: center;
+             width: 250px;
+             h2 {
+               font-size: 2.5rem;
+               font-family: $font_big;
+               font-weight: 800;
+             }
+             p {
+               font-size: 1.3rem;
+             }
+           }
+         }
   }  }
 }

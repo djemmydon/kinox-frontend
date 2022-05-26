@@ -32,8 +32,7 @@ export default function Home({ products, review }) {
           <h1>Category</h1>
           <p>
             Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Maxime mollitia, molestiae quas vel sint commodi repudiandae
-            consequuntur voluptatum laborum
+         
           </p>
         </div>
 
@@ -43,8 +42,7 @@ export default function Home({ products, review }) {
           <h1>New in Stored</h1>
           <p>
             Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Maxime mollitia, molestiae quas vel sint commodi repudiandae
-            consequuntur voluptatum laborum
+            
           </p>
         </div>
         <div className="product">
@@ -57,8 +55,7 @@ export default function Home({ products, review }) {
           <h1>Customers Reviews</h1>
           <p>
             Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Maxime mollitia, molestiae quas vel sint commodi repudiandae
-            consequuntur voluptatum laborum
+           
           </p>
         </div>
 
