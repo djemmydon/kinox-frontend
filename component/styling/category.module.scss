@@ -3,15 +3,17 @@
 
 .categories {
   .category {
-    display: flex;
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 300px));
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 1rem;
     margin: 0 auto;
-
+    padding: 0 4px;
     @media screen and (max-width: 988px) {
 
+    grid-template-columns:repeat(auto-fit, minmax(200px, 200px));
         
     }
 
@@ -36,7 +38,7 @@
 
 
         h2{
-            font-size: 3rem;
+            font-size: 2rem;
             font-family: $font_big;
         }
 

@@ -5,9 +5,8 @@ import styles from "./styling/cart.module.scss";
 import { BiUpArrow, BiDownArrow } from "react-icons/bi";
 import { urlFor } from "../lib/client";
 
-
 function Cart() {
-  const { cartItems, toggleCartItemQuanitity,totalPrice, setCartItems } =
+  const { cartItems, toggleCartItemQuanitity, totalPrice, setCartItems } =
     useStateContext();
 
   return (
@@ -29,7 +28,6 @@ function Cart() {
             </div>
 
             <div>
-          
               <h1> {item?.name}</h1>
               <h5>₦{item.price}.00</h5>
               <div className={styles.ProductDetailShowDecInc}>
@@ -48,12 +46,10 @@ function Cart() {
               </div>
             </div>
             <div>
-        <h2>{totalPrice}</h2>
-      </div>
+              <h2>{totalPrice}</h2>
+            </div>
           </div>
         ))}
-
-    
     </div>
   );
 }

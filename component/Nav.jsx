@@ -16,7 +16,6 @@ function Nav() {
   const [openNav, setOpenNav] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const { totalQuantity } = useStateContext();
-  console.log(totalQuantity);
 
   const handleNav = () => setOpenNav(!openNav);
   const handleClose = () => setCartOpen(!cartOpen);

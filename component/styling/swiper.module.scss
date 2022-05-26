@@ -1,125 +1,101 @@
 @import "./mixin.module";
 
 .home_slide {
-  .slideHead {
-    max-width: 100%;
+  height: 70vh;
+  background-color: $black;
+  overflow: hidden;
 
-    .home_slide_items {
-    
+  @media screen and (max-width: 968px) {
+    height: 60vh;
+  }
 
-      position: relative;
+  @media screen and (max-width: 700px) {
+    height:100vh;
+  }
+  .home_slide_items {
+    position: relative;
+    .home_slide_item {
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 40px;
 
       img {
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
+        margin-bottom: 3rem;
+
       }
+    
+    
+    
 
       .home_slide_text {
-        position: absolute;
-        top: 140px;
-        left: 50px;
-        padding: 20px 20px;
-        width: 600px;
-        display: inline;
-
+        margin-top: 10rem;
+        width: 500px;
+  
         h2 {
           font-size: 5rem;
           font-family: $font_big;
           font-weight: 800;
-          padding: 0;
         }
-        button{
-            @include button;
-            margin: 10px 0px;
+  
+        p {
+          font-size: 1.5rem;
+          font-family: $font_small;
+          color: $grey;
         }
-
-        p{
-        font-size: 1.7rem;
-        font-family: $font_small;
-        font-weight: 400;
+  
+        button {
+          @include button;
+          background-color: $dark_red;
         }
       }
-
-      @media screen and (max-width: 968px) {
-
+  
+      @media screen and (max-width: 958px) {
+        max-width: 100%;
         img {
-            width: 100%;
-            height: 70vh;
-            object-fit: cover;
+          height: 450px;
+        }
+  
+        .home_slide_text {
+          margin-top: 6rem;
+          width: 400px;
+  
+          h2 {
+            font-size: 3rem;
+            font-family: $font_big;
+            font-weight: 800;
           }
-
-          .home_slide_text {
-            position: absolute;
-            top: 140px;
-            left: 20px;
-            padding: 20px 20px;
-            width: 500px;
-            display: inline;
-    
-            h2 {
-              font-size: 3rem;
-            }
+          p {
+            font-size: 1rem;
           }
-    
-
+        }
       }
-      @media screen and (max-width: 568px) {
-
+  
+      @media screen and (max-width: 700px) {
+     flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+  
         img {
-            width: 100%;
-            height: 60vh;
-            object-fit: cover;
-          }
-
-          .home_slide_text {
-            position: absolute;
-            top: 70px;
-            left: 10px;
-            padding: 20px 20px;
-            width: 400px;
-            display: inline;
-    
-            h2 {
-              font-size: 3rem;
-            
-            }
-
-            
-          }
-    
-
-      }
-      @media screen and (max-width: 368px) {
-
-        img {
-            width: 100%;
-            height: 70vh;
-            object-fit: cover;
-          }
-
-          .home_slide_text {
-            position: absolute;
-            top: 90px;
-            left: 10px;
-            padding: 20px 20px;
-            width: 300px;
-            display: inline;
-    
-            h2 {
-              font-size: 2.5rem;
-              margin-bottom: 5px;
-            
-            }
-
+          margin: 5rem 0;
+        height: 400px;
           
+         
 
-            
+        }
+  
+        .home_slide_text {
+          margin-top: 6rem;
+          text-align: center;
+          h2 {
+            font-size: 4rem;
+            font-family: $font_big;
+            font-weight: 800;
           }
-    
-
+          p {
+            font-size: 2rem;
+          }
+        }
       }
-    }
-
-  }
+  }  }
 }
