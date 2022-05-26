@@ -24,7 +24,7 @@ function HomeSlide() {
       className={styles.slideHead}>
         <SwiperSlide className={styles.home_slide_items}>
           <div className={styles.home_slide_item}>
-            <img src="./imagecompressor/BG3.png" alt="" />
+            <img src="./img/1234.png" alt="" />
 
             <div className={styles.home_slide_text}>
               <h2>We make Your Design happen</h2>
@@ -36,7 +36,8 @@ function HomeSlide() {
 
         <SwiperSlide className={styles.home_slide_items}>
           <div className={styles.home_slide_item}>
-            <img src="./imagecompressor/BG2.png" alt="" />
+          <img src="./img/123.png" alt="" />
+
 
             <div className={styles.home_slide_text}>
               <h2>100% kinox apparel shirt</h2>
@@ -48,7 +49,8 @@ function HomeSlide() {
 
         <SwiperSlide className={styles.home_slide_items}>
           <div className={styles.home_slide_item}>
-            <img src="./imagecompressor/BG1.png" alt="" />
+          <img src="./img/123.png" alt="" />
+
 
             <div className={styles.home_slide_text}>
               <h2>we are full of fashion</h2>

@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Poppins:wght@200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Poppins:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,93 +12,85 @@
   font-family: sans-serif;
 }
 
-html{
-font-size: 62.5%;
-overflow-x: hidden;
-scroll-padding-top: 6.5rem;
-scroll-behavior: smooth;
-
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 6.5rem;
+  scroll-behavior: smooth;
 }
 
-
-.product{
-display: flex;
-gap: 30px;
-flex-wrap: wrap;
+.product {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding-top: 5rem;
-
-  
 }
 
-.headings{
- text-align: center;
- padding: 5rem 40px;
-font-family: 'Oxygen', sans-serif;
-
-
-
+.headings {
+  text-align: center;
+  padding: 5rem 40px;
+  font-family: "Oxygen", sans-serif;
+  display: block ;
+  margin: 0 auto;
+  width: 300px;
 }
 
-.headings h1{
-  font-family: 'Oxygen', sans-serif;
+.headings h1 {
+  font-family: "Oxygen", sans-serif;
   font-size: 3rem;
   position: relative;
   display: inline;
 
-  }
-  
 
-  .headings h1::after{
-   content: "";
-   position: absolute;
-    width: 100%;
-    height: 2px;
-     background-color:red;
-     bottom:0;
-     left: 0;
-     margin-top: 10px;
-     margin: 0;
-    }
-    
+}
 
-    
-.headings p{
-  font-family: 'Oxygen', sans-serif;
+.headings h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  bottom: 0;
+  left: 0;
+  margin-top: 10px;
+  margin: 0;
+ 
+}
+
+.headings p {
+  font-family: "Oxygen", sans-serif;
   font-size: 1.3rem;
   color: rgb(128, 124, 124);
 
-  padding: 2rem;
-  }
-  
-      
 
-  .testimonial_slide{
-    display: flex;
-    justify-content:center;
-    height: 300px;
-   
-  }
-  .testimonial_slide .testimonia_slide_home{
-    max-width: 300px;
-  }
 
-  .testimonia_slide_home h4{
-    font-size: 1.7rem;
-  font-family: 'Oxygen', sans-serif;
+}
+
+.testimonial_slide {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+}
+.testimonial_slide .testimonia_slide_home {
+  max-width: 300px;
+}
+
+.testimonia_slide_home h4 {
+  font-size: 1.3rem;
+  font-family: "Oxygen", sans-serif;
   font-weight: 100;
+}
 
-  }
-
-  .testimonia_slide_home p{
-    font-size: 1.6rem;
+.testimonia_slide_home p {
+  font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
   padding-top: 1rem;
-font-weight: 500;
-  }
+  font-weight: 500;
+}
 
-  .testimonia_slide_home p span{
-    color: 	#ff5252;
-    text-align-last: center;
-  }
+.testimonia_slide_home p span {
+  color: #ff5252;
+  text-align-last: center;
+}
