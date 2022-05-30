@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "./styling/product_details.module.scss";
 import { BiUpArrow, BiDownArrow } from "react-icons/bi";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { toast } from "react-hot-toast";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -13,11 +13,41 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
+import axios from "axios";
 
 function ProductDetailShow({ product }) {
-  const { InQty, DeQty, qty, onAdd } = useStateContext();
+  const {
+    state: { cart },
+    dispatch,
+  } = useStateContext();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [disable, setDisable] = useState(false);
+
+  const handleAddToCart = async () => {
+    const existItem = cart.cartItems.find((x) => x._id === product.Id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } =await axios.get(`/api/products/${product._id}`);
+
+  if(data.price > quantity) {
+  
+
+  }
+      dispatch({type: 'CART_ADD_ITEM', payload: { 
+        _key: product._id,
+        name: product.name,
+        price: product.price,
+        description: product.description,
+        image: urlFor(product.image),
+        quantity
+        
+      }})
+     toast.success(`${quantity} ${product.name} added to cart`);
+
+   
+  };
+
+ 
+
 
 
   return (
@@ -33,7 +63,7 @@ function ProductDetailShow({ product }) {
             spaceBetween={4}
             className={styles.ProductDetailShowImage}
           >
-            {product?.image.map((item, index)=> (
+            {product?.image.map((item, index) => (
               <SwiperSlide key={index}>
                 <img src={urlFor(item)} alt={urlFor(product?.image[0])} />
               </SwiperSlide>
@@ -62,22 +92,24 @@ function ProductDetailShow({ product }) {
 
           <div className={styles.ProductDetailShowDecInc}>
             <div>
-              <span>{qty}</span>
+              <span></span>
             </div>
             <div>
-              <BiUpArrow onClick={InQty} />
+              <BiUpArrow />
 
-              <BiDownArrow onClick={DeQty} />
+              <BiDownArrow  />
             </div>
           </div>
-              
-            
-          <button className=   {disable ?  styles.btn : ""} disabled={disable}   onClick={() => onAdd(product, qty) || setDisable(true) }>Add to Cart</button>
-          
+
+          <button
+            className={disable ? styles.btn : ""}
+            disabled={disable}
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
-
-      
     </div>
   );
 }
