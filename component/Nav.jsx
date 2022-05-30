@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Cart from "./Cart";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -7,15 +6,23 @@ import {
   AiOutlineSearch,
   AiOutlineAlignRight,
   AiOutlineClose,
+  AiOutlineUser,
+  AiOutlineUserAdd
 } from "react-icons/ai";
 import styles from "./styling/nav.module.scss";
 
 import { useStateContext } from "../context/StateContex";
 
+import dynamic from "next/dynamic";
+
+const Cart = dynamic(() => import("./Cart"), {ssr: false})
+
 function Nav() {
   const [openNav, setOpenNav] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const { totalQuantity } = useStateContext();
+  const { state, dispatch } = useStateContext();
+  const {cart, userInfo} = state
+
 
   const handleNav = () => setOpenNav(!openNav);
   const handleClose = () => setCartOpen(!cartOpen);
@@ -63,7 +70,22 @@ function Nav() {
             className={styles.nav_icon}
             size={25}
           />
-          <span>{totalQuantity}</span>
+          <span>{cart.cartItems.length}</span>
+
+
+    
+
+          {userInfo ? (<AiOutlineUser
+            onClick={handleClose}
+            className={styles.nav_icon}
+            size={25}
+          />) : (<AiOutlineUserAdd
+            onClick={handleClose}
+            className={styles.nav_icon}
+            size={25}
+          />
+)}
+          
 
           <AiOutlineAlignRight
             className={styles.nav_icon_menu}

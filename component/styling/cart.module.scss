@@ -1,54 +1,94 @@
 @import "./mixin.module";
 
-.ProductDetail{
-display:flex;
-gap: 20px;
-
-
-
-img{
-  height:70px;
+.carts {
+  overflow-y: scroll;
 }
+.ProductDetail {
+  display: flex;
+  gap: 20px;
+  padding: 0 10px;
 
-h5{
-  font-size: 2rem;
-  color: $light_red;
-  font-size: $font_small;
-}
+  img {
+    height: 70px;
+  }
 
-.ProductDetailShowDecInc {
+  h1 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+  }
+
+  h5 {
+    font-size: 1rem;
+    color: $light_red;
+    font-size: $font_small;
+  }
+
+  .ProductDetailShowDecInc {
     display: flex;
     padding: 5px 0;
     div {
-      height: 30px;
-      width: 30px;
+      height: 20px;
+      width: 20px;
       border: 1px solid $light_black;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 0.5rem;
-      font-size: 2rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+.empty_cart {
+  text-align: center;
+  padding-top: 20rem;
+
+  h1 {
+    font-size: 3rem;
+    color: $dark_red;
+    font-family: $font-big;
+  }
+
+  button {
+    @include button;
+    margin-top: 40px;
+  }
+}
+
+.bottom {
+  .quantity {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    margin-top: 15rem;
+  }
+
+  .button {
+    margin: 10rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    button {
+      background-color: $light_red;
+      height: 40px;
+      width: 20rem;
+      color: $white;
+      font-family: $font_small;
+      font-size: 1.5rem;
+      border-radius: 10px;
+      transition: all 0.3s;
+
+      &:hover{
+        color: $white;
+        background-color:$black;
+      }
     }
   }
 
-}
-
-
-.empty_cart{
-    text-align: center;
-    padding-top: 20rem;
-
-    h1{
-        font-size: 3rem;
-        color: $dark_red;
-        font-family:$font-big;
-    }
- 
-    button{
-        @include button;
-        margin-top:40px;
-    }
-    
- 
+  input{
+    border: 2px black solid;
+  }
 }

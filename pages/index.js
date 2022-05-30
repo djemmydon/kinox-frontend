@@ -14,6 +14,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import Category from "../component/Category";
 
+
 export default function Home({ products, review }) {
   return (
     <div>

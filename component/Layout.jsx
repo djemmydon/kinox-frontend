@@ -1,6 +1,13 @@
 import React from "react";
 import Head from 'next/head'
-import Nav from "./Nav";
+import dynamic from "next/dynamic";
+
+
+const Nav = dynamic(
+  () => import('../component/Nav'),
+  { ssr: false }
+)
+
 const Layout = ({ children }) => {
   return (
     <div>

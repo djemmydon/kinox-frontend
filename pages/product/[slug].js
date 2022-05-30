@@ -7,7 +7,10 @@ import { Trending } from "../../component/Trending";
 
 function ProductDetails({ product, trending }) {
   const { InQty, DeQty, qty, onAdd } = useStateContext();
-  const src = product?.image[0]?.url;
+
+  const handleAddToCart = async () => {
+    const existItem = cart.cartItems.find((x) => x._id === product.Id);
+  };
 
   return (
     <div>
@@ -15,18 +18,14 @@ function ProductDetails({ product, trending }) {
         <ProductDetailShow key={product._id} product={product} />
 
         <div className="headings">
-          <h1>People also like
-
-          </h1>
+          <h1>People also like</h1>
         </div>
 
-              <div className="product">
+        <div className="product">
           {trending?.map((product) => (
             <Trending simplified key={product._id} product={product} />
           ))}
         </div>
- 
-        
 
         {/*         
         <img src={urlFor(product?.image[0])} alt={urlFor(product?.image[0])}/>
@@ -70,7 +69,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == 'product' && slug.current == '${slug}'][0]`;
   const trendingQuery = `*[_type == 'product' &&  trending ==true]`;
   const product = await client.fetch(query);
-  const trending= await client.fetch(trendingQuery);
+  const trending = await client.fetch(trendingQuery);
   return {
     props: { product, trending },
   };
