@@ -8,7 +8,7 @@ import { useStateContext } from "../context/StateContex";
 import styles from '../component/styling/register.module.scss'
 import { getError } from "../lib/err";
 
-function register() {
+function Register() {
   const { state, dispatch } = useStateContext();
   const { userInfo } = state;
   const router = useRouter();
@@ -24,7 +24,7 @@ function register() {
     formState: { errors },
   } = useForm();
 
-  const handleSubmitForm = async ({firstName, lastName, email, password}) => {
+  const HandleSubmitForm = async ({firstName, lastName, email, password}) => {
     try {
       const { data } = await axios.post('/api/users/register', {
         firstName,
@@ -45,7 +45,7 @@ function register() {
   return (
     <div className={styles.container}>
       
-      <form onSubmit={handleSubmit(handleSubmitForm)}>
+      <form onSubmit={handleSubmit(HandleSubmitForm)}>
       <h2>Register</h2>
         <div className={styles.formInput}>
           <label>First Name</label>
@@ -78,4 +78,4 @@ function register() {
   );
 }
 
-export default register;
+export default Register;

@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
 import { getError } from "../lib/err";
 import axios from "axios";
-function login() {
+function Login() {
   const {
     register,
     handleSubmit,
@@ -24,7 +24,7 @@ function login() {
     }
   }, [router, userInfo]);
 
-  const handleSubmitForm = async ({ email, password }) => {
+  const HandleSubmitForm = async ({ email, password }) => {
     try {
       const { data } = await axios.post("/api/users/login", {
         email,
@@ -41,7 +41,7 @@ function login() {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit(handleSubmitForm)}>
+      <form onSubmit={handleSubmit(HandleSubmitForm)}>
         <div className={styles.formInput}>
           <label>Email</label>
           <input {...register("email", { required: true })} />
@@ -63,4 +63,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;
