@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useStateContext } from "../context/StateContex";
 import { PaystackButton } from "react-paystack";
 
 import styles from "../component/styling/chechout.module.scss";
