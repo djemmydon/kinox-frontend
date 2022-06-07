@@ -54,7 +54,7 @@ function OrderScreen({ params }) {
   const { router } = useRouter();
 
   const publicKey = "pk_test_9286738c5dddd1dd2a33753aaccc3383eb2ee96a";
-  const total = totalPrice;
+ 
 
   useEffect(() => {
     if (!userInfo) {
@@ -72,7 +72,7 @@ function OrderScreen({ params }) {
       }
     };
 
-    if (!order._id || successPay) {
+    if (!order._id) {
       fetchOrder();
     }
   }, [router, order, userInfo]);

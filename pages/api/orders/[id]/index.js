@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import nc from "next-connect";
 import { isAuth } from "../../../../lib/auth";
 import { client } from "../../../../lib/client";
