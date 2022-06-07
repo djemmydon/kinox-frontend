@@ -50,11 +50,20 @@ html {
 
   .headings {
     text-align: center;
-    padding: 5rem 40px;
+    padding: 1rem 40px;
     font-family: "Oxygen", sans-serif;
     display: block ;
     margin: 0 auto;
     width: 300px;
+  }
+
+  .headings h1 {
+    font-family: "Oxygen", sans-serif;
+    font-size: 2rem;
+    position: relative;
+    display: inline;
+  
+  
   }
 }
 
@@ -70,6 +79,7 @@ html {
   margin: 0;
  
 }
+
 
 .headings p {
   font-family: "Oxygen", sans-serif;
