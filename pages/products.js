@@ -1,6 +1,6 @@
-import Link from "next/link";
+
 import React from "react";
-import { urlFor, client } from "../lib/client";
+import {  client } from "../lib/client";
 
 import AllProduct from "../component/Product";
 

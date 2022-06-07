@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useStateContext } from "../context/StateContex";
 import { PaystackButton } from "react-paystack";
-import { toast } from "react-hot-toast";
-import styles from "../component/styling/chechout.module.scss"
-import { urlFor } from "../lib/client";
+
+import styles from "../component/styling/chechout.module.scss";
+
 function Checkout() {
-  const {
-  
-  } = useStateContext();
+ 
 
   const publicKey = "pk_test_9286738c5dddd1dd2a33753aaccc3383eb2ee96a";
   const [name, setName] = useState("");
@@ -30,12 +28,7 @@ function Checkout() {
     <div>
       <div className={styles.checkout_page}>
         <div className={styles.checkout_flex}>
-
-
-        <div className={styles.checkout_item}>
-    
-        </div>
-
+          <div className={styles.checkout_item}></div>
 
           <div className={styles.checkout_form}>
             <div className={styles.checkout_field}>
@@ -62,10 +55,9 @@ function Checkout() {
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>
-          
+
             <PaystackButton {...componentProps} />
           </div>
-       
         </div>
       </div>
     </div>

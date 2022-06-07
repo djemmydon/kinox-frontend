@@ -5,7 +5,6 @@ import React, { useReducer, useEffect } from "react";
 import { useStateContext } from "../../context/StateContex";
 import { getError } from "../../lib/err";
 import { PaystackButton } from "react-paystack";
-import jsCookie from "js-cookie";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -23,7 +22,11 @@ function reducer(state, action) {
 }
 
 function OrderScreen({ params }) {
-  const [{ loading, error, order, successPay }, dispatch] = useReducer(
+  const [{ 
+     
+     order,
+      
+     }, dispatch] = useReducer(
     reducer,
     {
       error: "",
@@ -35,15 +38,15 @@ function OrderScreen({ params }) {
   const {
     shippingAddress,
     totalPrice,
-    shippingFee,
+    // shippingFee,
     orderItems,
     overRawPrice,
     isPaid,
-    paidAt,
+    // paidAt,
     totalQuantity,
     isDelivered,
     deliveredAt,
-    createdAt,
+    // createdAt,
   } = order;
 
   const { state } = useStateContext();

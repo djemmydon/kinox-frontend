@@ -19,7 +19,7 @@ function Login() {
   const { userInfo } = state;
 
   const router = useRouter();
-  const {redirect} = router.query
+ 
   useEffect(() => {
     if (userInfo) {
       router.push("/");
