@@ -20,7 +20,7 @@ function Category() {
         <Image src="/img/kinox4-min.jpg"  width={500} height={500}   />
 
         <div className={styles.category_items_text}>
-          <h2>Branding Wears</h2>
+          <h2>Plain T-shirt</h2>
           <Link href="/">
             <a>Shop Now</a>
           </Link>

@@ -2,7 +2,6 @@ import nc from "next-connect";
 import { client } from "../../../lib/client";
 import bcrypt from "bcryptjs";
 import { signToken } from "../../../lib/auth";
-import axios from "axios";
 
 const handler = nc();
 

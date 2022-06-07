@@ -5,15 +5,17 @@
 }
 .ProductDetail {
   display: flex;
+  align-items: center;
   gap: 20px;
   padding: 0 10px;
+  
 
   img {
     height: 70px;
   }
 
   h1 {
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-transform: uppercase;
   }
 
@@ -21,6 +23,14 @@
     font-size: 1rem;
     color: $light_red;
     font-size: $font_small;
+  }
+
+  button{
+    font-family: $font_small;
+    padding: 5px ;
+    color: $white;
+    border-radius: 10px;
+    background-color:$dark_red;
   }
 
   .ProductDetailShowDecInc {
@@ -42,17 +52,21 @@
 
 .empty_cart {
   text-align: center;
-  padding-top: 20rem;
+  padding-top: 10rem;
+  
 
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     color: $dark_red;
     font-family: $font-big;
   }
-
+img{
+  height:10rem;
+ 
+}
   button {
     @include button;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 

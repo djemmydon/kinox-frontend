@@ -45,7 +45,9 @@
       a{
         font-family: $font_small;
         font-size: 1.3rem;
-        text-decoration: underline;
+        text-decoration: wavy;
+        font-weight: 700;
+        color: $dark_red;
       }
       }
     }

@@ -6,6 +6,7 @@ import { useStateContext } from "../context/StateContex";
 import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
 import { getError } from "../lib/err";
+
 import axios from "axios";
 function Login() {
   const {
@@ -18,6 +19,7 @@ function Login() {
   const { userInfo } = state;
 
   const router = useRouter();
+ 
   useEffect(() => {
     if (userInfo) {
       router.push("/");
@@ -32,7 +34,7 @@ function Login() {
       });
       dispatch({ type: "LOGIN_USER", payload: data });
       jsCookie.set("userInfo", JSON.stringify(data));
-      router.push("/");
+      router.push( "/");
       toast.success(`Login Successfully `);
     } catch (error) {
       toast.success(getError(error));

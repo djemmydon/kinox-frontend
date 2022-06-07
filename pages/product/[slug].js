@@ -1,16 +1,11 @@
 import React from "react";
-import { useStateContext } from "../../context/StateContex";
-import { urlFor, client } from "../../lib/client";
-import Image from "next/image";
+
+import {  client } from "../../lib/client";
+
 import ProductDetailShow from "../../component/ProductDetails";
 import { Trending } from "../../component/Trending";
 
 function ProductDetails({ product, trending }) {
-  const { InQty, DeQty, qty, onAdd } = useStateContext();
-
-  const handleAddToCart = async () => {
-    const existItem = cart.cartItems.find((x) => x._id === product.Id);
-  };
 
   return (
     <div>
@@ -27,18 +22,7 @@ function ProductDetails({ product, trending }) {
           ))}
         </div>
 
-        {/*         
-        <img src={urlFor(product?.image[0])} alt={urlFor(product?.image[0])}/>
-        <h4>{product?.name}</h4>
-        <p>₦{product?.price}</p>
-        <p>{product?.description}</p>
-
-        <div>
-          <span onClick={DeQty}>-</span>
-          <span>{qty}</span>
-          <span onClick={InQty}>+</span>
-          <button onClick={() => onAdd(product, qty)}>Add to Cart</button>
-        </div> */}
+  
       </div>
     </div>
   );
