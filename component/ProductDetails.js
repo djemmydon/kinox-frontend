@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStateContext } from "../context/StateContex";
-import { urlFor, client } from "../lib/client";
+import { urlFor, client , urlForThumbnail} from "../lib/client";
 import Image from "next/image";
 import styles from "./styling/product_details.module.scss";
 import { BiUpArrow, BiDownArrow } from "react-icons/bi";
@@ -37,7 +37,7 @@ function ProductDetailShow({ product }) {
         name: product.name,
         price: product.price,
         description: product.description,
-        image: urlFor(product.image),
+        image:  urlForThumbnail(product.image[0]),
         quantity
         
       }})

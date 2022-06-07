@@ -6,11 +6,7 @@ import styles from "../component/styling/chechout.module.scss"
 import { urlFor } from "../lib/client";
 function Checkout() {
   const {
-    cartItems,
-    totalQuantity,
-    toggleCartItemQuanitity,
-    totalPrice,
-    setCartItems,
+  
   } = useStateContext();
 
   const publicKey = "pk_test_9286738c5dddd1dd2a33753aaccc3383eb2ee96a";
@@ -20,10 +16,9 @@ function Checkout() {
 
   const componentProps = {
     email,
-    amount: totalPrice * 100,
+    amount: 100,
     name,
     phone,
-    product: cartItems,
     publicKey,
     text: "Pay Now",
     onSuccess: () =>
@@ -38,33 +33,7 @@ function Checkout() {
 
 
         <div className={styles.checkout_item}>
-        {cartItems?.length >= 1 &&
-        cartItems?.map((item, index) => (
-          <div key={index} className={styles.ProductDetail}>
-            <div>
-              {/* <img src={urlFor(item.image[0])} alt="" /> */}
-            </div>
-
-            <div>
-              <h1> {item?.name}</h1>
-              <h5>₦{item.price}.00</h5>
-              <div className={styles.ProductDetailShowDecInc}>
-                <div>
-                  <span>{item?.quantity}</span>
-                </div>
-                {/* <div>
-                  <BiUpArrow
-                    onClick={() => toggleCartItemQuanitity(item._id, "dec")}
-                  />
-
-                  <BiDownArrow
-                    onClick={() => toggleCartItemQuanitity(item._id, "inc")}
-                  />
-                </div> */}
-              </div>
-            </div>
-          </div>
-        ))}
+    
         </div>
 
 

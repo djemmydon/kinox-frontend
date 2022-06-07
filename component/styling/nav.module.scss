@@ -27,6 +27,9 @@
     @media screen and (max-width: 768px) {
     }
 
+    .nav_mobile_link {
+      display: none;
+    }
     .nav_items {
       display: flex;
       align-items: center;
@@ -63,15 +66,15 @@
       gap: 15px;
       color: white;
       position: relative;
-      
 
-      span{
+      span {
         color: rgb(255, 0, 0);
         position: absolute;
-        top: 0;right: 3rem;
-        width:17px;
+        top: 0;
+        right: 3rem;
+        width: 17px;
         height: 17px;
-        background-color:rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255);
         font-size: 1.2rem;
         font-weight: 700;
         text-align: center;
@@ -79,9 +82,8 @@
         font-family: $font_small;
 
         @media screen and (max-width: 768px) {
-          right: 3rem;
+          right: 7rem;
         }
-
       }
 
       .nav_icon {
@@ -104,6 +106,9 @@
 
     @media screen and (max-width: 768px) {
       .nav_link {
+        display: none;
+      }
+      .nav_mobile_link {
         transition: 0.3s;
         position: absolute;
         display: block;
@@ -180,47 +185,43 @@
   .carts {
     transition: 0.3s;
     position: absolute;
-    display: block;
     display: flex;
     align-items: center;
-   
     gap: 30px;
     background: $light_white;
-    width: 400px;
-    height: 100px;
-    opacity: 0;
+    width: 300px;
+    height: 100vh;
     flex-direction: column;
     top: 0;
-    right: 0;
+    left: -100%;
+    
     bottom: 0;
-    transform: translateY(-100%);
     z-index: -1;
- }
+  }
+
+  .cartBody {
+    display: relative;
+  }
 
   .carts_active {
     transition: 0.3s;
-    position: absolute;
+    position: fixed;
     display: block;
     display: flex;
-
     background: $white;
     box-shadow: $box_shadow;
     gap: 30px;
 
-    width: 400px;
-    height: 100vh;
+    width: 300px;
+    min-height: 100vh;
     flex-direction: column;
     top: 0;
-    right: 0;
-    
+    left: 0;
     bottom: 0;
 
-    @media screen and (max-width: 568px) {
-
-    width: 300px;
-      
+    &::backdrop{
+      background: rgba(255,0,0,.25);
     }
-
     .nav_cancel {
       display: flex;
       justify-content: flex-end;

@@ -24,8 +24,8 @@ function Nav() {
   const {cart, userInfo} = state
 
 
-  const handleNav = () => setOpenNav(!openNav);
-  const handleClose = () => setCartOpen(!cartOpen);
+   const handleNav = () => setOpenNav(!openNav);
+  function handleClose(){ setCartOpen(!cartOpen);}
 
   return (
     <nav className={styles.nav}>
@@ -39,7 +39,7 @@ function Nav() {
             </Link>
           </div>
         </div>
-        <div className={openNav ? styles.nav_active : styles.nav_link}>
+        <div className={styles.nav_link}>
           <AiOutlineClose
             className={styles.nav_cancel}
             color="white"
@@ -61,6 +61,30 @@ function Nav() {
             <a>Contact</a>
           </Link>
         </div>
+
+        <div className={openNav ? styles.nav_active : styles.nav_mobile_link}>
+          <AiOutlineClose
+            className={styles.nav_cancel}
+            color="white"
+            size={40}
+            onClick={handleNav}
+          />
+
+          <Link href="/"  >
+            <a onClick={handleNav}>Home</a>
+          </Link>
+
+          <Link href="/products"  >
+            <a onClick={handleNav}>Product</a>
+          </Link>
+          <Link href="/#"  >
+            <a onClick={handleNav}>About</a>
+          </Link>
+          <Link href="/#"  >
+            <a onClick={handleNav}>Contact</a>
+          </Link>
+        </div>
+
 
         <div className={styles.nav_icons}>
           <AiOutlineSearch className={styles.nav_icon} size={25} />
@@ -94,15 +118,18 @@ function Nav() {
           />
         </div>
       </div>
-      <div className={cartOpen ? styles.carts_active : styles.carts}>
+      <div className={styles.cartBody}>
+         <div className={cartOpen ? styles.carts_active : styles.carts}>
         <AiOutlineClose
           className={styles.nav_cancel}
           size={40}
           onClick={handleClose}
         />
 
-        <Cart />
+        <Cart data={handleClose} />
       </div>
+      </div>
+     
     </nav>
   );
 }

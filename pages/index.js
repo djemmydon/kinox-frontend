@@ -15,7 +15,7 @@ import { Pagination } from "swiper";
 import Category from "../component/Category";
 
 
-export default function Home({ products, review }) {
+export default function Home({ data, review }) {
   return (
     <div>
       <Head>
@@ -47,7 +47,7 @@ export default function Home({ products, review }) {
           </p>
         </div>
         <div className="product">
-          {products?.map((product) => (
+          {data?.map((product) => (
             <Product simplified key={product._id} product={product} />
           ))}
         </div>
@@ -89,13 +89,13 @@ export default function Home({ products, review }) {
 }
 
 export const getServerSideProps = async () => {
-  const query = `*[_type == 'product' && trending ==true]`;
+  const query = `*[_type == 'product' ]`;
   const reviewQuery = `*[_type == 'review']`;
   const products = await client.fetch(query);
   const review = await client.fetch(reviewQuery);
   return {
     props: {
-      products,
+      data: products.splice(0, 4),
       review,
     },
   };
