@@ -9,7 +9,10 @@ import styles from "../component/styling/register.module.scss";
 import { getError } from "../lib/err";
 
 function Register() {
-  const { state, dispatch } = useStateContext();
+  const { 
+    // state, 
+    dispatch
+   } = useStateContext();
   // const { userInfo } = state;
   const router = useRouter();
 
