@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -10,7 +10,7 @@ import { getError } from "../lib/err";
 
 function Register() {
   const { state, dispatch } = useStateContext();
-  const { userInfo } = state;
+  // const { userInfo } = state;
   const router = useRouter();
 
   const {

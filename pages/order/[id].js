@@ -67,7 +67,7 @@ function OrderScreen({ params }) {
     if (!order._id) {
       fetchOrder();
     }
-  }, [router, order, userInfo]);
+  }, [router, order, userInfo, orderId]);
 
   const componentProps = {
     email: userInfo.email,
