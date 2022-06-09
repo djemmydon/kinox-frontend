@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStateContext } from "../context/StateContex";
-import { urlFor, client , urlForThumbnail} from "../lib/client";
+import { urlFor, client, urlForThumbnail } from "../lib/client";
 import Image from "next/image";
 import styles from "./styling/product_details.module.scss";
 import { BiUpArrow, BiDownArrow } from "react-icons/bi";
@@ -20,36 +20,53 @@ function ProductDetailShow({ product }) {
     state: { cart },
     dispatch,
   } = useStateContext();
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   const [disable, setDisable] = useState(false);
+  const [sizes,setSizes] = useState("");
+
 
   const handleAddToCart = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product.Id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } =await axios.get(`/api/products/${product._id}`);
+    const size = existItem ? existItem.size == sizes : sizes;
+    const { data } = await axios.get(`/api/products/${product._id}`);
 
-  if(data.price > quantity) {
-  
-
-  }
-      dispatch({type: 'CART_ADD_ITEM', payload: { 
+    if (data.price > quantity) {
+    }
+    dispatch({
+      type: "CART_ADD_ITEM",
+      payload: {
         _key: product._id,
         name: product.name,
         price: product.price,
         description: product.description,
-        image:  urlForThumbnail(product.image[0]),
-        quantity
-        
-      }})
-     toast.success(`${quantity} ${product.name} added to cart`);
-
-   
+        inStock: product.inStock,
+        image: urlForThumbnail(product.image[0]),
+        quantity,
+        size
+      },
+    });
+    toast.success(`${quantity} ${product.name} added to cart`);
   };
 
- 
+  // const handleQuantity =async (product, quantity) => {
+  //   const { data } = await axios.get(`/api/products/${product._id}`);
 
-
-
+  //   if (data.price > quantity) {
+  //   }
+  //   dispatch({
+  //     type: "CART_ADD_ITEM",
+  //     payload: {
+  //       _key: product._id,
+  //       name: product.name,
+  //       price: product.price,
+  //       description: product.description,
+  //       image: urlForThumbnail(product.image[0]),
+  //       quantity,
+  //     },
+  //   });
+  //   toast.success(`${quantity} ${product.name} added to cart`);
+  // }
   return (
     <div className={styles.ProductDetailShow}>
       <div className={styles.ProductDetailShowFlex}>
@@ -90,15 +107,18 @@ function ProductDetailShow({ product }) {
           <h5>₦{product?.price}.00</h5>
           <p>{product?.description}</p>
 
-          <div className={styles.ProductDetailShowDecInc}>
-            <div>
-              <span></span>
-            </div>
-            <div>
-              <BiUpArrow />
-
-              <BiDownArrow  />
-            </div>
+          <div>
+            <select
+              
+            >
+             <option value=" ">Select your size</option>
+             <option value="S">S</option>
+             <option value="M">M</option>
+             <option value="XL">XL</option>
+             <option value="XXL">XXL</option>
+             <option value="XXXL">XXXL</option>
+             <option value="XXXXL">XXXXL</option>
+            </select>
           </div>
 
           <button
