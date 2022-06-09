@@ -43,7 +43,7 @@ function reducer(state, action) {
 
     case "REMOVE_FROM_CART": {
       const cartItems = state.cart.cartItems.filter(
-        (item) => item._id !== action.payload._id
+        (item) => item._id !== action.payload.key
       );
 
       Cookies.set("cartItems", JSON.stringify(cartItems));

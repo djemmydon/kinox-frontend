@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import {
   AiOutlineShoppingCart,
   AiOutlineSearch,
   AiOutlineAlignRight,
   AiOutlineClose,
   AiOutlineUser,
-  AiOutlineUserAdd
+  AiOutlineUserAdd,
 } from "react-icons/ai";
 import styles from "./styling/nav.module.scss";
 
@@ -15,17 +16,19 @@ import { useStateContext } from "../context/StateContex";
 
 import dynamic from "next/dynamic";
 
-const Cart = dynamic(() => import("./Cart"), {ssr: false})
+const Cart = dynamic(() => import("./Cart"), { ssr: false });
 
 function Nav() {
   const [openNav, setOpenNav] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const { state, dispatch } = useStateContext();
-  const {cart, userInfo} = state
+  const { cart, userInfo } = state;
+  const router = useRouter();
 
-
-   const handleNav = () => setOpenNav(!openNav);
-  function handleClose(){ setCartOpen(!cartOpen);}
+  const handleNav = () => setOpenNav(!openNav);
+  function handleClose() {
+    setCartOpen(!cartOpen);
+  }
 
   return (
     <nav className={styles.nav}>
@@ -70,21 +73,20 @@ function Nav() {
             onClick={handleNav}
           />
 
-          <Link href="/"  >
+          <Link href="/">
             <a onClick={handleNav}>Home</a>
           </Link>
 
-          <Link href="/products"  >
+          <Link href="/products">
             <a onClick={handleNav}>Product</a>
           </Link>
-          <Link href="/#"  >
+          <Link href="/#">
             <a onClick={handleNav}>About</a>
           </Link>
-          <Link href="/#"  >
+          <Link href="/#">
             <a onClick={handleNav}>Contact</a>
           </Link>
         </div>
-
 
         <div className={styles.nav_icons}>
           <AiOutlineSearch className={styles.nav_icon} size={25} />
@@ -96,20 +98,15 @@ function Nav() {
           />
           <span>{cart.cartItems.length}</span>
 
-
-    
-
-          {userInfo ? (<AiOutlineUser
-            onClick={handleClose}
-            className={styles.nav_icon}
-            size={25}
-          />) : (<AiOutlineUserAdd
-            onClick={handleClose}
-            className={styles.nav_icon}
-            size={25}
-          />
-)}
-          
+          {userInfo ? (
+            <AiOutlineUser className={styles.nav_icon} size={25} />
+          ) : (
+            <AiOutlineUserAdd
+              onClick={() => router.push("/register")}
+              className={styles.nav_icon}
+              size={25}
+            />
+          )}
 
           <AiOutlineAlignRight
             className={styles.nav_icon_menu}
@@ -119,17 +116,16 @@ function Nav() {
         </div>
       </div>
       <div className={styles.cartBody}>
-         <div className={cartOpen ? styles.carts_active : styles.carts}>
-        <AiOutlineClose
-          className={styles.nav_cancel}
-          size={40}
-          onClick={handleClose}
-        />
+        <div className={cartOpen ? styles.carts_active : styles.carts}>
+          <AiOutlineClose
+            className={styles.nav_cancel}
+            size={40}
+            onClick={handleClose}
+          />
 
-        <Cart data={handleClose} />
+          <Cart data={handleClose} />
+        </div>
       </div>
-      </div>
-     
     </nav>
   );
 }

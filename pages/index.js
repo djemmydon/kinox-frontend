@@ -30,14 +30,12 @@ export default function Home({ data, review }) {
 
         <div className="headings">
           <h1>Category</h1>
-          <p>Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
 
         <Category />
 
         <div className="headings">
           <h1>New in Stored</h1>
-          <p>Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
         <div className="product">
           {data?.map((product) => (
@@ -47,7 +45,6 @@ export default function Home({ data, review }) {
 
         <div className="headings">
           <h1>Customers Reviews</h1>
-          <p>Kinox Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
 
         <Swiper

@@ -6,7 +6,6 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  text-transform: capitalize;
   outline: none;
   border: none;
   font-family: sans-serif;
@@ -44,6 +43,7 @@ html {
   display: inline;
 
 
+
 }
 
 @media screen and (max-width: 508px) {
@@ -62,7 +62,7 @@ html {
     font-size: 2rem;
     position: relative;
     display: inline;
-  
+  padding: 6px;
   
   }
 }
@@ -76,7 +76,7 @@ html {
   bottom: 0;
   left: 0;
   margin-top: 10px;
-  margin: 0;
+
  
 }
 
@@ -93,7 +93,8 @@ html {
 .testimonial_slide {
   display: flex;
   justify-content: center;
-  height: 300px;
+  height: 100%;
+  margin: 5rem 0;
 }
 .testimonial_slide .testimonia_slide_home {
   max-width: 300px;

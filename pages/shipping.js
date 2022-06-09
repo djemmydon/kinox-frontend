@@ -21,7 +21,7 @@ function Shipping() {
 
   useEffect(() => {
     if (!userInfo) {
-      router.push("./login?redirect=/shipping");
+      router.push("./register?redirect=/shipping");
 
       setValue("fullName", shippingAddress.fullName);
       setValue("address1", shippingAddress.address1);

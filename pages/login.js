@@ -20,13 +20,13 @@ function Login() {
 
   const router = useRouter();
  
-  useEffect(() => {
-    if (userInfo) {
-      router.push("/");
-    }
-  }, [router, userInfo]);
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     router.push("/");
+  //   }
+  // }, [router, userInfo]);
 
-  const HandleSubmitForm = async ({ email, password }) => {
+  const HandleSubmitLoginForm = async ({ email, password }) => {
     try {
       const { data } = await axios.post("/api/users/login", {
         email,

@@ -22,18 +22,11 @@ function reducer(state, action) {
 }
 
 function OrderScreen({ params }) {
-  const [{ 
-     
-     order,
-      
-     }, dispatch] = useReducer(
-    reducer,
-    {
-      error: "",
-      loading: true,
-      order: {},
-    }
-  );
+  const [{ order }, dispatch] = useReducer(reducer, {
+    error: "",
+    loading: true,
+    order: {},
+  });
 
   const {
     shippingAddress,
@@ -54,11 +47,10 @@ function OrderScreen({ params }) {
   const { router } = useRouter();
 
   const publicKey = "pk_test_9286738c5dddd1dd2a33753aaccc3383eb2ee96a";
- 
 
   useEffect(() => {
     if (!userInfo) {
-      router.push("/login");
+      router.push("/register");
     }
     const fetchOrder = async () => {
       try {
@@ -89,15 +81,7 @@ function OrderScreen({ params }) {
     onSuccess: async () => {
       try {
         dispatch({ type: "PAY_REQUEST" });
-        const { data } = await axios.put(
-          `/api/orders/${order._id}/pay`,
-        
-          {
-            headers: {
-              authorization: `Bearer ${userInfo.token}`,
-            },
-          }
-        );
+        const { data } = await axios.put(`/api/orders/${order._id}/pay`);
         dispatch({ type: "PAY SUCESS", payload: data });
         alert("Thanks for doing business with us! Come back soon!!");
       } catch (error) {
@@ -111,7 +95,7 @@ function OrderScreen({ params }) {
     <div>
       Order {orderId}
       <div>
-        <div>
+        <div >
           <h1>Name {shippingAddress?.fullName}</h1>
           <h1>Phone Number {shippingAddress?.phone}</h1>
           <h1>Address 1 {shippingAddress?.address1}</h1>
