@@ -27,11 +27,11 @@ function Footer() {
             <h4>Contact Us</h4>
             <p>
               <AiOutlinePhone color="red" />
-              +2347025235337
+              <a href="tel:+2347025235337">+2347025235337</a>
             </p>
             <p>
               <AiOutlineMail color="red" />
-              kinoxapparel@gmail.com
+              <a href="mailto:kinoxapparel@gmail.com"> kinoxapparel@gmail.com</a>
             </p>
           </div>
         </div>
@@ -66,30 +66,29 @@ function Footer() {
         </div>
       </div>
 
-<div className={styles.iconsDeveloper}>
-    
-      <div className={styles.developer}>
-        <span>
-          Developed by <Link href="https://wa.me/+2348182377321">Peculiar</Link>
-        </span>
-      </div>
+      <div className={styles.iconsDeveloper}>
+        <div className={styles.developer}>
+          <span>
+            Developed by{" "}
+            <Link href="https://wa.me/+2348182377321">Peculiar</Link>
+          </span>
+        </div>
 
-      <div className={styles.icons}>
-        <Link href="/">
-          <AiOutlineFacebook />
-        </Link>
-        <Link href="/">
-          <AiOutlineTwitter />
-        </Link>
-        <Link href="/">
-          <AiOutlineLinkedin />
-        </Link>
-        <Link href="/">
-          <AiOutlineInstagram />
-        </Link>
+        <div className={styles.icons}>
+          <Link href="/">
+            <AiOutlineFacebook />
+          </Link>
+          <Link href="/">
+            <AiOutlineTwitter />
+          </Link>
+          <Link href="/">
+            <AiOutlineLinkedin />
+          </Link>
+          <Link href="/">
+            <AiOutlineInstagram />
+          </Link>
+        </div>
       </div>
-      
-</div>
     </div>
   );
 }

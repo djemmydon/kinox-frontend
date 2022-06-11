@@ -8,6 +8,11 @@ import toast from "react-hot-toast";
 
 function Cart(props) {
   const router = useRouter();
+  const [totalQuantity, setTotalQuantity] = useState(0);
+
+  const totalQuan = () => {
+    setTotalQuantity();
+  };
 
   //CALLING THE CART //
   const {
@@ -21,11 +26,12 @@ function Cart(props) {
     dispatch({ type: "REMOVE_FROM_CART", payload: item });
   };
 
-  const handleQuantity = async (item, quantity) => {
+  const handleQuantity = async (item, qty) => {
     const { data } = await axios.get(`/api/products/${item._id}`);
 
     if (data.price > quantity) {
     }
+    const quantity = Number(qty);
     dispatch({
       type: "CART_ADD_ITEM",
       payload: {
@@ -37,6 +43,7 @@ function Cart(props) {
         description: item.description,
         image: item.image,
         quantity,
+        size,
       },
     });
     toast.success(`Cart updated`);
@@ -86,7 +93,7 @@ function Cart(props) {
             </div>
 
             <div>
-              <button onClick={() => handleRemover(item._key)}>Remove</button>
+              <button onClick={() => handleRemover(item)}>Remove</button>
             </div>
           </div>
         ))}

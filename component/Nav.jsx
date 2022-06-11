@@ -15,17 +15,22 @@ import styles from "./styling/nav.module.scss";
 import { useStateContext } from "../context/StateContex";
 
 import dynamic from "next/dynamic";
+import Search from "./Search";
 
 const Cart = dynamic(() => import("./Cart"), { ssr: false });
 
 function Nav() {
   const [openNav, setOpenNav] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const { state, dispatch } = useStateContext();
-  const { cart, userInfo } = state;
+  const { cart, userInfo, products } = state;
   const router = useRouter();
 
+  console.log(products);
+
   const handleNav = () => setOpenNav(!openNav);
+  const handleSearch = ()=> setSearchOpen(!searchOpen);
   function handleClose() {
     setCartOpen(!cartOpen);
   }
@@ -57,13 +62,14 @@ function Nav() {
           <Link href="/products">
             <a>Product</a>
           </Link>
-          <Link href="/#">
+          <Link href="/about-us">
             <a>About</a>
           </Link>
           <Link href="/#">
             <a>Contact</a>
           </Link>
         </div>
+        <Search/>
 
         <div className={openNav ? styles.nav_active : styles.nav_mobile_link}>
           <AiOutlineClose
@@ -80,7 +86,7 @@ function Nav() {
           <Link href="/products">
             <a onClick={handleNav}>Product</a>
           </Link>
-          <Link href="/#">
+          <Link href="/about-us">
             <a onClick={handleNav}>About</a>
           </Link>
           <Link href="/#">
@@ -89,7 +95,7 @@ function Nav() {
         </div>
 
         <div className={styles.nav_icons}>
-          <AiOutlineSearch className={styles.nav_icon} size={25} />
+          <AiOutlineSearch className={styles.nav_icon} size={25} onClick={handleSearch} />
 
           <AiOutlineShoppingCart
             onClick={handleClose}
@@ -124,6 +130,13 @@ function Nav() {
           />
 
           <Cart data={handleClose} />
+        </div>
+      </div>
+
+      <div   className={searchOpen ? styles.search_active : styles.search}>
+        <div>
+          <input type="text" placeholder="Search for products" />
+          <button onClick={handleSearch}>Search</button>
         </div>
       </div>
     </nav>

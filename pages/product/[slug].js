@@ -5,12 +5,21 @@ import {  client } from "../../lib/client";
 import ProductDetailShow from "../../component/ProductDetails";
 import { Trending } from "../../component/Trending";
 
+
+const styling = {
+  select: {
+    maxWidth:200,
+    color: "black",
+    fontSize:12,
+    marginBottom:10,
+  },
+};
 function ProductDetails({ product, trending }) {
 
   return (
     <div>
       <div>
-        <ProductDetailShow key={product._id} product={product} />
+        <ProductDetailShow style={styling.select} key={product._id} product={product} />
 
         <div className="headings">
           <h1>People also like</h1>
@@ -58,3 +67,4 @@ export const getStaticProps = async ({ params: { slug } }) => {
     props: { product, trending },
   };
 };
+

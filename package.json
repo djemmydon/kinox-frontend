@@ -27,6 +27,7 @@
     "react-icons": "^4.3.1",
     "react-loading-skeleton": "^3.1.0",
     "react-paystack": "^3.0.5",
+    "react-select": "^5.3.2",
     "sass": "^1.51.0",
     "swiper": "^8.1.5"
   },

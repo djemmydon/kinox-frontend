@@ -5,12 +5,14 @@
 }
 .ProductDetail {
   display: flex;
+  justify-content:space-evenly;
   align-items: center;
   gap: 20px;
   padding: 0 10px;
   
 
   img {
+    width: 50px;
     height: 70px;
   }
 
