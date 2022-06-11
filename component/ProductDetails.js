@@ -6,6 +6,7 @@ import styles from "./styling/product_details.module.scss";
 import { BiUpArrow, BiDownArrow } from "react-icons/bi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { toast } from "react-hot-toast";
+import Select from "react-select";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -15,18 +16,30 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
 import axios from "axios";
 
-function ProductDetailShow({ product }) {
+function ProductDetailShow({ product, style }) {
   const {
     state: { cart },
     dispatch,
   } = useStateContext();
 
-  const [disable, setDisable] = useState(false);
-  const [sizes,setSizes] = useState("");
+  const size = [
+    { value: "S", label: "S" },
+    { value: "M", label: "M" },
+    { value: "XL", label: "XL" },
+    { value: "XXL", label: "XXL" },
+  ];
 
+  const [sizes, setSizes] = useState(size.label);
+
+  const sizeHandler = (e) => {
+    setSizes(e.label);
+  };
+
+  console.log(sizes);
+  const [disable, setDisable] = useState(false);
 
   const handleAddToCart = async () => {
-    const existItem = cart.cartItems.find((x) => x._id === product.Id);
+    const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const size = existItem ? existItem.size == sizes : sizes;
     const { data } = await axios.get(`/api/products/${product._id}`);
@@ -43,30 +56,30 @@ function ProductDetailShow({ product }) {
         inStock: product.inStock,
         image: urlForThumbnail(product.image[0]),
         quantity,
-        size
+        size,
       },
     });
     toast.success(`${quantity} ${product.name} added to cart`);
   };
 
-  // const handleQuantity =async (product, quantity) => {
-  //   const { data } = await axios.get(`/api/products/${product._id}`);
+  const handleQuantity = async (product, quantity) => {
+    const { data } = await axios.get(`/api/products/${product._id}`);
 
-  //   if (data.price > quantity) {
-  //   }
-  //   dispatch({
-  //     type: "CART_ADD_ITEM",
-  //     payload: {
-  //       _key: product._id,
-  //       name: product.name,
-  //       price: product.price,
-  //       description: product.description,
-  //       image: urlForThumbnail(product.image[0]),
-  //       quantity,
-  //     },
-  //   });
-  //   toast.success(`${quantity} ${product.name} added to cart`);
-  // }
+    if (data.price > quantity) {
+    }
+    dispatch({
+      type: "CART_ADD_ITEM",
+      payload: {
+        _key: product._id,
+        name: product.name,
+        price: product.price,
+        description: product.description,
+        image: urlForThumbnail(product.image[0]),
+        quantity,
+      },
+    });
+    toast.success(`${quantity} ${product.name} added to cart`);
+  };
   return (
     <div className={styles.ProductDetailShow}>
       <div className={styles.ProductDetailShowFlex}>
@@ -106,21 +119,28 @@ function ProductDetailShow({ product }) {
           <h4>{product?.name}</h4>
           <h5>₦{product?.price}.00</h5>
           <p>{product?.description}</p>
+          <h4>In Stock:{product?.inStock}</h4>
 
-          <div>
-            <select
-              
-            >
-             <option value=" ">Select your size</option>
-             <option value="S">S</option>
-             <option value="M">M</option>
-             <option value="XL">XL</option>
-             <option value="XXL">XXL</option>
-             <option value="XXXL">XXXL</option>
-             <option value="XXXXL">XXXXL</option>
-            </select>
+
+          <div  style={style}>
+            <Select
+              placeholder={"Select Your Size"}
+              options={size}
+              onChange={sizeHandler}
+             
+            />
           </div>
-
+{/* 
+          <select
+            value={product.quantity}
+            onChange={(e) => handleQuantity(product, e.target.value)}
+          >
+            {[...Array(product.inStock).keys()].map((x) => (
+              <option key={x + 1} value={x + 1}>
+                {x + 1}
+              </option>
+            ))}
+          </select> */}
           <button
             className={disable ? styles.btn : ""}
             disabled={disable}
@@ -135,3 +155,5 @@ function ProductDetailShow({ product }) {
 }
 
 export default ProductDetailShow;
+
+

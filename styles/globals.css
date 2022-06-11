@@ -16,6 +16,11 @@ html {
   overflow-x: hidden;
   scroll-padding-top: 6.5rem;
   scroll-behavior: smooth;
+  
+}
+
+body{
+  height: 100vh;
 }
 
 .product {
@@ -118,3 +123,22 @@ html {
   text-align-last: center;
 }
 
+
+.category {
+  display: grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 300px));
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 0 4px;
+
+}
+  @media screen and (max-width: 988px) {
+.category{
+    grid-template-columns:repeat(auto-fit, minmax(200px, 200px));
+      
+}
+
+  }

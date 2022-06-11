@@ -8,6 +8,7 @@ import axios from "axios";
 import jsCookie from "js-cookie";
 import toast from "react-hot-toast";
 import { getError } from "../lib/err";
+import Link from "next/link";
 
 function OrderReview() {
   const { state, dispatch } = useStateContext();
@@ -61,18 +62,19 @@ function OrderReview() {
       dispatch("REMOVE_CART_ITEM");
       jsCookie.remove("cartItems");
       router.push(`/order/${data}`);
-     
     } catch (error) {
       toast.error(getError(error));
     }
   };
 
   console.log(process.env.TOKEN_JSON);
-  
+
   return (
     <main className={styles.placeorder}>
       <div className={styles.placeorderFlex}>
         <div className={styles.shippingaddress}>
+          <h2>Billing Address</h2>
+
           <h5>
             Full Name: <span>{shippingAddress.fullName}</span>{" "}
           </h5>
@@ -94,22 +96,31 @@ function OrderReview() {
           <h5>
             Zip Code: <span>{shippingAddress.zipCode}</span>{" "}
           </h5>
-        </div>
-        <div className={styles.productPreview}>
-          {cartItems?.map((item, idx) => (
-            <div className={styles.product} key={idx}>
-              <img src={item.image} />
-              <h1>{item.name}</h1>
-              <p>₦{item.price}</p>
-              <p>Quantity: {item.quantity}</p>
-            </div>
-          ))}
+
+          <Link href="/shipping">Edit</Link>
+
+          <div className={styles.productPreview}>
+            <h2>Products</h2>
+
+            {cartItems?.map((item, idx) => (
+              <div className={styles.product} key={idx}>
+                <img src={item.image} />
+                <h1>{item.name}</h1>
+                <p>Price: ₦{item.price}</p>
+                <p>Quantity: {item.quantity}</p>
+                <p>Size: {item.size}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className={styles.checkout}>
-          <h1>Total Price : ₦ {totalPrice}</h1>
-          <h1>Shipping Fee : ₦{shippingFee}</h1>
-          <h1>total Price : ₦{overRawPrice}</h1>
+          <h1>Total Quantity : {totalQuantity}</h1>
+          <h1>Shipping Fee: ₦{shippingFee}</h1>
+
+          <h1>Products Price : ₦{totalPrice}</h1>
+          <h1>Total Price : ₦{overRawPrice}</h1>
+          <img src="/img/payment.png" alt="" />
 
           <button onClick={handlePayment}>Checkout</button>
         </div>

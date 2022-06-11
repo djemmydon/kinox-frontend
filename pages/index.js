@@ -14,7 +14,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import Category from "../component/Category";
 
-export default function Home({ data, review }) {
+export default function Home({ data, review, categories }) {
   return (
     <div>
       <Head>
@@ -32,14 +32,21 @@ export default function Home({ data, review }) {
           <h1>Category</h1>
         </div>
 
-        <Category />
+      <div className="category">
+           {categories.map((category,idx) => (
+        <Category  key={idx} category={category} />
+       
+        ) )}
+      </div>
+     
+       
 
         <div className="headings">
           <h1>New in Stored</h1>
         </div>
         <div className="product">
           {data?.map((product) => (
-            <Product simplified key={product._id} product={product} />
+            <Product  key={product._id} product={product} />
           ))}
         </div>
 
@@ -78,12 +85,16 @@ export default function Home({ data, review }) {
 export const getServerSideProps = async () => {
   const query = `*[_type == 'product' ]`;
   const reviewQuery = `*[_type == 'review']`;
+  const queryCategoty = `*[_type == 'category']`;
+
+  const categories = await client.fetch(queryCategoty);
   const products = await client.fetch(query);
   const review = await client.fetch(reviewQuery);
   return {
     props: {
       data: products.splice(0, 4),
       review,
+      categories,
     },
   };
 };

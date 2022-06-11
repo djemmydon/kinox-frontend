@@ -1,0 +1,52 @@
+@import "./mixin.module";
+
+.container {
+  height: 100%;
+
+  .header {
+    background-image: url("/img/about_banner.jpg");
+    height: 400px;
+    position: relative;
+    .header_text {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        font-family: $font_big;
+        font-size: 5.5rem;
+        color: $white;
+      }
+    }
+  }
+
+  .vision {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    padding: 0px 20px;
+    margin:5rem 0;
+
+
+    .vision_image {
+      img {
+        height: 500px;
+      }
+    }
+
+    .vision_text{
+        padding: 5rem 0;
+        h2{
+            font-size: 4rem;
+        }
+
+        p{
+            font-size: 2rem;
+            padding-top: 15px;
+            font-family: $font_small;
+        }
+    }
+  }
+}
