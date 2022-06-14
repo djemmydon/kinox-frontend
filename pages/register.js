@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { useStateContext } from "../context/StateContex";
 import styles from "../component/styling/register.module.scss";
 import { getError } from "../lib/err";
+import Link from "next/link"
 
 function Register() {
   const {
@@ -44,7 +45,7 @@ function Register() {
       <div className={styles.flex_form}>
         <div className={styles.register}>
           <div className="headings">
-            <h1>Register</h1>
+            <h1>Sign Up</h1>
           </div>
           <form onSubmit={handleSubmit(HandleSubmitForm)}>
             <div className={styles.formInput}>
@@ -86,6 +87,9 @@ function Register() {
 
             <button type="submit">Submit</button>
           </form>
+          <h4>Already has an account  
+            <Link href="/login">Login here</Link>
+          </h4>
         </div>
       </div>
     </div>
