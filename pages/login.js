@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { useStateContext } from "../context/StateContex";
 import styles from "../component/styling/register.module.scss";
 import { getError } from "../lib/err";
+import Link from "next/link"
 
 function Login() {
   const {
@@ -68,6 +69,10 @@ function Login() {
             <button type="submit">Submit</button>
           </form>
         </div>
+        <h4>
+            Not have an account
+            <Link  href="/register">Sign up here</Link>
+          </h4>
       </div>
     </div>
   );
