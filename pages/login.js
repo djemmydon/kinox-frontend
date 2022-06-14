@@ -33,7 +33,7 @@ function Login() {
       router.push("/");
       toast.success(`Login Successfully `);
     } catch (error) {
-      toast.success(getError(error));
+      toast.error(getError(error));
     }
   };
 
