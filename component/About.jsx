@@ -13,7 +13,7 @@ function About() {
 
       <div className={styles.vision}>
         <div className={styles.vision_image}>
-          <Image src="/img/kinox RED.png" alt="" width="220" height="300" />
+          <img src="/img/vision/kinox_visions.jpg" alt="" />
         </div>
 
         <div className={styles.vision_text}>
@@ -31,11 +31,6 @@ function About() {
             guiding the company.
           </p>
         </div>
-      </div>
-      <div className={styles.vision}>
-        <div className={styles.vision_image}>
-          <Image src="/img/kinox4-min.jpg" alt="" width="300" height="400" />
-        </div>
 
         <div className={styles.vision_text}>
           <h2>Vision</h2>
@@ -52,8 +47,18 @@ function About() {
             guiding the company.
           </p>
         </div>
-      </div>
-      <div className={styles.vision}>
+
+        <div className={styles.vision_image}>
+          <img src="/img/vision/kinox_vison 1.jpg" alt="" />
+        </div>
+
+        <div className={styles.vision_image}>
+          <img
+            src="/img/vision/kinox_vison.jpg"
+            alt=""
+            className={styles.img}
+          />
+        </div>
         <div className={styles.vision_text}>
           <h2>Missions</h2>
 
@@ -61,9 +66,6 @@ function About() {
             To be the first and the best plug everybody would think of, and
             patronise when it comes to anything fashion.{" "}
           </p>
-        </div>
-        <div className={styles.vision_image}>
-          <Image src="/img/kinox RED.png" alt="" width="220" height="300" />
         </div>
       </div>
     </div>

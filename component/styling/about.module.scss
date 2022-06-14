@@ -22,28 +22,41 @@
   }
 
   .vision {
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-items: center;
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    align-items:center;
+    gap: 20px;
     padding: 0px 20px;
+    flex-wrap: wrap;
     margin:5rem 0;
 
 
     .vision_image {
-      img {
-        height: 500px;
+      display: block;
+     width: 500px;
+     overflow: hidden;
+
+      img{
+        width: 100%;
+        transition: all 0.3s;
+
+        &:hover{
+          transform: scale(1.2)
+        }
       }
     }
 
     .vision_text{
-        padding: 5rem 0;
+      
+      display: block;
+     width: 500px;
         h2{
             font-size: 4rem;
         }
 
         p{
-            font-size: 2rem;
+            font-size: 1.5rem;
             padding-top: 15px;
             font-family: $font_small;
         }

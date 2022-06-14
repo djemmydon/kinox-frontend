@@ -5,6 +5,7 @@ import React, { useReducer, useEffect } from "react";
 import { useStateContext } from "../../context/StateContex";
 import { getError } from "../../lib/err";
 import { PaystackButton } from "react-paystack";
+import styles from "../../component/styling/placeorder.module.scss";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -31,14 +32,14 @@ function OrderScreen({ params }) {
   const {
     shippingAddress,
     totalPrice,
-    // shippingFee,
+    shippingFee,
     orderItems,
     overRawPrice,
-    isPaid,
+    // isPaid,
     // paidAt,
     totalQuantity,
-    isDelivered,
-    deliveredAt,
+    // isDelivered,
+    // deliveredAt,
     // createdAt,
   } = order;
 
@@ -81,7 +82,15 @@ function OrderScreen({ params }) {
     onSuccess: async () => {
       try {
         dispatch({ type: "PAY_REQUEST" });
-        const { data } = await axios.put(`/api/orders/${order._id}/pay`);
+        const { data } = await axios.put(
+          `/api/orders/pay`,
+
+          {
+            headers: {
+              authorization: `Bearer ${userInfo.token}`,
+            },
+          }
+        );
         dispatch({ type: "PAY SUCESS", payload: data });
         alert("Thanks for doing business with us! Come back soon!!");
       } catch (error) {
@@ -91,44 +100,67 @@ function OrderScreen({ params }) {
     onClose: () => alert("Wait! Don't leave :("),
   };
   const { id: orderId } = params;
+
+  console.log(userInfo.token);
   return (
     <div>
-      Order {orderId}
-      <div>
-        <div >
-          <h1>Name {shippingAddress?.fullName}</h1>
-          <h1>Phone Number {shippingAddress?.phone}</h1>
-          <h1>Address 1 {shippingAddress?.address1}</h1>
-          <h1>Address 2 {shippingAddress?.address2}</h1>
-          <h1>City{shippingAddress?.city}</h1>
-          <h1>Country{shippingAddress?.country}</h1>
-          <h1>Zip Code{shippingAddress?.zipCode}</h1>
-        </div>
-      </div>
-      <div>
-        <h5>
-          {isDelivered
-            ? `Order has been Delivered  ${deliveredAt}`
-            : "Not Delivered"}
-        </h5>
-        <h5>{isPaid ? `Paid` : "Not Paid"}</h5>
-      </div>
-      <div>
-        {orderItems?.map((item, idx) => (
-          <div key={idx}>
-            <img src={item.image[0]} alt="" />
-            <div>
-              <h1>{item.name}</h1>
+      <h1>Order {orderId}</h1>
+
+      <main className={styles.placeorder}>
+        <div className={styles.placeorderFlex}>
+          <div className={styles.shippingaddress}>
+            <h2>Billing Address</h2>
+
+            <h5>
+              Full Name: <span>{shippingAddress?.fullName}</span>{" "}
+            </h5>
+            <h5>
+              Phone: <span>{shippingAddress?.phone}</span>{" "}
+            </h5>
+            <h5>
+              Address1: <span> {shippingAddress?.address1}</span>
+            </h5>
+            <h5>
+              Address2: <span> {shippingAddress?.address2}</span>
+            </h5>
+            <h5>
+              City: <span>{shippingAddress?.city}</span>
+            </h5>
+            <h5>
+              Country: <span> {shippingAddress?.country}</span>
+            </h5>
+            <h5>
+              Zip Code: <span>{shippingAddress?.zipCode}</span>{" "}
+            </h5>
+
+            <div className={styles.productPreview}>
+              <h2>Products</h2>
+
+              {orderItems?.map((item, idx) => (
+                <div className={styles.product} key={idx}>
+                  <img src={item.image} />
+                  <h1>{item.name}</h1>
+                  <p>Price: ₦{item.price}</p>
+                  <p>Quantity: {item.quantity}</p>
+                  <p>Size: {item.size}</p>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-      <div>
-        <h2>{totalQuantity}</h2>
-        <h2>{totalPrice}</h2>
-        <h2>{overRawPrice}</h2>
-      </div>
-      <PaystackButton {...componentProps} />
+
+          <div className={styles.checkout}>
+            <h1>Total Quantity : {totalQuantity}</h1>
+            <h1>Shipping Fee: ₦{shippingFee}</h1>
+
+            <h1>Products Price : ₦{totalPrice}</h1>
+            <h1>Total Price : ₦{overRawPrice}</h1>
+            <img src="/img/payment.png" alt="" />
+            <PaystackButton {...componentProps} />
+
+            {/* <button onClick={handlePayment}>Checkout</button> */}
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

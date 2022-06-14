@@ -16,7 +16,7 @@
     gap: 2rem;
 
     .shippingaddress {
-      width: 300px;
+      width: 500px;
       max-height: 100%;
       padding: 10px 5px;
       margin: 15px 0;
@@ -24,6 +24,11 @@
       border-bottom: 3px red solid;
       background-color:$white;
       border-radius:10px;
+
+      @media screen and (max-width: 568px){
+      width: 400px;
+        
+      }
 
       a{
         background-color:black;
@@ -95,6 +100,7 @@
 
   .checkout {
     width: 300px;
+    height: 300px;
     padding: 10px 5px;
     margin: 15px 0;
     border-radius: 10px;
