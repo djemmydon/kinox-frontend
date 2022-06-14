@@ -38,6 +38,7 @@ body{
   font-family: "Oxygen", sans-serif;
   display: block ;
   margin: 0 auto;
+  text-align: center;
   width: 500px;
 }
 
@@ -58,7 +59,7 @@ body{
     padding: 1rem 40px;
     font-family: "Oxygen", sans-serif;
     display: block ;
-    margin: 10px 0px;
+    padding: 4rem 0;
     width: 300px;
   }
 
