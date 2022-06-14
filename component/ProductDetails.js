@@ -119,7 +119,6 @@ function ProductDetailShow({ product, style }) {
           <h4>{product?.name}</h4>
           <h5>₦{product?.price}.00</h5>
           <p>{product?.description}</p>
-          <h4>In Stock:{product?.inStock}</h4>
 
 
           <div  style={style}>

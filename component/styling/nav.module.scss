@@ -238,8 +238,9 @@
     position: absolute;
     bottom: -100%;
     opacity: 0;
+    
 
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     gap: 20px;
