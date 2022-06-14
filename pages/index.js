@@ -15,6 +15,7 @@ import { Pagination } from "swiper";
 import Category from "../component/Category";
 
 export default function Home({ data, review, categories }) {
+  console.log(data)
   return (
     <div>
       <Head>
@@ -32,11 +33,27 @@ export default function Home({ data, review, categories }) {
           <h1>Category</h1>
         </div>
 
-      <div className="category">
+      <div>
+      <Swiper
+          slidesPerView="auto"
+          loop={true}
+          spaceBetween={10}
+          autoplay={{
+            delay: 4000,
+
+            disableOnInteraction: false,
+            
+          }}
+          modules={[Pagination]}
+          className="category"
+        >
            {categories.map((category,idx) => (
+               <SwiperSlide key={idx} className="testimonia_slide_home">
         <Category  key={idx} category={category} />
-       
+        </SwiperSlide>
         ) )}
+
+        </Swiper>
       </div>
      
        
