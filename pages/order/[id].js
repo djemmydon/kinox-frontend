@@ -51,7 +51,7 @@ function OrderScreen({ params }) {
 
   useEffect(() => {
     if (!userInfo) {
-      router.push("/register");
+      router.push("/login");
     }
     const fetchOrder = async () => {
       try {
