@@ -120,9 +120,8 @@ function OrderReview() {
 
           <h1>Products Price : ₦{totalPrice}</h1>
           <h1>Total Price : ₦{overRawPrice}</h1>
-          <img src="/img/payment.png" alt="" />
 
-          <button onClick={handlePayment}>Checkout</button>
+          <button onClick={handlePayment}>Order Now</button>
         </div>
       </div>
     </main>
