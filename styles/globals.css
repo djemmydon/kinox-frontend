@@ -145,7 +145,7 @@ body{
 
   @media screen and (max-width: 508px) {
     .category{
-       grid-template-columns:repeat(auto-fit, minmax(100px, 100px));
+       grid-template-columns:repeat(auto-fit, minmax(200px, 200px));
         
     }
        
