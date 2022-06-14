@@ -43,7 +43,6 @@ function Cart(props) {
         description: item.description,
         image: item.image,
         quantity,
-        size,
       },
     });
     toast.success(`Cart updated`);
