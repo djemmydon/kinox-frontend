@@ -5,14 +5,13 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 3rem 0 ;
+  padding: 3rem 0;
 
-  .flex_form{
+  .flex_form {
     display: flex;
-    flex-wrap:wrap;
-    justify-content:center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 50px;
-
   }
   form {
     width: 500px;
@@ -27,11 +26,11 @@
 
     @media screen and (max-width: 768px) {
       max-width: 350px;
-      
+
       height: 100%;
     }
 
-    span{
+    span {
       color: $dark_red;
       font-size: 1.2rem;
       font-weight: 600;
@@ -51,13 +50,14 @@
       input {
         width: 400px;
         height: 30px;
-        border-bottom: 2px solid $light_red;
+        border-bottom: 2px solid rgb(218, 218, 218);
 
         transition: 0.2s all ease-in-out;
 
         &:focus {
           outline: none;
           background: none;
+          border-bottom: 2px solid $light_red;
         }
         &:active {
           outline: none;
@@ -72,13 +72,15 @@
       textarea {
         width: 400px;
         height: 100px;
-        border-bottom: 2px solid $light_red;
+        border-bottom: 2px solid blue;
 
         transition: 0.2s all ease-in-out;
 
         &:focus {
           outline: none;
           background: none;
+        border-bottom: 2px solid rgb(218, 218, 218);
+
         }
         &:active {
           outline: none;
