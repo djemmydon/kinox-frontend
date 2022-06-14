@@ -5,14 +5,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 3rem 0;
+  padding: 0rem 0;
+  margin: 0rem 0;
+  margin-bottom: 6rem;
 
-  .flex_form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 50px;
-  }
+
   form {
     width: 500px;
     max-height: 100%;
@@ -25,16 +22,21 @@
     gap: 30px;
 
     @media screen and (max-width: 768px) {
-      max-width: 350px;
-
-      height: 100%;
-    }
+      width: 350px;
+  
+        height: 100%;
+      }
+      @media screen and (max-width: 468px) {
+      width: 300px;
+  
+        height: 100%;
+      }
 
     span {
       color: $dark_red;
       font-size: 1.2rem;
       font-weight: 600;
-      font-size: $font_small;
+      font-family: $font_small;
     }
     .formInput {
       display: flex;
@@ -65,7 +67,7 @@
         }
 
         @media screen and (max-width: 668px) {
-          max-width: 300px;
+          max-width: 250px;
           max-height: 100%;
         }
       }

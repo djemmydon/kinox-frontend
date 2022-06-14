@@ -8,7 +8,7 @@ import { useStateContext } from "../context/StateContex";
 import styles from "../component/styling/register.module.scss";
 import { getError } from "../lib/err";
 
-function Register() {
+function Login() {
   const {
     // state,
     dispatch,
@@ -22,51 +22,32 @@ function Register() {
     formState: { errors },
   } = useForm();
 
-  const HandleSubmitForm = async ({ firstName, lastName, email, password }) => {
+  const HandleSubmitLoginForm = async ({ email, password }) => {
     try {
-      const { data } = await axios.post("/api/users/register", {
-        firstName,
-        lastName,
+      const { data } = await axios.post("/api/users/login", {
         email,
         password,
       });
-      dispatch({ type: "REGISTER_USER", payload: data });
+      dispatch({ type: "LOGIN_USER", payload: data });
       jsCookie.set("userInfo", JSON.stringify(data));
       router.push("/");
-      toast.success(`Register Successfully `);
-    } catch (err) {
-      toast.error(getError(err));
+      toast.success(`Login Successfully `);
+    } catch (error) {
+      toast.success(getError(error));
     }
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.flex_form}>
-        <div className={styles.register}>
+        <div className={styles.login}>
           <div className="headings">
-            <h1>Register</h1>
+            <h1>Login</h1>
           </div>
-          <form onSubmit={handleSubmit(HandleSubmitForm)}>
-            <div className={styles.formInput}>
-              <label>First Name</label>
-              <input {...register("firstName", { required: true })} />
-              <span>
-                {errors.firstName?.type === "required" &&
-                  "First name is required"}
-              </span>
-            </div>
-            <div className={styles.formInput}>
-              <label>Last Name</label>
-              <input {...register("lastName", { required: true })} />
-              <span>
-                {errors.lastName?.type === "required" &&
-                  "Last name is required"}
-              </span>
-            </div>
-
+          <form onSubmit={handleSubmit(HandleSubmitLoginForm)}>
             <div className={styles.formInput}>
               <label>Email</label>
-              <input type="email" {...register("email", { required: true })} />
+              <input {...register("email", { required: true })} />
               <span>
                 {errors.email?.type === "required" && "email is required"}
               </span>
@@ -92,4 +73,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
