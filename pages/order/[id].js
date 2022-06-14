@@ -37,7 +37,7 @@ function OrderScreen({ params }) {
     overRawPrice,
     // isPaid,
     // paidAt,
-    // totalQuantity,
+    totalQuantity,
     // isDelivered,
     // deliveredAt,
     // createdAt,
