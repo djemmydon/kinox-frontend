@@ -8,10 +8,12 @@ import { Trending } from "../../component/Trending";
 
 const styling = {
   select: {
-    maxWidth:200,
+    maxWidth:150,
     color: "black",
     fontSize:12,
     marginBottom:10,
+fontFamily: "Helvetica",
+
   },
 };
 function ProductDetails({ product, trending }) {

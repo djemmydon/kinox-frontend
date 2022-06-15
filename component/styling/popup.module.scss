@@ -1,0 +1,90 @@
+@import "./mixin.module.scss";
+
+.popupContainer {
+  position: fixed;
+  color: white;
+  z-index: 1000;
+  text-align: center;
+  display: flex;
+  justify-items: center;
+  display: inline;
+  inset: 0 0 0 0;
+  background-color: rgba(0, 0, 0, 0.459);
+  height: 100%;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+  }
+
+  .popupContent {
+    background-image: url(/img/gray.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: 15rem;
+    width: 500px;
+    height: 220px;
+    display: inline-block;
+    padding: 30px 0px;
+    font-size: $font_small;
+    color: black !important;
+    animation: popOut 0.3s;
+    transition: all 0.4s;
+    position: relative;
+    border-radius: 10px;
+    @media screen and (max-width: 500px) {
+      width: 300px;
+      height: 350px;
+      padding: 60px 20px;
+
+      h2 {
+        font-size: 1.7rem;
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-family: $font_big;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    span {
+      font-family: $font_small;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-family: $font_small;
+      color: $dark_red;
+      padding: 10px 10px 10px 10px;
+      font-weight: 600;
+    }
+  }
+
+  button {
+    @include button;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+
+  .popupClose {
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: black;
+  }
+}
+
+@keyframes popOut {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

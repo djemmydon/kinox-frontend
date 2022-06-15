@@ -10,7 +10,13 @@
   }
 
   @media screen and (max-width: 700px) {
-    height:70vh;
+    height:90vh;
+  }
+  @media screen and (max-width: 500px) {
+    height:80vh;
+  }
+  @media screen and (max-width: 400px) {
+    height:90vh;
   }
   .home_slide_items {
     position: relative;
