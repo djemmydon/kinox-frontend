@@ -7,7 +7,6 @@ import { urlFor, urlForThumbnail } from "../lib/client";
 function Category({ category: { title, image, slug } }) {
   return (
     <div className={styles.category_items}>
-      <img src={urlForThumbnail(image)} alt="" />
 
       <div className={styles.category_items_text}>
         <h2>{title}</h2>

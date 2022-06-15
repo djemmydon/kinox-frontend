@@ -100,7 +100,7 @@ function ProductDetailShow({ product, style }) {
             ))}
           </Swiper>
 
-          <Swiper
+          {/* <Swiper
             spaceBetween={10}
             slidesPerView={4}
             // thumbs={{ swiper: thumbsSwiper }}
@@ -112,7 +112,7 @@ function ProductDetailShow({ product, style }) {
                 <img src={urlFor(item)} alt={urlFor(product?.image[0])} />
               </SwiperSlide>
             ))}
-          </Swiper>
+          </Swiper> */}
         </div>
 
         <div className={styles.ProductDetailShowText}>

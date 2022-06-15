@@ -3,7 +3,7 @@ import Head from "next/head";
 import { client } from "../lib/client";
 import Product from "../component/Product";
 import HomeSlide from "../component/HomeSlide";
-
+import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -13,9 +13,23 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 import Category from "../component/Category";
+import HomePopPup from "../component/HomePopPup";
+import React, { useState, useEffect } from "react";
 
 export default function Home({ data, review, categories }) {
-  console.log(data)
+  const [popUp, setPopUp] = useState(false);
+  const router = useRouter();
+
+  const popUpHandler = () => {
+    setPopUp(false);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPopUp(true);
+    }, 4000);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -27,44 +41,45 @@ export default function Home({ data, review, categories }) {
       </Head>
 
       <main>
+        <HomePopPup
+          popUp={popUpHandler}
+          trigger={popUp}
+          title="Are you are brand owner ?"
+          title2=" You want to buy in bulk ?"
+          header="Click on the button below to talk with the customer care representative"
+        />
         <HomeSlide />
 
         <div className="headings">
           <h1>Category</h1>
         </div>
 
-      <div>
-      <Swiper
-          slidesPerView="auto"
-          loop={true}
-          spaceBetween={10}
-          autoplay={{
-            delay: 4000,
-
-            disableOnInteraction: false,
-            
-          }}
-          modules={[Pagination]}
-          className="category"
-        >
-           {categories.map((category,idx) => (
-               <SwiperSlide key={idx} className="testimonia_slide_home">
-        <Category  key={idx} category={category} />
-        </SwiperSlide>
-        ) )}
-
-        </Swiper>
-      </div>
-     
+        <div     className="category">
+        
+            {categories.map((category, idx) => (
+              <div key={idx} className="testimonia_slide_home">
+                <Category key={idx} category={category} />
+              </div>
+            ))}
        
+        </div>
 
         <div className="headings">
           <h1>New in Stored</h1>
         </div>
         <div className="product">
           {data?.map((product) => (
-            <Product  key={product._id} product={product} />
+            <Product key={product._id} product={product} />
           ))}
+        </div>
+
+        <div 
+            className="button-push">
+          <button
+            onClick={() => router.push("/products")}
+          >
+            See All Products
+          </button>
         </div>
 
         <div className="headings">

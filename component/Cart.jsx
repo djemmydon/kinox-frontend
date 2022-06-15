@@ -92,7 +92,7 @@ function Cart(props) {
             </div>
 
             <div>
-              <button onClick={() => handleRemover(item)}>Remove</button>
+              <button onClick={() => handleRemover(item)}>X</button>
             </div>
           </div>
         ))}

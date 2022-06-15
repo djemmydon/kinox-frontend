@@ -5,13 +5,12 @@ import Image from "next/image";
 import {
   AiOutlineMail,
   AiOutlinePhone,
-  AiFillTwitterCircle,
+  // AiFillTwitterCircle,
   AiOutlineInstagram,
   AiOutlineLinkedin,
   AiOutlineFacebook,
   AiOutlineTwitter,
 } from "react-icons/ai";
-import { RiFacebookCircleFill } from "react-icons/ri";
 
 function Footer() {
   return (
@@ -70,7 +69,7 @@ function Footer() {
         <div className={styles.developer}>
           <span>
             Developed by{" "}
-            <Link href="https://wa.me/+2348182377321">Peculiar</Link>
+            <a href="https://wa.me/+2348182377321">Peculiar</a>
           </span>
         </div>
 
