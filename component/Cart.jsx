@@ -5,7 +5,7 @@ import styles from "./styling/cart.module.scss";
 import { useRouter } from "next/router";
 import axios from "axios";
 import toast from "react-hot-toast";
-
+import {AiOutlineClose} from "react-icons/ai"
 function Cart(props) {
   const router = useRouter();
   const [totalQuantity, setTotalQuantity] = useState(0);
@@ -75,8 +75,7 @@ function Cart(props) {
               <h1> {item?.name}</h1>
               <h5>₦{item.price}.00</h5>
               <span>
-                prod quantity:{" "}
-                <div>
+                <div className={styles.selectOption}>
                   <select
                     value={item.quantity}
                     onChange={(e) => handleQuantity(item, e.target.value)}
@@ -92,7 +91,11 @@ function Cart(props) {
             </div>
 
             <div>
-              <button onClick={() => handleRemover(item)}>X</button>
+              <button onClick={() => handleRemover(item)}>   <AiOutlineClose
+            className={styles.nav_cancel}
+            color="white"
+            size={15}
+          /></button>
             </div>
           </div>
         ))}

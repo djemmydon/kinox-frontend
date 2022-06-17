@@ -16,8 +16,8 @@
     border-bottom: 2px solid red;
     padding-bottom: 10px;
 
-   @media screen and (max-width: 500px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
      
    }

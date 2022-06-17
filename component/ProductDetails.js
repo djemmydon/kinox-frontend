@@ -90,7 +90,7 @@ function ProductDetailShow({ product, style }) {
               delay: 3000,
               disableOnInteraction: false,
             }}
-            spaceBetween={4}
+            spaceBetween={1}
             className={styles.ProductDetailShowImage}
           >
             {product?.image.map((item, index) => (
@@ -100,7 +100,7 @@ function ProductDetailShow({ product, style }) {
             ))}
           </Swiper>
 
-          {/* <Swiper
+          <Swiper
             spaceBetween={10}
             slidesPerView={4}
             // thumbs={{ swiper: thumbsSwiper }}
@@ -112,7 +112,7 @@ function ProductDetailShow({ product, style }) {
                 <img src={urlFor(item)} alt={urlFor(product?.image[0])} />
               </SwiperSlide>
             ))}
-          </Swiper> */}
+          </Swiper>
         </div>
 
         <div className={styles.ProductDetailShowText}>

@@ -5,49 +5,62 @@
 }
 .ProductDetail {
   display: flex;
-  justify-content:space-evenly;
+  justify-content:space-between;
   align-items: center;
   gap: 20px;
-  padding: 0 10px;
+  padding: 10px 10px;
+  
   
 
   img {
     width: 50px;
     height: 70px;
+    background-color:$light_black;
   }
 
   h1 {
-    font-size: 1rem;
-    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    width: 130px;
   }
 
   h5 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: $light_red;
     font-size: $font_small;
   }
 
   button{
     font-family: $font_small;
-    padding: 5px ;
     color: $white;
-    border-radius: 10px;
-    background-color:$dark_red;
+    background-color:$light_black;
+    border-radius: 20px;
+    padding: 2px 2px;
+
+    .nav_cancel{
+      display: flex;
+
+    }
   }
 
-  .ProductDetailShowDecInc {
-    display: flex;
-    padding: 5px 0;
-    div {
-      height: 20px;
-      width: 20px;
-      border: 1px solid $light_black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1rem;
+
+
+  .selectOption{
+
+    select{
+      border: 1.5px solid black;
+      width: 100%;
+      border-radius: 5px;
+      font-family: $font_small;
+    }
+    option{
+      font-family: $font_small;
+      font-size: 1.4rem;
+
+      &:hover{
+        background-color: #000;
+      }
+
     }
   }
 }

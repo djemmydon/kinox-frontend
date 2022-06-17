@@ -13,16 +13,15 @@
     align-content: center;
 
     .ProductDetailShowImageFlex {
-      max-width: 100%;
       .ProductDetailShowImage {
+        height: 500px;
+        width: 300px;
         img {
-          max-width: 370px;
-
-          height: 460px;
+        width: 100%;
           object-fit: cover;
-          @media screen and (max-width: 868px) {
-            max-width: 300px;
 
+          @media screen and (max-width: 868px) {
+            max-width: 100%;
             height: 460px;
             margin: 0;
             display: inline;
@@ -31,9 +30,9 @@
       }
 
       .ProductDetailShowImageThumb {
+        max-width: 100%;
         img {
-          max-width: 100%;
-          height: 150px;
+          width: 100%;
           object-fit: cover;
 
           @media screen and (max-width: 968px) {
@@ -67,10 +66,10 @@
 
       .prodQuantity {
         padding: 2rem 0;
-        select{
-            display: flex;
-      
-            -webkit-appearance: none;
+        select {
+          display: flex;
+
+          -webkit-appearance: none;
           width: 70px;
           border: 4px solid $light_black;
           display: flex;
@@ -79,10 +78,8 @@
           align-items: center;
           gap: 0.5rem;
           font-size: 2rem;
-          padding: 3px
+          padding: 3px;
         }
-      
-   
       }
 
       button {

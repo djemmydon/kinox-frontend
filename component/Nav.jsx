@@ -30,7 +30,7 @@ function Nav() {
   console.log(products);
 
   const handleNav = () => setOpenNav(!openNav);
-  const handleSearch = ()=> setSearchOpen(!searchOpen);
+  const handleSearch = () => setSearchOpen(!searchOpen);
   function handleClose() {
     setCartOpen(!cartOpen);
   }
@@ -69,7 +69,11 @@ function Nav() {
             <a>Contact</a>
           </Link>
         </div>
-        <Search/>
+        <Search />
+        <div
+          className={openNav ? styles.backdrop : " "}
+          onClick={handleNav}
+        ></div>
 
         <div className={openNav ? styles.nav_active : styles.nav_mobile_link}>
           <AiOutlineClose
@@ -95,7 +99,11 @@ function Nav() {
         </div>
 
         <div className={styles.nav_icons}>
-          <AiOutlineSearch className={styles.nav_icon} size={25} onClick={handleSearch} />
+          <AiOutlineSearch
+            className={styles.nav_icon}
+            size={25}
+            onClick={handleSearch}
+          />
 
           <AiOutlineShoppingCart
             onClick={handleClose}
@@ -130,10 +138,15 @@ function Nav() {
           />
 
           <Cart data={handleClose} />
+         
         </div>
+        <div
+            className={cartOpen ? styles.backdrop : " "}
+            onClick={handleClose}
+          ></div>
       </div>
 
-      <div   className={searchOpen ? styles.search_active : styles.search}>
+      <div className={searchOpen ? styles.search_active : styles.search}>
         <div>
           <input type="text" placeholder="Search for products" />
           <button onClick={handleSearch}>Search</button>
