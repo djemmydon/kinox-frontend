@@ -69,7 +69,6 @@ function Nav() {
             <a>Contact</a>
           </Link>
         </div>
-        <Search />
         <div
           className={openNav ? styles.backdrop : " "}
           onClick={handleNav}

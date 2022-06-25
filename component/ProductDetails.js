@@ -37,6 +37,7 @@ function ProductDetailShow({ product, style }) {
 
   console.log(sizes);
   const [disable, setDisable] = useState(false);
+  const [index, setIndex] = useState(0)
 
   const handleAddToCart = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
@@ -93,11 +94,11 @@ function ProductDetailShow({ product, style }) {
             spaceBetween={1}
             className={styles.ProductDetailShowImage}
           >
-            {product?.image.map((item, index) => (
-              <SwiperSlide key={index}>
-                <img src={urlFor(item)} alt={urlFor(product?.image[0])} />
+          
+              <SwiperSlide>
+                <img src={urlFor(product?.image && product?.image[index])} />
               </SwiperSlide>
-            ))}
+        
           </Swiper>
 
           <Swiper
@@ -109,7 +110,7 @@ function ProductDetailShow({ product, style }) {
           >
             {product?.image.map((item, index) => (
               <SwiperSlide key={index}>
-                <img src={urlFor(item)} alt={urlFor(product?.image[0])} />
+                <img src={urlFor(item)} alt={urlFor(product?.image[0])}  onClick={() => setIndex(index)}/>
               </SwiperSlide>
             ))}
           </Swiper>

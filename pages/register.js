@@ -8,6 +8,7 @@ import { useStateContext } from "../context/StateContex";
 import styles from "../component/styling/register.module.scss";
 import { getError } from "../lib/err";
 import Link from "next/link"
+import Head from "next/head";
 
 function Register() {
   const {
@@ -42,6 +43,14 @@ function Register() {
 
   return (
     <div className={styles.container}>
+           <Head>
+        <title>Kinox | Sign Up</title>
+        <meta
+          name="Kinox Apparel"
+          content="Kinox Apparel | Sign Up"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className={styles.flex_form}>
         <div className={styles.register}>
           <div className="headings">
@@ -61,7 +70,7 @@ function Register() {
               <input {...register("lastName", { required: true })} />
               <span>
                 {errors.lastName?.type === "required" &&
-                  "Last name is required"}
+                  "Last name is required" }
               </span>
             </div>
 

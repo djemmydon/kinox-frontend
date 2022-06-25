@@ -80,24 +80,10 @@ function OrderScreen({ params }) {
     publicKey,
     text: "Pay Now",
     onSuccess: async () => {
-      try {
-        dispatch({ type: "PAY_REQUEST" });
-        const { data } = await axios.put(
-          `/api/orders/pay`,
 
-          {
-            headers: {
-              authorization: `Bearer ${userInfo.token}`,
-            },
-          }
-        );
-        dispatch({ type: "PAY SUCESS", payload: data });
-        alert("Thanks for doing business with us! Come back soon!!");
-      } catch (error) {
-        alert(getError(error));
-      }
     },
-    onClose: () => alert("Wait! Don't leave :("),
+    onClose: () => alert("Wait! Don't leave :("
+    ),
   };
   const { id: orderId } = params;
 

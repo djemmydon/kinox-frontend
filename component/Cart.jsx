@@ -119,6 +119,15 @@ function Cart(props) {
                 router.push("/shipping");
               }}
               onMouseUp={props.data}
+              className={styles.button_cart}
+            >
+            Show Cart
+            </button>
+            <button
+              onClick={() => {
+                router.push("/shipping");
+              }}
+              onMouseUp={props.data}
             >
               Checkout
             </button>
