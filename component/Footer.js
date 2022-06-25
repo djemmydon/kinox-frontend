@@ -25,11 +25,12 @@ function Footer() {
           <div className={styles.about}>
             <h4>Contact Us</h4>
             <p>
-              <AiOutlinePhone color="red" />
+              <img src="/icons/phone.png" alt="" />
               <a href="tel:+2347025235337">+2347025235337</a>
             </p>
             <p>
-              <AiOutlineMail color="red" />
+            <img src="/icons/mail.png" alt="" />
+
               <a href="mailto:kinoxapparel@gmail.com"> kinoxapparel@gmail.com</a>
             </p>
           </div>
@@ -41,7 +42,7 @@ function Footer() {
               <a>Home</a>
             </Link>
             <Link href="/products">
-              <a>Product</a>
+              <a>Products</a>
             </Link>
             <Link href="/about">
               <a>About</a>
@@ -52,13 +53,13 @@ function Footer() {
           <h4>Helpful Link</h4>
 
           <div className={styles.grid_items}>
-            <Link href="/">
+            <Link href="/#">
               <a>Contact</a>
             </Link>
-            <Link href="/">
+            <Link href="/#">
               <a>FAQ</a>
             </Link>
-            <Link href="/">
+            <Link href="/register">
               <a>Rigister</a>
             </Link>
           </div>
@@ -74,18 +75,18 @@ function Footer() {
         </div>
 
         <div className={styles.icons}>
-          <Link href="/">
-            <AiOutlineFacebook />
-          </Link>
-          <Link href="/">
-            <AiOutlineTwitter />
-          </Link>
-          <Link href="/">
-            <AiOutlineLinkedin />
-          </Link>
-          <Link href="/">
-            <AiOutlineInstagram />
-          </Link>
+        <a href="">
+          <img  src="/icons/instagram.png" className={styles.iconImage} alt="Kinox apparel Social Media handle" />
+         </a>
+          <a href="">
+          <img  src="/icons/twitter.png" className={styles.iconImage} alt="Kinox apparel Social Media handle" />
+         </a>
+          <a href="">
+          <img  src="/icons/facebook.png" className={styles.iconImage} alt="Kinox apparel Social Media handle" />
+         </a>
+          <a href="">
+          <img  src="/icons/linkedin (2).png" className={styles.iconImage} alt="Kinox apparel Social Media handle" />
+         </a>
         </div>
       </div>
     </div>

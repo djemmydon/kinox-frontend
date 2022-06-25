@@ -143,3 +143,14 @@ display:flex;
 }
 
 
+.loading{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  background-color:rgb(228, 228, 228);
+  transition: all 0.3s ease-in-out; 
+}
+

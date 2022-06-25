@@ -14,13 +14,12 @@ function HomePopPup(props) {
             size={25}
           />
         </div>
-        <h2>{props.title}</h2>
-        <span>Or</span>
         <h2>{props.title2}</h2>
         <p>{props.header}</p>
-        <button onClick={props.popUp}>
+        <div><button onClick={props.popUp}>
           <Link href="https://wa.me/+2347025235337">Contact Us Here</Link>
-        </button>
+        </button></div>
+        
       </div>
     </main>
   ) : (

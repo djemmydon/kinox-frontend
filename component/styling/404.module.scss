@@ -1,0 +1,31 @@
+@import "./mixin.module";
+
+.custom{
+    height:70vh;
+    width: 100%;
+    display: inline-flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+
+    h1{
+        font-size: 20em;
+        font-family: $font_big;
+        padding: 0px 0px;
+    }
+
+    p{
+        font-size: 2rem;
+        font-family: $font_small;
+        color: $dark_red;
+
+    }
+    a{
+        font-size: 1.4rem;
+        font-family: $font_small;
+        color: $crimson;
+        font-weight: 700;
+
+    }
+}

@@ -16,17 +16,15 @@
     border-bottom: 2px solid red;
     padding-bottom: 10px;
 
-   @media screen and (max-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-     
-   }
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
 
     h4 {
       font-size: 1.5rem;
       color: $light_red;
       font-family: $font_big;
-      padding-left: 1rem;
     }
     .grid {
       display: inline-block;
@@ -53,7 +51,12 @@
           display: inline-flex;
           align-items: center;
           margin-top: 3px;
-          padding: 10px;
+
+          img {
+            width: 30px;
+            filter: invert(100%) sepia(16%) saturate(7463%) hue-rotate(222deg)
+              brightness(119%) contrast(115%);
+          }
         }
       }
     }
@@ -64,8 +67,18 @@
     justify-content: space-between;
     align-items: center;
     .icons {
-      color: white;
-      padding: 10px;
+      a {
+        width: 20px;
+        height: 100px;
+        padding: 12px 3px;
+
+        img {
+          max-width: 30px;
+          height: 100%;
+          filter: invert(100%) sepia(16%) saturate(7463%) hue-rotate(222deg)
+            brightness(119%) contrast(115%);
+        }
+      }
     }
 
     .developer {
@@ -79,7 +92,6 @@
       a {
         color: $light_red;
         font-family: $font_small;
-
       }
     }
   }

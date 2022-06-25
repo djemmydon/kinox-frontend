@@ -8,6 +8,7 @@ import { useStateContext } from "../context/StateContex";
 import styles from "../component/styling/register.module.scss";
 import { getError } from "../lib/err";
 import Link from "next/link"
+import Head from "next/head";
 
 function Login() {
   const {
@@ -40,6 +41,14 @@ function Login() {
 
   return (
     <div className={styles.container}>
+           <Head>
+        <title>Kinox | Login</title>
+        <meta
+          name="Kinox Apparel"
+          content="Kinox Apparel | Login"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className={styles.flex_form}>
         <div className={styles.login}>
           <div className="headings">
