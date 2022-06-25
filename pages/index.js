@@ -5,7 +5,6 @@ import Product from "../component/Product";
 import HomeSlide from "../component/HomeSlide";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ClipLoader from "react-spinners/ClipLoader";
 
 // Import Swiper styles
 import "swiper/css";
