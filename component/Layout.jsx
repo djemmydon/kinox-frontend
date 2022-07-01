@@ -23,8 +23,8 @@ const Layout = ({ children }) => {
 
 {loading ? (
         <div className="loading">
-          <Image src="/img/kinox RED.png" height="200" width="150"/>
-          <BarLoader loading={loading}  width="200" height="5" color="#D73636"/>
+          <Image src="/img/kinox RED.png" height="100" width="70"/>
+          <BarLoader loading={loading}  width="200px" height="5px" color="#D73636"/>
         </div>
       ) : (
 

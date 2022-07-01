@@ -1,7 +1,7 @@
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import { useStateContext } from "../../context/StateContex";
 import { getError } from "../../lib/err";
 import { PaystackButton } from "react-paystack";
@@ -50,6 +50,11 @@ function OrderScreen({ params }) {
   const publicKey = "pk_test_9286738c5dddd1dd2a33753aaccc3383eb2ee96a";
 
   useEffect(() => {
+    setTimeout(() => {
+      setPopUp(true);
+    }, 1000);
+  }, []);
+  useEffect(() => {
     if (!userInfo) {
       router.push("/login");
     }
@@ -80,14 +85,12 @@ function OrderScreen({ params }) {
     publicKey,
     text: "Pay Now",
     onSuccess: async () => {
-
+      return router.push("/");
     },
-    onClose: () => alert("Wait! Don't leave :("
-    ),
+    onClose: () => alert("Wait! Don't leave :("),
   };
   const { id: orderId } = params;
 
-  console.log(userInfo.token);
   return (
     <div>
       <h1>Order {orderId}</h1>
