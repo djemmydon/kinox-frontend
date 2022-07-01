@@ -17,7 +17,7 @@ import Category from "../component/Category";
 import React, { useState, useEffect } from "react";
 import HomePopPup from "../component/pop/HomePopPup";
 
-export default function Home({ data, review, categories }) {
+export default function Home({ data, review }) {
   const [popUp, setPopUp] = useState(false);
   const router = useRouter();
 
