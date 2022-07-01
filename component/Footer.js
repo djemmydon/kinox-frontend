@@ -60,7 +60,7 @@ function Footer() {
               <a>FAQ</a>
             </Link>
             <Link href="/register">
-              <a>Rigister</a>
+              <a>Sigin Up</a>
             </Link>
           </div>
         </div>

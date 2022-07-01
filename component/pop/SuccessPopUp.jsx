@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./styling/popup.module.scss";
+import styles from "../styling/popup.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 
-function HomePopPup(props) {
+function SuccessPopUp(props) {
   return props.trigger ? (
     <main className={styles.popupContainer}>
       <div className={styles.popupContent} trigger={props.popContent}>
@@ -14,12 +14,13 @@ function HomePopPup(props) {
             size={25}
           />
         </div>
-        <h2>{props.title2}</h2>
+        <h2>{props.title}</h2>
         <p>{props.header}</p>
-        <div><button onClick={props.popUp}>
-          <Link href="https://wa.me/+2347025235337">Contact Us Here</Link>
-        </button></div>
-        
+        <div>
+          <button onClick={props.popUp}>
+            <Link href="https://wa.me/+2347025235337">Contact Us Here</Link>
+          </button>
+        </div>
       </div>
     </main>
   ) : (
@@ -27,4 +28,4 @@ function HomePopPup(props) {
   );
 }
 
-export default HomePopPup;
+export default SuccessPopUp;

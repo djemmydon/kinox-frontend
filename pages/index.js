@@ -13,10 +13,11 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 import Category from "../component/Category";
-import HomePopPup from "../component/HomePopPup";
-import React, { useState, useEffect } from "react";
 
-export default function Home({ data, review, categories }) {
+import React, { useState, useEffect } from "react";
+import HomePopPup from "../component/pop/HomePopPup";
+
+export default function Home({ data, review }) {
   const [popUp, setPopUp] = useState(false);
   const router = useRouter();
 
@@ -56,11 +57,10 @@ export default function Home({ data, review, categories }) {
           </div>
 
           <div className="category">
-            {categories.map((category, idx) => (
-              <div key={idx} className="testimonia_slide_home">
-                <Category key={idx} category={category} />
+              <div  className="testimonia_slide_home">
+                <Category  title="Male" />
+                <Category  title="Female" />
               </div>
-            ))}
           </div>
 
           <div className="headings">

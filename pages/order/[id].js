@@ -49,6 +49,7 @@ function OrderScreen({ params }) {
 
   const publicKey = "pk_test_9286738c5dddd1dd2a33753aaccc3383eb2ee96a";
 
+ 
   useEffect(() => {
     if (!userInfo) {
       router.push("/login");
@@ -80,14 +81,12 @@ function OrderScreen({ params }) {
     publicKey,
     text: "Pay Now",
     onSuccess: async () => {
-
+      return router.push("/");
     },
-    onClose: () => alert("Wait! Don't leave :("
-    ),
+    onClose: () => alert("Wait! Don't leave :("),
   };
   const { id: orderId } = params;
 
-  console.log(userInfo.token);
   return (
     <div>
       <h1>Order {orderId}</h1>

@@ -59,9 +59,19 @@ function Nav() {
             <a>Home</a>
           </Link>
 
+         
+          <Link href="/categories/male">
+            <a >Male</a>
+          </Link>
+          
+          <Link href="/categories/female">
+            <a >Female</a>
+          </Link>
+
           <Link href="/products">
             <a>Product</a>
           </Link>
+
           <Link href="/about-us">
             <a>About</a>
           </Link>
@@ -69,6 +79,9 @@ function Nav() {
             <a>Contact</a>
           </Link>
         </div>
+
+       
+        
         <div
           className={openNav ? styles.backdrop : " "}
           onClick={handleNav}
@@ -88,6 +101,14 @@ function Nav() {
 
           <Link href="/products">
             <a onClick={handleNav}>Product</a>
+          </Link>
+
+          <Link href="/categories/male">
+            <a >Male</a>
+          </Link>
+          
+          <Link href="/categories/female">
+            <a >Female</a>
           </Link>
           <Link href="/about-us">
             <a onClick={handleNav}>About</a>
