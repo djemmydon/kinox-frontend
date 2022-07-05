@@ -60,6 +60,10 @@ function Nav() {
           </Link>
 
          
+          <Link href="/products">
+            <a>Shop</a>
+          </Link>
+
           <Link href="/categories/male">
             <a >Male</a>
           </Link>
@@ -68,9 +72,6 @@ function Nav() {
             <a >Female</a>
           </Link>
 
-          <Link href="/products">
-            <a>Product</a>
-          </Link>
 
           <Link href="/about-us">
             <a>About</a>
@@ -100,15 +101,15 @@ function Nav() {
           </Link>
 
           <Link href="/products">
-            <a onClick={handleNav}>Product</a>
+            <a onClick={handleNav}>Shop</a>
           </Link>
 
           <Link href="/categories/male">
-            <a >Male</a>
+            <a onClick={handleNav}>Male</a>
           </Link>
           
           <Link href="/categories/female">
-            <a >Female</a>
+            <a  onClick={handleNav}>Female</a>
           </Link>
           <Link href="/about-us">
             <a onClick={handleNav}>About</a>

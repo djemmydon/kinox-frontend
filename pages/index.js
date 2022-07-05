@@ -12,7 +12,6 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper";
-import Category from "../component/Category";
 
 import React, { useState, useEffect } from "react";
 import HomePopPup from "../component/pop/HomePopPup";
@@ -52,16 +51,6 @@ export default function Home({ data, review }) {
           />
           <HomeSlide />
 
-          <div className="headings">
-            <h1>Category</h1>
-          </div>
-
-          <div className="category">
-              <div  className="testimonia_slide_home">
-                <Category  title="Male" />
-                <Category  title="Female" />
-              </div>
-          </div>
 
           <div className="headings">
             <h1>New in Stored</h1>
