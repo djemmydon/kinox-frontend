@@ -12,7 +12,6 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper";
-import Category from "../component/Category";
 
 import React, { useState, useEffect } from "react";
 import HomePopPup from "../component/pop/HomePopPup";
