@@ -52,16 +52,6 @@ export default function Home({ data, review }) {
           />
           <HomeSlide />
 
-          <div className="headings">
-            <h1>Category</h1>
-          </div>
-
-          <div className="category">
-              <div  className="testimonia_slide_home">
-                <Category  title="Male" />
-                <Category  title="Female" />
-              </div>
-          </div>
 
           <div className="headings">
             <h1>New in Stored</h1>

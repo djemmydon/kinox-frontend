@@ -109,7 +109,7 @@ function ProductDetailShow({ product, style }) {
             className={styles.ProductDetailShowImageThumb}
           >
             {product?.image.map((item, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className={styles.extraImage}>
                 <img src={urlFor(item)} alt={urlFor(product?.image[0])}  onClick={() => setIndex(index)}/>
               </SwiperSlide>
             ))}
