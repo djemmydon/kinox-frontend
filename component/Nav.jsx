@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { client } from "../lib/client";
 import {
   AiOutlineShoppingCart,
   AiOutlineSearch,
@@ -23,6 +24,8 @@ function Nav() {
   const [openNav, setOpenNav] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchProduct, setSearchProduct] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const { state, dispatch } = useStateContext();
   const { cart, userInfo, products } = state;
   const router = useRouter();
@@ -34,6 +37,23 @@ function Nav() {
   function handleClose() {
     setCartOpen(!cartOpen);
   }
+
+  const query = `*[_type == 'product' ]`;
+  useEffect(() => {
+    const products = async () => {
+      const allProducts = await client.fetch(query);
+      setSearchProduct(allProducts);
+      console.log(allProducts);
+    };
+
+    const filterData = searchProduct.filter((coin) =>
+      coin.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    products();
+
+    setSearchProduct(filterData);
+  }, [searchTerm, searchProduct]);
 
   return (
     <nav className={styles.nav}>
@@ -59,19 +79,17 @@ function Nav() {
             <a>Home</a>
           </Link>
 
-         
           <Link href="/products">
             <a>Shop</a>
           </Link>
 
           <Link href="/categories/male">
-            <a >Male</a>
-          </Link>
-          
-          <Link href="/categories/female">
-            <a >Female</a>
+            <a>Male</a>
           </Link>
 
+          <Link href="/categories/female">
+            <a>Female</a>
+          </Link>
 
           <Link href="/about-us">
             <a>About</a>
@@ -81,8 +99,6 @@ function Nav() {
           </Link>
         </div>
 
-       
-        
         <div
           className={openNav ? styles.backdrop : " "}
           onClick={handleNav}
@@ -107,9 +123,9 @@ function Nav() {
           <Link href="/categories/male">
             <a onClick={handleNav}>Male</a>
           </Link>
-          
+
           <Link href="/categories/female">
-            <a  onClick={handleNav}>Female</a>
+            <a onClick={handleNav}>Female</a>
           </Link>
           <Link href="/about-us">
             <a onClick={handleNav}>About</a>
@@ -126,12 +142,16 @@ function Nav() {
             onClick={handleSearch}
           />
 
-          <AiOutlineShoppingCart
+
+    <div    className={styles.amount}>
+                <AiOutlineShoppingCart
             onClick={handleClose}
             className={styles.nav_icon}
             size={25}
           />
           <span>{cart.cartItems.length}</span>
+
+    </div>
 
           {userInfo ? (
             <AiOutlineUser className={styles.nav_icon} size={25} />
@@ -159,19 +179,30 @@ function Nav() {
           />
 
           <Cart data={handleClose} />
-         
         </div>
         <div
-            className={cartOpen ? styles.backdrop : " "}
-            onClick={handleClose}
-          ></div>
+          className={cartOpen ? styles.backdrop : " "}
+          onClick={handleClose}
+        ></div>
       </div>
 
       <div className={searchOpen ? styles.search_active : styles.search}>
         <div>
-          <input type="text" placeholder="Search for products" />
+          <input
+            type="text"
+            placeholder="Search for products"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
           <button onClick={handleSearch}>Search</button>
         </div>
+
+        <div>
+          {searchProduct.map((item, idx) => (
+            <Search key={idx} items={item} />
+          ))}
+        </div>
+
+        
       </div>
     </nav>
   );

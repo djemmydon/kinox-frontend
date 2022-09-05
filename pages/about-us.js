@@ -10,7 +10,7 @@ function AboutUs() {
         <title>Kinox | About Us</title>
         <meta
           name="Kinox Apparel"
-          content="Kinox Apparel | About US"
+          content="Kinox Apparel | About Us"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
