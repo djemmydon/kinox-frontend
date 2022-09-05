@@ -1,136 +1,72 @@
 @import "./mixin.module";
 
 .home_slide {
-  height: 70vh;
-  background-color: $black;
-  overflow: hidden;
-
-  @media screen and (max-width: 968px) {
-    height: 60vh;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  .slideHead {
+    height: 600px;
   }
 
-  @media screen and (max-width: 700px) {
-    height:90vh;
-  }
-  @media screen and (max-width: 500px) {
-    height:80vh;
-  }
-  @media screen and (max-width: 400px) {
-    height:90vh;
-  }
   .home_slide_items {
-    position: relative;
-    .home_slide_item {
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      padding: 0px 40px;
+    max-height: 600px;
+
+    .home_slide_img {
+      width: 100%;
+      height: 700px;
 
       img {
-        margin-bottom: 3rem;
-
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
-    
-    
-    
+    }
 
-      .home_slide_text {
-        margin-top: 10rem;
-        width: 500px;
-  
+    .home_slide_text {
+      position: absolute;
+      width: 600px;
+      height: 100%;
+      top: 30%;
+      left: 10%;
+      color: white;
+
+      h2 {
+        font-size: 4rem;
+        font-weight: 700;
+
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 1rem;
+        padding: 10px 0;
+      }
+
+      button {
+        @include button;
+        background-color: #fff;
+        color: #000;
+        padding-top: 4px;
+        font-weight: 700;
+
+        &:hover {
+          color: white;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        left: 0;
+        width: 100%;
+
+        text-align: center;
+
         h2 {
-          font-size: 5rem;
-          font-family: $font_big;
-          font-weight: 800;
-        }
-  
-        p {
-          font-size: 1.5rem;
-          font-family: $font_small;
-          color: $grey;
-        }
-  
-        button {
-          @include button;
-          background-color: $dark_red;
+          font-size: 3rem;
+          font-weight: 700;
+          padding-bottom: 2px;
         }
       }
-  
-      @media screen and (max-width: 958px) {
-        max-width: 100%;
-        img {
-          height: 450px;
-        }
-  
-        .home_slide_text {
-          margin-top: 6rem;
-          width: 400px;
-  
-          h2 {
-            font-size: 3rem;
-            font-family: $font_big;
-            font-weight: 800;
-          }
-          p {
-            font-size: 1rem;
-          }
-        }
-      }
-  
-      @media screen and (max-width: 700px) {
-     flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-  
-        img {
-          margin: 5rem 0;
-        height: 400px;
-          
-         
-
-        }
-  
-        .home_slide_text {
-          margin-top: 6rem;
-          text-align: center;
-          h2 {
-            font-size: 4rem;
-            font-family: $font_big;
-            font-weight: 800;
-          }
-          p {
-            font-size: 2rem;
-          }
-        }
-      }
-
-      
-      @media screen and (max-width: 400px) {
-        flex-direction: column-reverse;
-           align-items: center;
-           justify-content: center;
-     
-           img {
-             margin: 5rem 0;
-           height: 400px;
-             
-            
-   
-           }
-     
-           .home_slide_text {
-             margin-top: 6rem;
-             text-align: center;
-             width: 250px;
-             h2 {
-               font-size: 2.5rem;
-               font-family: $font_big;
-               font-weight: 800;
-             }
-             p {
-               font-size: 1.3rem;
-             }
-           }
-         }
-  }  }
+    }
+  }
 }

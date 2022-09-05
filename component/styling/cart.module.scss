@@ -64,12 +64,12 @@
   padding-top: 10rem;
 
   h1 {
-    font-size: 2rem;
+    font-size: 1rem;
     color: $dark_red;
     font-family: $font-big;
   }
   img {
-    height: 10rem;
+    height: 5rem;
   }
   button {
     @include button;

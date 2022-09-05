@@ -12,7 +12,6 @@
 }
 
 html {
-  font-size: 62.5%;
   overflow-x: hidden;
   scroll-padding-top: 6.5rem;
   scroll-behavior: smooth;
@@ -28,6 +27,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .button-push {
@@ -42,7 +42,7 @@ body {
   color: white;
   font-family: "Oxygen", sans-serif;
   transition: 0.2s;
-  margin:0 auto;
+  margin:5rem auto;
   display: inline;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 .headings {
   text-align: center;
-  padding: 5rem 40px;
+  padding: 3rem 40px;
   font-family: "Oxygen", sans-serif;
   display: block;
   margin: 0 auto;
@@ -62,7 +62,7 @@ body {
 
 .headings h1 {
   font-family: "Oxygen", sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   position: relative;
   display: inline;
 }
@@ -70,16 +70,16 @@ body {
 @media screen and (max-width: 508px) {
   .headings {
     text-align: center;
-    padding: 1rem 40px;
+    padding: 20px 40px;
     font-family: "Oxygen", sans-serif;
     display: block;
-    padding: 4rem 0;
+   
     width: 300px;
   }
 
   .headings h1 {
     font-family: "Oxygen", sans-serif;
-    font-size: 2rem;
+    font-size: 1.3rem;
     position: relative;
     display: inline;
     padding: 6px;
@@ -108,20 +108,20 @@ body {
   display: flex;
   justify-content: center;
   height: 100%;
-  margin: 1rem 0;
+  margin: 3rem 0;
 }
 .testimonial_slide .testimonia_slide_home {
   max-width: 300px;
 }
 
 .testimonia_slide_home h4 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-family: "Oxygen", sans-serif;
   font-weight: 100;
 }
 
 .testimonia_slide_home p {
-  font-size: 1.6rem;
+  font-size: 0.8rem;
   font-family: "Poppins", sans-serif;
   padding-top: 1rem;
   font-weight: 500;

@@ -4,7 +4,7 @@
   background-color: $light_black;
   max-width: 100%;
   height: 100%;
-  margin-top: 0;
+  margin-top:5rem;
   font-size: 2rem;
   font-family: $font_small;
   padding: 20px 20px;
@@ -22,7 +22,7 @@
     }
 
     h4 {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: $light_red;
       font-family: $font_big;
     }
@@ -32,7 +32,7 @@
       a {
         display: inline-flex;
         padding: 5px;
-        font-size: 1.5rem;
+        font-size: 1rem;
         color: white;
         font-family: $font_small;
         transition: 0.2s;
@@ -88,6 +88,7 @@
 
       span {
         font-family: $font_small;
+        font-size: 1rem;
       }
       a {
         color: $light_red;
