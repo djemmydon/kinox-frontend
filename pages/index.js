@@ -4,14 +4,6 @@ import { client } from "../lib/client";
 import Product from "../component/Product";
 import HomeSlide from "../component/HomeSlide";
 import { useRouter } from "next/router";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-// import required modules
-import { Pagination } from "swiper";
 
 import React, { useState, useEffect } from "react";
 import HomePopPup from "../component/pop/HomePopPup";
