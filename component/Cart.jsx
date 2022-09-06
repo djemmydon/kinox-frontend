@@ -48,7 +48,7 @@ function Cart(props) {
     toast.success(`Cart updated`);
   };
 
-  console.log(cartItems);
+
   return (
     <div className={styles.carts}>
       {cartItems?.length < 1 && (

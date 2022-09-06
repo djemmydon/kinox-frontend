@@ -20,11 +20,9 @@ function Products({ products }) {
 <div className='headings'>
         <h1>Shop</h1>
       </div>
-      <div className="product">
-        {products?.map((item) => (
-          <AllProduct key={item._id} product={item} />
-        ))}
-      </div>
+   
+          <AllProduct data={products} />
+
     </>
   );
 }

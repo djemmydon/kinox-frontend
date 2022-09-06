@@ -30,7 +30,7 @@ function Nav() {
   const { cart, userInfo, products } = state;
   const router = useRouter();
 
-  console.log(products);
+  
 
   const handleNav = () => setOpenNav(!openNav);
   const handleSearch = () => setSearchOpen(!searchOpen);
@@ -38,22 +38,22 @@ function Nav() {
     setCartOpen(!cartOpen);
   }
 
-  const query = `*[_type == 'product' ]`;
-  useEffect(() => {
-    const products = async () => {
-      const allProducts = await client.fetch(query);
-      setSearchProduct(allProducts);
-      console.log(allProducts);
-    };
+  // const query = `*[_type == 'product' ]`;
+  // useEffect(() => {
+  //   const products = async () => {
+  //     const allProducts = await client.fetch(query);
+  //     setSearchProduct(allProducts);
+  
+  //   };
 
-    const filterData = searchProduct.filter((coin) =>
-      coin.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  //   const filterData = searchProduct.filter((coin) =>
+  //     coin.name.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
 
-    products();
+  //   products();
 
-    setSearchProduct(filterData);
-  }, [searchTerm, searchProduct]);
+  //   setSearchProduct(filterData);
+  // }, [searchTerm, searchProduct]);
 
   return (
     <nav className={styles.nav}>

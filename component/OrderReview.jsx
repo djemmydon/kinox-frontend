@@ -67,7 +67,7 @@ function OrderReview() {
     }
   };
 
-  console.log(process.env.TOKEN_JSON);
+
 
   return (
     <main className={styles.placeorder}>

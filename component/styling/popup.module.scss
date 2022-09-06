@@ -35,13 +35,13 @@
       padding: 60px 20px;
 
       h2 {
-        font-size: 1.7rem;
+        font-size: 1.1rem;
       }
     }
 
     h2 {
       font-family: $font_big;
-      font-size: 1.6rem;
+      font-size: 1rem;
       text-transform: uppercase;
       font-weight: 800;
     }
@@ -49,7 +49,7 @@
  
 
     p {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       font-family: $font_small;
       color: $black;
       font-weight: 550;
@@ -61,7 +61,7 @@
     @include button;
     padding: 5px 15px;
     border-radius: 10px;
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-family: $font_small;
     margin-top: 2rem;
   }

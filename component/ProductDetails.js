@@ -35,7 +35,7 @@ function ProductDetailShow({ product, style }) {
     setSizes(e.label);
   };
 
-  console.log(sizes);
+
   const [disable, setDisable] = useState(false);
   const [index, setIndex] = useState(0)
 
