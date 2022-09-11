@@ -11,10 +11,10 @@ import {
   // AiOutlineUser,
   AiOutlineLogin,
   AiOutlineUserAdd,
+  AiOutlineUsergroupDelete,
 } from "react-icons/ai";
 import styles from "./styling/nav.module.scss";
-
-// import { useStateContext } from "../context/StateContex";
+import { useStateContext } from "../context/StateContex";
 
 import dynamic from "next/dynamic";
 // import Search from "./Search";
@@ -27,74 +27,89 @@ function Nav() {
   const [searchOpen, setSearchOpen] = useState(false);
   // const [searchProduct, setSearchProduct] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  // const { state, dispatch } = useStateContext();
-  // const { cart, userInfo, products } = state;
+  const { state, dispatch } = useStateContext();
+  const { cart, userInfo, products } = state;
   const router = useRouter();
 
   const handleNav = () => setOpenNav(!openNav);
   const handleSearch = () => setSearchOpen(!searchOpen);
-  // function handleClose() {
-  //   setCartOpen(!cartOpen);
-  // }
+  function handleClose() {
+    setCartOpen(!cartOpen);
+  }
 
   return (
     <>
       <nav className={styles.navbar}>
         <div className={styles.flex_nav}>
-          <div className={styles.nav_logo}>
-            <Link href="/">
-              <Image src="/img/kinox_white.png" width={40} height={50} />
-            </Link>
-          </div>
+          <div className={styles.nav_top}>
+            <div className={styles.nav_logo}>
+              <Link href="/">
+                <Image src="/img/kinox_white.png" width={40} height={50} />
+              </Link>
+            </div>
 
-          <div></div>
-
-          <div className={styles.nav_icon_menu}>
-            <AiOutlineAlignRight size={30} color="white" onClick={handleNav} />
-          </div>
-
-          <div className={styles.nav_search}>
-            <input
-              type="text"
-              name=""
-              id=""
-              placeholder="Search here..."
-              onClick={handleSearch}
-            />
-            <button>
-              <AiOutlineSearch size={30} />
-            </button>
-
-            <div
-              className={
-                searchOpen
-                  ? `${styles.search_product} ${styles.search_active}`
-                  : `${styles.search_product}`
-              }
-            >
-              <h4>Product Name is where</h4>
-              <p>$30,300</p>
+            <div className={styles.nav_icon_menu}>
+              <AiOutlineAlignRight
+                size={30}
+                color="white"
+                onClick={handleNav}
+              />
             </div>
           </div>
 
-          <div className={styles.nav_icon}>
-            <ul>
-              <li>
-                <AiOutlineUserAdd color="white" size={25} />
-                <span>Register</span>
-              </li>
-              <li>
-                <AiOutlineLogin color="white" size={25} />
-                <span>Login</span>
-              </li>
-            </ul>
-          </div>
+          <div className={styles.flexItems}>
+            <div className={styles.nav_search}>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Search here..."
+                onClick={handleSearch}
+              />
+              <button>
+                <AiOutlineSearch size={30} />
+              </button>
 
-          <div className={styles.cart}>
-            <div className={styles.cart_box}>
-              <AiOutlineShoppingCart color="white" size={25} />
-              <div className={styles.cart_count}>
-                <span>4</span>
+              <div
+                className={
+                  searchOpen
+                    ? `${styles.search_product} ${styles.search_active}`
+                    : `${styles.search_product}`
+                }
+              >
+                <h4>Product Name is where</h4>
+                <p>$30,300</p>
+              </div>
+            </div>
+
+            <div className={styles.nav_icon}>
+              <ul>
+                {userInfo ? (
+                  <li>
+                    <AiOutlineUsergroupDelete color="white" size={25} />
+                    <span>Register</span>
+                  </li>
+                ) : (
+                  <>
+                    <li onClick={() => router.push("/login")}>
+                      <AiOutlineLogin color="white" size={25} />
+                      <span>Login</span>
+                    </li>
+                    <li onClick={() => router.push("/register")}>
+                      <AiOutlineUserAdd color="white" size={25} />
+                      <span>Register</span>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
+
+            <div className={styles.cart}>
+              <div className={styles.cart_box} onClick={handleClose}>
+                <AiOutlineShoppingCart color="white" size={25} />
+                <div className={styles.cart_count}>
+                  <span>{cart.cartItems.length}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -115,49 +130,62 @@ function Nav() {
           <ul>
             <li>
               <Link href="/">
-                <a>Home</a>
+                <a onClick={handleNav}>Home</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/products">
+                <a onClick={handleNav}>Shop</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/categories/male">
+                <a onClick={handleNav}>Male</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/categories/male">
+                <a onClick={handleNav}>Female</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <a onClick={handleNav}>About Us</a>
               </Link>
             </li>
             <li>
               <Link href="/">
-                <a>Shop</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Male</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Female</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>About Us</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Contact Us</a>
+                <a onClick={handleNav}>Contact Us</a>
               </Link>
             </li>
           </ul>
 
           <div className={styles.nav_icon}>
             <ul>
-              <li>
+              <li onClick={handleNav} >
                 <AiOutlineUserAdd color="white" size={25} />
-                <span>Register</span>
+                <span onClick={() => router.push("/register")}>Register</span>
               </li>
-              <li>
+              <li onClick={handleNav} >
                 <AiOutlineLogin color="white" size={25} />
-                <span>Login</span>
+                <span onClick={() => router.push("/login")}>Login</span>
               </li>
             </ul>
           </div>
         </div>
+
+        
+<div className={styles.cartBody}>
+  <div className={cartOpen ? styles.carts_active : styles.carts}>
+    <AiOutlineClose
+      className={styles.nav_cancel}
+      size={40}
+      onClick={handleClose}
+    />
+
+    <Cart data={handleClose} />
+  </div>
+  </div>
       </nav>
     </>
   );

@@ -17,16 +17,20 @@
   }
 
   h1 {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     text-transform: capitalize;
     width: 130px;
+    font-family: $font_small;
+    padding: 5px 0;
   }
 
   h5 {
-    font-size: 1.2rem;
+    font-size: 0.6rem;
     color: $light_red;
     font-size: $font_small;
     font-family: $font_big;
+    padding: 5px 0;
+
   }
 
   button {
@@ -50,7 +54,7 @@
     }
     option {
       font-family: $font_small;
-      font-size: 1.4rem;
+      font-size: 1rem;
 
       &:hover {
         background-color: #000;
@@ -64,7 +68,7 @@
   padding-top: 10rem;
 
   h1 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: $dark_red;
     font-family: $font-big;
   }
@@ -88,6 +92,7 @@
 
     h1 {
       font-family: $font_big;
+      font-size: 0.8rem;
     }
   }
 
@@ -106,7 +111,7 @@
       width: 15rem;
       color: $dark_red;
       font-family: $font_small;
-      font-size: 1.7rem;
+      font-size: 1.2rem;
       border-radius: 4px;
       transition: all 0.2s;
       border: 2px solid black;
