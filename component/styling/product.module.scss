@@ -4,16 +4,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  padding: 2rem;
 
-  @media screen and (max-width: 600px){
-  gap: 1rem;
-    
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
   }
   .item {
     width: 280px;
     height: 100%;
     position: relative;
+    margin: 1rem 10px; 
 
     .image {
       max-height: 280px;
@@ -45,71 +45,61 @@
       transform: scale(1.1);
     }
 
-    .text_side{
-      display:flex;
+    .text_side {
+      display: flex;
       flex-direction: column;
-      gap: 0.4rem;
       margin-top: 0.7rem;
       overflow: hidden;
 
-      h4{
+      h4 {
         font-size: 15px;
         color: #161616;
         font-family: $font_small;
-
       }
-      p{
+      p {
         font-size: 14px;
         color: #f50000;
         font-weight: 700;
         font-family: $font_small;
-
       }
     }
 
-    .cart_button{
-
-      
-      p{
+    .cart_button {
+      p {
         font-size: 14px;
         color: #f50000;
         font-weight: 700;
         font-family: $font_small;
-
       }
 
-     display:flex;
-     justify-content: space-between;
-     align-content: center;
-    margin-top: 5px;
-    overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 5px;
+      overflow: hidden;
 
-      button{
+      button {
         padding: 2px 12px;
-        transform:translate(0, 100%);
+        transform: translate(0, 100%);
         transition: all 0.2s;
-        background:none;
+        background: none;
         border-bottom: 2px solid #f50000;
         font-family: $font_small;
         cursor: pointer;
-
       }
     }
 
-    &:hover .cart_button button{
-      transform:translate(0, 0)
-
+    &:hover .cart_button button {
+      transform: translate(0, 0);
     }
 
-    @media screen and (max-width:500px){
+    @media screen and (max-width: 500px) {
       width: 200px;
       height: 100%;
       position: relative;
 
-
-      .text_side{
-
-        h4{
+      .text_side {
+        h4 {
           font-size: 12px;
         }
       }
