@@ -121,7 +121,7 @@ function OrderScreen({ params }) {
             <div className={styles.productPreview}>
               <h2>Products</h2>
 
-              {orderItems?.map((item, idx) => (
+              {orderItems.map((item, idx) => (
                 <div className={styles.product} key={idx}>
                   <img src={item.image} />
                   <h1>{item.name}</h1>

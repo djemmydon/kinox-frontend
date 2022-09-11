@@ -18,7 +18,7 @@ function Review({ data }) {
          modules={[EffectCube, Pagination]}
          className={styles.test}
       >
-        {data?.map((item) => (
+        {data.map((item) => (
           <SwiperSlide key={item._id}className={styles.review_text}>
             <h4> &quot;{item.testimonial}&quot;</h4>
             <p>

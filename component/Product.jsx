@@ -4,15 +4,18 @@ import { urlFor } from "../lib/client";
 import styles from "./styling/product.module.scss";
 import { AiFillEye } from "react-icons/ai";
 import * as CurrencyFormat from "react-currency-format";
-import Image from "next/image";
+import { useRouter } from "next/router";
+// import Image from "next/image";
 
 export function Product({ data }) {
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };
+  const router = useRouter();
+
   return (
-    <>
-      <div className={styles.productsBody} >
+    <div>
+      <div className={styles.productsBody}>
         {data.map((product) => (
           <div className={styles.item} key={product._id}>
             <Link href={`/product/${product.slug.current}`}>
@@ -31,30 +34,34 @@ export function Product({ data }) {
 
                 <div className={styles.text_side}>
                   <h4>{truncate(product.name, 33)}</h4>
-
-                  <p>{product.price.toLocaleString("en-US")}</p>
                 </div>
 
                 <div className={styles.cart_button}>
-                  <p>{product.price.toLocaleString("en-US")}</p>
+                  <p>₦{product.price.toLocaleString("en-US")}</p>
 
-                  <button>Add To Cart</button>
+                  <button
+                    onClick={() => router.push(`/product/${product.slug.current}`)}
+                  >
+                    View Product
+                  </button>
                 </div>
               </a>
             </Link>
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
 function AllProduct({ data }) {
+  const router = useRouter();
+
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };
   return (
-    <>
+    <div>
       <div className={styles.productsBody}>
         {data.map((product) => (
           <div className={styles.item} key={product._id}>
@@ -76,9 +83,13 @@ function AllProduct({ data }) {
                   <h4>{truncate(product.name, 30)}</h4>
 
                   <div className={styles.cart_button}>
-                    <p>{product.price.toLocaleString("en-US")}</p>
+                    <p>₦{product.price.toLocaleString("en-US")}</p>
 
-                    <button>Add To Cart</button>
+                    <button
+                      onClick={() => router.push(`/product/${product.slug.current}`)}
+                    >
+                      View Product
+                    </button>
                   </div>
                 </div>
               </a>
@@ -86,7 +97,7 @@ function AllProduct({ data }) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

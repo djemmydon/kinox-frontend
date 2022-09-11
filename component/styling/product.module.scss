@@ -69,19 +69,29 @@
 
     .cart_button{
 
+      
+      p{
+        font-size: 14px;
+        color: #f50000;
+        font-weight: 700;
+        font-family: $font_small;
+
+      }
+
      display:flex;
      justify-content: space-between;
-     align-items: center;
+     align-content: center;
     margin-top: 5px;
     overflow: hidden;
 
       button{
-        padding: 7px 12px;
+        padding: 2px 12px;
         transform:translate(0, 100%);
         transition: all 0.2s;
         background:none;
         border-bottom: 2px solid #f50000;
         font-family: $font_small;
+        cursor: pointer;
 
       }
     }

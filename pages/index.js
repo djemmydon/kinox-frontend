@@ -45,7 +45,7 @@ export default function Home({ data, review }) {
           <h1>New in Stored</h1>
         </div>
 
-        <Product  data={data}/>
+        <Product data={data} />
 
         <div className="button-push">
           <button onClick={() => router.push("/products")}>
@@ -57,7 +57,7 @@ export default function Home({ data, review }) {
           <h1>Customers Reviews</h1>
         </div>
 
-        <Review data={review}/>
+        <Review data={review} />
 
         <div></div>
       </main>

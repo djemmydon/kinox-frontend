@@ -5,26 +5,45 @@ import styles from "./styling/product.module.scss";
 import { AiFillEye } from "react-icons/ai";
 import Image from "next/image";
 
-export function Trending({ product: { name, image, price, description, slug } }) {
+export function Trending({data}) {
+  const truncate = (str, n) => {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  };
   return (
-    <div className={styles.item}>
-      <Link href={`/product/${slug.current}`}>
-        <a className={styles.icon}>
-          <img src={urlFor(image[0])} alt="kinox product image"/>
+  
+       <div className={styles.productsBody} >
+        {data.map((product) => (
+          <div className={styles.item} key={product._id}>
+            <Link href={`/product/${product.slug.current}`}>
+              <a className={styles.icon}>
+                <div className={styles.image}>
+                  {
+                    <img
+                      src={urlFor(product.image[0])}
+                      alt="kinox product image"
+                    />
+                  }{" "}
+                  <div className={styles.overlay}>
+                    <AiFillEye className={styles.icons} size={30} />
+                  </div>
+                </div>
 
-          <div className={styles.overlay}>
-            <AiFillEye className={styles.icons} size={30} />
+                <div className={styles.text_side}>
+                  <h4>{truncate(product.name, 33)}</h4>
+
+                </div>
+
+                <div className={styles.cart_button}>
+                  <p>{product.price.toLocaleString("en-US")}</p>
+
+                  <button>View Product</button>
+                </div>
+              </a>
+            </Link>
           </div>
+        ))}
+      </div>
 
-
-          <div className={styles.text_sidebar}>
-          <h4>{name}</h4>
-          <p>₦{price}.00</p>
-          </div>
-          
-        </a>
-      </Link>
-    </div>
   );
 }
 

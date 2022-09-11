@@ -65,7 +65,7 @@ function Cart(props) {
       )}
 
       {cartItems?.length >= 0 &&
-        cartItems?.map((item, index) => (
+        cartItems.map((item, index) => (
           <div key={index} className={styles.ProductDetail}>
             <div>
               <img src={item.image} alt="" />
