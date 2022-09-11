@@ -4,17 +4,10 @@ import { client } from "../lib/client";
 import Product from "../component/Product";
 import HomeSlide from "../component/HomeSlide";
 import { useRouter } from "next/router";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-// import required modules
-import { Pagination } from "swiper";
 
 import React, { useState, useEffect } from "react";
 import HomePopPup from "../component/pop/HomePopPup";
+import Review from "../component/Review";
 
 export default function Home({ data, review }) {
   const [popUp, setPopUp] = useState(false);
@@ -28,9 +21,7 @@ export default function Home({ data, review }) {
     setTimeout(() => {
       setPopUp(true);
     }, 4000);
-
   }, []);
-
 
   return (
     <div>
@@ -40,62 +31,36 @@ export default function Home({ data, review }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-   
-        <main>
-          <HomePopPup
-            popUp={popUpHandler}
-            trigger={popUp}
-            title="Are you are brand owner ?"
-            title2=" You want to buy in bulk ?"
-            header="Click on the button below to talk with the customer care representative"
-          />
-          <HomeSlide />
+      <main>
+        <HomePopPup
+          popUp={popUpHandler}
+          trigger={popUp}
+          title="Are you are brand owner ?"
+          title2=" You want to buy in bulk ?"
+          header="Click on the button below to talk with the customer care representative"
+        />
+        <HomeSlide />
 
+        <div className="headings">
+          <h1>New in Stored</h1>
+        </div>
 
-          <div className="headings">
-            <h1>New in Stored</h1>
-          </div>
-          <div className="product">
-            {data?.map((product) => (
-              <Product key={product._id} product={product} />
-            ))}
-          </div>
+        <Product data={data} />
 
-          <div className="button-push">
-            <button onClick={() => router.push("/products")}>
-              See All Products
-            </button>
-          </div>
+        <div className="button-push">
+          <button onClick={() => router.push("/products")}>
+            See All Products
+          </button>
+        </div>
 
-          <div className="headings">
-            <h1>Customers Reviews</h1>
-          </div>
+        <div className="headings">
+          <h1>Customers Reviews</h1>
+        </div>
 
-          <Swiper
-            slidesPerView="auto"
-            loop={true}
-            centeredSlides={true}
-            spaceBetween={30}
-            autoplay={{
-              delay: 6000,
+        <Review data={review} />
 
-              disableOnInteraction: false,
-            }}
-            modules={[Pagination]}
-            className="testimonial_slide"
-          >
-            {review?.map((item) => (
-              <SwiperSlide key={item._id} className="testimonia_slide_home">
-                <h4> &quot;{item.testimonial}&quot;</h4>
-                <p>
-                  {item.name}/ <span>{item.company}</span>
-                </p>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div></div>
-        </main>
-
+        <div></div>
+      </main>
     </div>
   );
 }

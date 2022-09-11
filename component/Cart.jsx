@@ -48,7 +48,7 @@ function Cart(props) {
     toast.success(`Cart updated`);
   };
 
-  console.log(cartItems);
+
   return (
     <div className={styles.carts}>
       {cartItems?.length < 1 && (
@@ -65,7 +65,7 @@ function Cart(props) {
       )}
 
       {cartItems?.length >= 0 &&
-        cartItems?.map((item, index) => (
+        cartItems.map((item, index) => (
           <div key={index} className={styles.ProductDetail}>
             <div>
               <img src={item.image} alt="" />

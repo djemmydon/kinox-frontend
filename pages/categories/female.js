@@ -10,9 +10,8 @@ function Female({ product }) {
     <h1>Shop</h1>
   </div>
   <div className="product">
-    {product?.map((item) => (
-      <AllProduct key={item._id} product={item} />
-    ))}
+  <AllProduct data={product}/>
+
   </div>
   </>
   );

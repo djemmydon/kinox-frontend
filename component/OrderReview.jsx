@@ -67,7 +67,7 @@ function OrderReview() {
     }
   };
 
-  console.log(process.env.TOKEN_JSON);
+
 
   return (
     <main className={styles.placeorder}>
@@ -102,7 +102,7 @@ function OrderReview() {
           <div className={styles.productPreview}>
             <h2>Products</h2>
 
-            {cartItems?.map((item, idx) => (
+            {cartItems.map((item, idx) => (
               <div className={styles.product} key={idx}>
                 <img src={item.image} />
                 <h1>{item.name}</h1>

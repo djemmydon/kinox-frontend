@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
   return (
     <div>
 
-{loading ? (
+{loading === true ? (
         <div className="loading">
           <Image src="/img/kinox RED.png" height="100" width="70"/>
           <BarLoader loading={loading}  width="200px" height="5px" color="#D73636"/>

@@ -27,11 +27,9 @@ function ProductDetails({ product, trending }) {
           <h1>People also like</h1>
         </div>
 
-        <div className="product">
-          {trending?.map((product) => (
-            <Trending simplified key={product._id} product={product} />
-          ))}
-        </div>
+     
+            <Trending data={trending}/>
+   
 
   
       </div>

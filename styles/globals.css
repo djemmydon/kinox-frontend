@@ -37,12 +37,12 @@ body {
 
 }
 .button-push button {
-  padding: 7px 15px;
-  background-color: black;
-  color: white;
+  padding: 10px 20px;
+  color: black;
+  border: solid 2px white;
   font-family: "Oxygen", sans-serif;
   transition: 0.2s;
-  margin:5rem auto;
+  margin:2rem auto;
   display: inline;
 }
 
