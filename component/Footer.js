@@ -74,18 +74,26 @@ function Footer() {
           </span>
         </div>
 
+        <div className={styles.reserved}>
+          <p>© 2022 Kinox Aparel</p>
+        </div>
+
         <div className={styles.icons}>
         <a href="">
-          <img  src="/icons/instagram.png" className={styles.iconImage} alt="Kinox apparel Social Media handle" />
+          <AiOutlineInstagram color="white"  size={22} />
          </a>
           <a href="">
-          <img  src="/icons/twitter.png" className={styles.iconImage} alt="Kinox apparel Social Media handle" />
+          <AiOutlineFacebook color="white"  size={22} />
+
          </a>
           <a href="">
-          <img  src="/icons/facebook.png" className={styles.iconImage} alt="Kinox apparel Social Media handle" />
+          <AiOutlineTwitter color="white"  size={22} />
+
          </a>
           <a href="">
-          <img  src="/icons/linkedin (2).png" className={styles.iconImage} alt="Kinox apparel Social Media handle" />
+          <AiOutlineMail color="white"  size={22} />
+
+          
          </a>
         </div>
       </div>

@@ -8,7 +8,7 @@ import {
   AiOutlineSearch,
   AiOutlineAlignRight,
   AiOutlineClose,
-  // AiOutlineUser,
+  AiOutlineUser,
   AiOutlineLogin,
   AiOutlineUserAdd,
   AiOutlineUsergroupDelete,
@@ -86,8 +86,7 @@ function Nav() {
               <ul>
                 {userInfo ? (
                   <li>
-                    <AiOutlineUsergroupDelete color="white" size={25} />
-                    <span>Register</span>
+                    <AiOutlineUser color="white" size={25} />
                   </li>
                 ) : (
                   <>
@@ -162,11 +161,11 @@ function Nav() {
 
           <div className={styles.nav_icon}>
             <ul>
-              <li onClick={handleNav} >
+              <li onClick={handleNav}>
                 <AiOutlineUserAdd color="white" size={25} />
                 <span onClick={() => router.push("/register")}>Register</span>
               </li>
-              <li onClick={handleNav} >
+              <li onClick={handleNav}>
                 <AiOutlineLogin color="white" size={25} />
                 <span onClick={() => router.push("/login")}>Login</span>
               </li>
@@ -174,18 +173,17 @@ function Nav() {
           </div>
         </div>
 
-        
-<div className={styles.cartBody}>
-  <div className={cartOpen ? styles.carts_active : styles.carts}>
-    <AiOutlineClose
-      className={styles.nav_cancel}
-      size={40}
-      onClick={handleClose}
-    />
+        <div className={styles.cartBody}>
+          <div className={cartOpen ? styles.carts_active : styles.carts}>
+            <AiOutlineClose
+              className={styles.nav_cancel}
+              size={40}
+              onClick={handleClose}
+            />
 
-    <Cart data={handleClose} />
-  </div>
-  </div>
+            <Cart data={handleClose} />
+          </div>
+        </div>
       </nav>
     </>
   );
