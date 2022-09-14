@@ -8,7 +8,8 @@
   display: flex;
   justify-items: center;
   display: inline;
-  inset: 0 0 0 0;
+top: 0;
+right: 0;
   background-color: rgba(0, 0, 0, 0.459);
   height: 100%;
   width: 100%;
@@ -26,7 +27,7 @@
     font-size: $font_small;
     color: black !important;
     animation: popOut 0.3s;
-    transition: all 0.4s;
+    transition: all 0.4s ease-in-out; 
     position: relative;
     border-radius: 10px;
     @media screen and (max-width: 500px) {
