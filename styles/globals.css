@@ -145,7 +145,7 @@ display:flex;
 .loading{
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  padding: 30px;
   justify-content: center;
   align-items: center;
   height:100vh;

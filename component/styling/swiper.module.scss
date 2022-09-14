@@ -47,8 +47,10 @@
         @include button;
         background-color: #fff;
         color: #000;
-        padding-top: 4px;
+        padding: 4px 30px;
+        border: 1px solid #000;
         font-weight: 700;
+        font-size: 1rem;
 
         &:hover {
           color: white;
