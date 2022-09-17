@@ -29,9 +29,12 @@ function Footer() {
               <a href="tel:+2347025235337">+2347025235337</a>
             </p>
             <p>
-            <img src="/icons/mail.png" alt="" />
+              <img src="/icons/mail.png" alt="" />
 
-              <a href="mailto:kinoxapparel@gmail.com"> kinoxapparel@gmail.com</a>
+              <a href="mailto:kinoxapparel@gmail.com">
+                {" "}
+                kinoxapparel@gmail.com
+              </a>
             </p>
           </div>
         </div>
@@ -69,8 +72,7 @@ function Footer() {
       <div className={styles.iconsDeveloper}>
         <div className={styles.developer}>
           <span>
-            Developed by{" "}
-            <a href="https://wa.me/+2348182377321">Peculiar</a>
+            Developed by <a href="https://wa.me/+2348182377321">Peculiar</a>
           </span>
         </div>
 
@@ -79,22 +81,15 @@ function Footer() {
         </div>
 
         <div className={styles.icons}>
-        <a href="">
-          <AiOutlineInstagram color="white"  size={22} />
-         </a>
           <a href="">
-          <AiOutlineFacebook color="white"  size={22} />
-
-         </a>
-          <a href="">
-          <AiOutlineTwitter color="white"  size={22} />
-
-         </a>
-          <a href="">
-          <AiOutlineMail color="white"  size={22} />
-
-          
-         </a>
+            <AiOutlineInstagram color="white" size={22} />
+          </a>
+          <a href="https://web.facebook.com/profile.php?id=100077430279506">
+            <AiOutlineFacebook color="white" size={22} />
+          </a>
+          <a href="https://twitter.com/kinoxapparel">
+            <AiOutlineTwitter color="white" size={22} />
+          </a>
         </div>
       </div>
     </div>

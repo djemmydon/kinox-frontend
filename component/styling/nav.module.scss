@@ -112,37 +112,7 @@
         }
       }
 
-      .search_product {
-        position: absolute;
-        margin-top: 4rem;
-        background-color: rgb(255, 255, 255);
-        width: 740px;
-        height: 100%;
-        left: 10px;
-        top: 0;
-        z-index: 100;
-        transform: scale(0);
-        transition: all 0.2s;
-        box-shadow: -2px 2px 5px 3px rgba(0, 0, 0, 0.11);
-        -webkit-box-shadow: -2px 2px 5px 3px rgba(0, 0, 0, 0.11);
-        -moz-box-shadow: -2px 2px 5px 3px rgba(0, 0, 0, 0.11);
-
-        @media screen and (max-width: 1055px) {
-          width: 300px;
-        }
-        h4 {
-          font-size: 1.2rem;
-          font-family: $font_small;
-        }
-
-        p {
-          font-family: $font_small;
-        }
-      }
-
-      .search_active {
-        transform: scale(1);
-      }
+    
     }
 
     .nav_icon {
@@ -336,6 +306,84 @@
     z-index: 100;
     bottom: 0;
 
+  }
+
+  .search_product {
+    position: absolute;
+    margin: 4rem auto;
+    background-color: rgb(255, 255, 255);
+    width: 750px;
+    display: flex;
+    justify-items: center;
+    align-content: center;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 5px;
+  inset: 0;
+    z-index: 100;
+    transform: scale(0);
+    transition: all 0.2s;
+    box-shadow: -2px 2px 5px 3px rgba(0, 0, 0, 0.11);
+    -webkit-box-shadow: -2px 2px 5px 3px rgba(0, 0, 0, 0.11);
+    -moz-box-shadow: -2px 2px 5px 3px rgba(0, 0, 0, 0.11);
+
+    @media screen and (max-width: 1055px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 600px) {
+     margin-top: 8rem;
+    }
+    h4 {
+      font-size: 1.2rem;
+      font-family: $font_small;
+    }
+
+    p {
+      font-family: $font_small;
+    }
+  }
+
+  .search_active {
+    transform: scale(1);
+    height:300px;
+
+    @media screen and (max-width: 600px){
+
+    }
+  }
+
+  .serchitem{
+    background-color:rgb(165, 71, 71);
+    padding:1px 10px;
+    margin: 5px 2px;
+    border-radius:2px ;
+    h2{
+      font-size: 0.7rem;
+      color: #fff;
+      font-family: $font_small;
+    }
+
+    p{
+      font-size: 0.7rem;
+      color: #ffff;
+      font-family: $font_small;
+      
+    }
+
+    @media screen and (max-width: 600px){
+            h2{
+      font-size: 0.7rem;
+      color: #fff;
+      font-family: $font_small;
+    }
+
+    p{
+      font-size: 0.7rem;
+      color: #ffff;
+      font-family: $font_small;
+      
+    }
+    }
   }
 
 }
