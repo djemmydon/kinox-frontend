@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-// import { client } from "../lib/client";
+import { client } from "../lib/client";
 import {
   AiOutlineShoppingCart,
   AiOutlineSearch,
@@ -26,9 +26,10 @@ function Nav() {
   const [cartOpen, setCartOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   // const [searchProduct, setSearchProduct] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [value, setValue] = useState("");
+  const [data, setData] = useState([]);
   const { state, dispatch } = useStateContext();
-  const { cart, userInfo, products } = state;
+  const { cart, userInfo } = state;
   const router = useRouter();
 
   const handleNav = () => setOpenNav(!openNav);
@@ -36,6 +37,25 @@ function Nav() {
   function handleClose() {
     setCartOpen(!cartOpen);
   }
+
+  useEffect(() => {
+    const fetChData = async () => {
+      const res = await client.fetch("*[_type == 'product' ]");
+
+      setData(res);
+    };
+
+    fetChData();
+  }, []);
+
+  const OnChangeHandler = (event) => {
+    setValue(event.target.value);
+    setSearchOpen(true);
+  };
+
+  const onSearchTerm = (searchTerm) => {
+    console.log("search", searchTerm);
+  };
 
   return (
     <>
@@ -61,25 +81,14 @@ function Nav() {
             <div className={styles.nav_search}>
               <input
                 type="text"
-                name=""
+                value={value}
                 id=""
                 placeholder="Search here..."
-                onClick={handleSearch}
+                onChange={OnChangeHandler}
               />
-              <button>
+              <button onClick={() => onSearchTerm(value)}>
                 <AiOutlineSearch size={30} />
               </button>
-
-              <div
-                className={
-                  searchOpen
-                    ? `${styles.search_product} ${styles.search_active}`
-                    : `${styles.search_product}`
-                }
-              >
-                <h4>Product Name is where</h4>
-                <p>$30,300</p>
-              </div>
             </div>
 
             <div className={styles.nav_icon}>
@@ -184,6 +193,44 @@ function Nav() {
             <Cart data={handleClose} />
           </div>
         </div>
+
+        {!data ? (
+          <div>No Search Found</div>
+        ) : (
+          <div
+            className={
+              searchOpen
+                ? `${styles.search_product} ${styles.search_active}`
+                : `${styles.search_product}`
+            }
+          >
+            <div className={styles.serchBody}>
+              <AiOutlineClose
+                className={styles.nav_cancel}
+                size={20}
+                onClick={() => setSearchOpen(false)}
+              />
+              {data
+                .filter((item) => {
+                  const name = item.name.toLowerCase();
+                  const searchTerm = value.toLowerCase();
+
+                  return searchTerm && name.startsWith(searchTerm);
+                })
+                .slice(0, 9)
+                .map((item) => (
+                  <div key={item._id} className={styles.serchitem}>
+                    <Link href={`/product/${item.slug.current}`}>
+                      <a onClick={() => setSearchOpen(false)}>
+                        <h2>{item.name}</h2>
+                        <p>₦{item.price.toLocaleString()}</p>
+                      </a>
+                    </Link>
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
       </nav>
     </>
   );

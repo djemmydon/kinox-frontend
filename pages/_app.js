@@ -7,11 +7,9 @@ import { BarLoader } from "react-spinners";
 import Image from "next/image";
 
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-
     setTimeout(() => {
       setLoading(false);
     }, 4000);
@@ -21,13 +19,8 @@ function MyApp({ Component, pageProps }) {
     <StateContext>
       {loading ? (
         <div className="loading">
-          <Image
-            src="/img/kinox RED.png"
-            height="100"
-            width="70"
-    
-          />
-          <br/>
+          <Image src="/img/kinox RED.png" height="100" width="70" />
+          <br />
           <BarLoader
             loading={loading}
             width="200px"
