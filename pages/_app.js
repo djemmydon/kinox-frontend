@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
     <StateContext>
       {loading ? (
         <div className="loading">
-          <Image src="/img/kinox RED.png" height="100" width="70" />
+          <Image src="/img/kinox RED.png" alt="Kinox Loading" height="100" width="70" />
           <br />
           <BarLoader
             loading={loading}
