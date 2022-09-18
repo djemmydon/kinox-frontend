@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 import React, { useReducer, useEffect } from "react";
 import { useStateContext } from "../../context/StateContex";
 import { getError } from "../../lib/err";
-import { PaystackButton } from "react-paystack";
 import styles from "../../component/styling/placeorder.module.scss";
+import PayWithFlutterwave from "../../component/Payment";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -49,7 +49,6 @@ function OrderScreen({ params }) {
 
   const publicKey = "pk_test_9286738c5dddd1dd2a33753aaccc3383eb2ee96a";
 
- 
   useEffect(() => {
     if (!userInfo) {
       router.push("/login");
@@ -71,20 +70,6 @@ function OrderScreen({ params }) {
     }
   }, [router, order, userInfo, orderId]);
 
-  const componentProps = {
-    email: userInfo.email,
-    amount: totalPrice * 100,
-    metadata: {
-      name: shippingAddress?.fullName,
-    },
-
-    publicKey,
-    text: "Pay Now",
-    onSuccess: async () => {
-      return router.push("/");
-    },
-    onClose: () => alert("Wait! Don't leave :("),
-  };
   const { id: orderId } = params;
 
   return (
@@ -121,7 +106,7 @@ function OrderScreen({ params }) {
             <div className={styles.productPreview}>
               <h2>Products</h2>
 
-              {orderItems.map((item, idx) => (
+              {orderItems?.map((item, idx) => (
                 <div className={styles.product} key={idx}>
                   <img src={item.image} />
                   <h1>{item.name}</h1>
@@ -140,7 +125,12 @@ function OrderScreen({ params }) {
             <h1>Products Price : ₦{totalPrice}</h1>
             <h1>Total Price : ₦{overRawPrice}</h1>
             <img src="/img/payment.png" alt="" />
-            <PaystackButton {...componentProps} />
+            <PayWithFlutterwave
+              total={totalPrice}
+              shipping={shippingAddress}
+              user={userInfo}
+              order={order}
+            />
 
             {/* <button onClick={handlePayment}>Checkout</button> */}
           </div>

@@ -15,7 +15,13 @@
 
       h2 {
         font-family: $font_big;
-        font-size: 5.5rem;
+        font-size: 3.5rem;
+        color: $white;
+      }
+
+      p{
+        font-family: $font_big;
+        font-size: 1rem;
         color: $white;
       }
     }

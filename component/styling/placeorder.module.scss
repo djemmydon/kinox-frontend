@@ -33,9 +33,9 @@
       a{
         background-color:black;
         border: 2px solid black;
-        padding: 3px 15px;
+        padding: 3px 30px;
         margin: 6.5px 0px;
-        font-size: 1.3rem;
+        font-size: 1rem;
         color: white;
         font-family: $font_small;
 
@@ -46,14 +46,14 @@
       }
 
       h5 {
-        font-size: 1.4rem;
+        font-size: 1rem;
         padding: 5px 0;
         font-family: $font_small;
         font-weight: 300;
       }
 
       span {
-        font-size: 1.4rem;
+        font-size: 1rem;
         padding: 5px 0;
         font-family: $font_small;
         font-weight: 600;
@@ -79,20 +79,21 @@
         border-radius: 10px;
 
         h1 {
-          font-size: 1rem;
+          font-size: 0.8rem;
           width: 150px;
           font-family: $font_small;
         }
 
         p {
-          font-size: 1.2rem;
+          font-size: 0.8rem;
           text-align: center;
           font-family: $font_small;
         }
 
         img {
           width: 15%;
-          height: 50%;
+          height: 50px;
+          object-fit: cover;
         }
       }
     }
@@ -113,7 +114,7 @@
       width: 100%;
       background-color: $light_red;
       color: $white;
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-family: $font_small;
       transition: 0.2s;
 
@@ -123,14 +124,15 @@
     }
 
     img {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: 50px;
       padding: 10px;
+      object-fit: cover;
     }
 
     
     h1{
-      font-size: 1.4rem;
+      font-size: 0.8rem;
       padding: 5px 0;
       font-family: $font_small;
       font-weight: 300;
