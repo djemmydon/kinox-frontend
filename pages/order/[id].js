@@ -47,8 +47,6 @@ function OrderScreen({ params }) {
   const { userInfo } = state;
   const { router } = useRouter();
 
-  const publicKey = "pk_test_9286738c5dddd1dd2a33753aaccc3383eb2ee96a";
-
   useEffect(() => {
     if (!userInfo) {
       router.push("/login");

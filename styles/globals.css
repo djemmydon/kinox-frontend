@@ -157,3 +157,13 @@ display:flex;
 .swiper-pagination-bullet {
   background: rgb(165, 0, 0) !important;
 }
+
+.main{
+  padding-top: 5rem;
+}
+
+@media screen and (max-width: 600px){
+  .main{
+    padding-top: 8.5rem;
+  }
+}

@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
           <Nav />
         </header>
 
-        <main>{children}</main>
+        <main className="main">{children}</main>
 
         <footer>
           <Footer />

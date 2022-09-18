@@ -152,7 +152,7 @@ function Nav() {
               </Link>
             </li>
             <li>
-              <Link href="/categories/male">
+              <Link href="/categories/female">
                 <a onClick={handleNav}>Female</a>
               </Link>
             </li>
