@@ -46,11 +46,11 @@ function HomeSlide() {
               </div>
 
               <div className={styles.home_slide_text}>
-                <h2>We make Your Design happen</h2>
+                <h2>We make it happen</h2>
 
                 <p>
-                  Dress up your mind and you’ll be able to make all sorts of
-                  fashion statements.
+                  Blend of creativity, Innovation and
+                  Class. 100% quality certainty and 100% timing and trust
                 </p>
                 <button>Contact Us</button>
               </div>
@@ -73,26 +73,6 @@ function HomeSlide() {
                   well-dressed is enough.
                 </p>
                 <button>Shop Now</button>
-              </div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide className={styles.home_slide_items}>
-            <div className={styles.home_slide_item}>
-              <div className={styles.home_slide_img}>
-                <img src="./img/kinox_ban.JPG" alt="" />
-
-                <div className={styles.fade_up}></div>
-              </div>
-
-              <div className={styles.home_slide_text}>
-                <h2>we are full of fashion</h2>
-                <p>
-                  {" "}
-                  Fashion is a language that creates itself in clothes to
-                  interpret reality.
-                </p>
-                <button>About Us</button>
               </div>
             </div>
           </SwiperSlide>

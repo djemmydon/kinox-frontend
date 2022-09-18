@@ -35,9 +35,8 @@ function ProductDetailShow({ product, style }) {
     setSizes(e.label);
   };
 
-
   const [disable, setDisable] = useState(false);
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
 
   const handleAddToCart = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
@@ -87,18 +86,12 @@ function ProductDetailShow({ product, style }) {
         <div className={styles.ProductDetailShowImageFlex}>
           <Swiper
             loop={true}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
             spaceBetween={1}
             className={styles.ProductDetailShowImage}
           >
-          
-              <SwiperSlide>
-                <img src={urlFor(product?.image && product?.image[index])} />
-              </SwiperSlide>
-        
+            <SwiperSlide>
+              <img src={urlFor(product?.image && product?.image[index])} />
+            </SwiperSlide>
           </Swiper>
 
           <Swiper
@@ -110,7 +103,11 @@ function ProductDetailShow({ product, style }) {
           >
             {product?.image.map((item, index) => (
               <SwiperSlide key={index} className={styles.extraImage}>
-                <img src={urlFor(item)} alt={urlFor(product?.image[0])}  onClick={() => setIndex(index)}/>
+                <img
+                  src={urlFor(item)}
+                  alt={urlFor(product?.image[0])}
+                  onClick={() => setIndex(index)}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -121,16 +118,14 @@ function ProductDetailShow({ product, style }) {
           <h5>₦{product?.price}.00</h5>
           <p>{product?.description}</p>
 
-
-          <div  style={style}>
+          <div style={style}>
             <Select
               placeholder={"Select Your Size"}
               options={size}
               onChange={sizeHandler}
-             
             />
           </div>
-{/* 
+          {/* 
           <select
             value={product.quantity}
             onChange={(e) => handleQuantity(product, e.target.value)}
@@ -155,5 +150,3 @@ function ProductDetailShow({ product, style }) {
 }
 
 export default ProductDetailShow;
-
-

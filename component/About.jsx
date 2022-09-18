@@ -8,6 +8,7 @@ function About() {
       <div className={styles.header}>
         <div className={styles.header_text}>
           <h2>About Us</h2>
+          <p>We are rebranding fashion, making quality affordable and bringing the world to Africa</p>
         </div>
       </div>
 

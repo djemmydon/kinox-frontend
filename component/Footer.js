@@ -3,11 +3,11 @@ import styles from "./styling/footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  AiOutlineMail,
-  AiOutlinePhone,
+  // AiOutlineMail,
+  // AiOutlinePhone,
   // AiFillTwitterCircle,
   AiOutlineInstagram,
-  AiOutlineLinkedin,
+  // AiOutlineLinkedin,
   AiOutlineFacebook,
   AiOutlineTwitter,
 } from "react-icons/ai";
@@ -32,7 +32,7 @@ function Footer() {
               <img src="/icons/mail.png" alt="" />
 
               <a href="mailto:kinoxapparel@gmail.com">
-                {" "}
+       
                 kinoxapparel@gmail.com
               </a>
             </p>
@@ -77,11 +77,11 @@ function Footer() {
         </div>
 
         <div className={styles.reserved}>
-          <p>© 2022 Kinox Aparel</p>
+          <p>© 2022 Kinox Apparel</p>
         </div>
 
         <div className={styles.icons}>
-          <a href="">
+          <a href="https://www.instagram.com/kinox_original/">
             <AiOutlineInstagram color="white" size={22} />
           </a>
           <a href="https://web.facebook.com/profile.php?id=100077430279506">

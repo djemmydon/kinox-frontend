@@ -106,7 +106,7 @@ function OrderReview() {
               <div className={styles.product} key={idx}>
                 <img src={item.image} />
                 <h1>{item.name}</h1>
-                <p>Price: ₦{item.price}</p>
+                <p>Price: ₦{item.price.toLocaleString()}</p>
                 <p>Quantity: {item.quantity}</p>
                 <p>Size: {item.size}</p>
               </div>
@@ -116,10 +116,10 @@ function OrderReview() {
 
         <div className={styles.checkout}>
           <h1>Total Quantity : {totalQuantity}</h1>
-          <h1>Shipping Fee: ₦{shippingFee}</h1>
+          <h1>Shipping Fee: ₦{shippingFee.toLocaleString()}</h1>
 
-          <h1>Products Price : ₦{totalPrice}</h1>
-          <h1>Total Price : ₦{overRawPrice}</h1>
+          <h1>Products Price : ₦{totalPrice.toLocaleString()}</h1>
+          <h1>Total Price : ₦{overRawPrice.toLocaleString()}</h1>
 
           <button onClick={handlePayment}>Order Now</button>
         </div>
