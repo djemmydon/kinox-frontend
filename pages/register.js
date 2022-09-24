@@ -46,9 +46,10 @@ function Register() {
            <Head>
         <title>Kinox | Sign Up</title>
         <meta
-          name="Kinox Apparel"
-          content="Kinox Apparel | Sign Up"
-        />
+            name="description"
+            content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
+            the world to Africa"
+          />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.flex_form}>

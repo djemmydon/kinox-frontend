@@ -10,9 +10,11 @@ export default function placeorder() {
            <Head>
         <title>Kinox | Place Order</title>
         <meta
-          name="Kinox Apparel"
-          content="Kinox Apparel | Place Order"
-        />
+            name="description"
+            content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
+            the world to Africa"
+          />
+          
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <OrderReview/>

@@ -29,6 +29,11 @@ export default function Home({ data, review }) {
         <title>Kinox | Home</title>
         <meta name="Kinox Apparel" content="Kinox Apparel | Home" />
         <link rel="icon" href="/favicon.ico" />
+        <meta
+            name="description"
+            content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
+            the world to Africa"
+          />
       </Head>
 
       <main>

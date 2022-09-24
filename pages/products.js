@@ -11,9 +11,10 @@ function Products({ products }) {
      <Head>
         <title>Kinox | Products</title>
         <meta
-          name="Kinox Apparel"
-          content="Kinox Apparel | Products"
-        />
+            name="description"
+            content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
+            the world to Africa"
+          />
         <link rel="icon" href="/favicon.ico" />
       </Head>
     
