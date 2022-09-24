@@ -24,7 +24,7 @@ export function Product({ data }) {
                   {
                     <img
                       src={urlFor(product.image[0])}
-                      alt="kinox product image"
+                      alt="kinox apparel product image"
                     />
                   }{" "}
                   <div className={styles.overlay}>
@@ -71,7 +71,7 @@ function AllProduct({ data }) {
                   {
                     <img
                       src={urlFor(product.image[0])}
-                      alt="kinox product image"
+                      alt="kinox apparel product image"
                     />
                   }{" "}
                   <div className={styles.overlay}>

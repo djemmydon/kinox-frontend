@@ -8,7 +8,10 @@ function About() {
       <div className={styles.header}>
         <div className={styles.header_text}>
           <h2>About Us</h2>
-          <p>We are rebranding fashion, making quality affordable and bringing the world to Africa</p>
+          <p>
+            We are rebranding fashion, making quality affordable and bringing
+            the world to Africa
+          </p>
         </div>
       </div>
 
@@ -50,13 +53,18 @@ function About() {
         </div>
 
         <div className={styles.vision_image}>
-          <img src="/img/vision/kinox_vison 1.jpg" alt="" />
+          <img
+            src="/img/vision/kinox_vison 1.jpg"
+            alt=" Kinox Apparel first and the best plug everybody would think of, and
+            patronise when it comes to anything fashion. "
+          />
         </div>
 
         <div className={styles.vision_image}>
           <img
             src="/img/vision/kinox_vison.jpg"
-            alt=""
+            alt=" Kinox Apparel first and the best plug everybody would think of, and
+            patronise when it comes to anything fashion."
             className={styles.img}
           />
         </div>

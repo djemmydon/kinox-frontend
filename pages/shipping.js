@@ -58,46 +58,76 @@ function Shipping() {
       })
     );
 
-    router.push("/placeorder")
+    router.push("/placeorder");
   };
 
   return (
+    <>
+         <div className="headings">
+            <h1>Shipping Information</h1>
+          </div>
+
+          <div className="warning">
+            <span>Please Note that these are the information for your orders </span>
+            
+          </div>
     <main className={styles.container}>
+       
       <form onSubmit={handleSubmit(HandleSubmitForm)}>
         <div className={styles.formInput}>
           <label>Full Name</label>
           <input type="text" {...register("fullName", { required: true })} />
-          {errors.fullName?.type === "required" && "email is required"}
+          <span>
+            {" "}
+            {errors.fullName?.type === "required" && "email is required"}
+          </span>
         </div>
 
         <div className={styles.formInput}>
           <label>Phone Number</label>
           <input type="tel" {...register("phone", { required: true })} />
-          {errors.phone?.type === "required" && "Password name is required"}
+          <span>
+            {" "}
+            {errors.phone?.type === "required" && "Password name is required"}
+          </span>
         </div>
 
         <div className={styles.formInput}>
           <label>Address 1</label>
           <textarea {...register("address1", { required: true })} />
-          {errors.address1?.type === "required" && "Password name is required"}
+          <span>
+            {" "}
+            {errors.address1?.type === "required" &&
+              "Password name is required"}
+          </span>
         </div>
 
         <div className={styles.formInput}>
           <label>Address 2</label>
           <textarea type="text" {...register("address2", { required: true })} />
-          {errors.address2?.type === "required" && "Password name is required"}
+          <span>
+            {" "}
+            {errors.address2?.type === "required" &&
+              "Password name is required"}
+          </span>
         </div>
 
         <div className={styles.formInput}>
           <label>City</label>
           <input type="text" {...register("city", { required: true })} />
-          {errors.city?.type === "required" && "Password name is required"}
+          <span>
+            {" "}
+            {errors.city?.type === "required" && "Password name is required"}
+          </span>
         </div>
 
         <div className={styles.formInput}>
           <label>Country</label>
           <input type="text" {...register("country", { required: true })} />
-          {errors.country?.type === "required" && "Password name is required"}
+          <span>
+            {" "}
+            {errors.country?.type === "required" && "Password name is required"}
+          </span>
         </div>
         <div className={styles.formInput}>
           <label>Zip Code</label>
@@ -111,6 +141,7 @@ function Shipping() {
         <button type="submit">Submit</button>
       </form>
     </main>
+    </>
   );
 }
 

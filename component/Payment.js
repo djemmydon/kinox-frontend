@@ -2,7 +2,7 @@ import React from "react";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import axios from "axios";
 
-export default function PayWithFlutterwave({ total, shipping, user, order }) {
+export default function PayWithFlutterwave({ total, shipping, user, setPay }) {
   const config = {
     public_key: process.env.NEXT_PUBLIC_FLUTTERWAVE_KEY,
     tx_ref: Date.now(),
@@ -29,7 +29,7 @@ export default function PayWithFlutterwave({ total, shipping, user, order }) {
           handleFlutterPayment({
             callback: (response) => {
               console.log(response);
-              // closePaymentModal() // this will close the modal programmatically
+              setPay(true)
               //   axios
               //     .put(`/api/orders/${order._id}/pay`, response)
               //     .then((res) => {

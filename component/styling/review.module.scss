@@ -36,7 +36,9 @@
     h4{
         color: white;
         font-family: $font_small;
-        padding: 0.5rem
+        padding: 0.5rem;
+        font-size:1rem;
+        font-weight: 400;
     }
 
     p{
@@ -45,7 +47,8 @@
         
         span{
         font-family: $font_small;
-            color: #f50000;
+            color: #ffadad;
+            font-style: italic;
         }
     }
   }

@@ -105,7 +105,10 @@ function ProductDetailShow({ product, style }) {
               <SwiperSlide key={index} className={styles.extraImage}>
                 <img
                   src={urlFor(item)}
-                  alt={urlFor(product?.image[0])}
+                  alt={
+                    urlFor(product?.image[0]) ||
+                    "You don’t even have to be generically good-looking. Beingwell-dressed is enough"
+                  }
                   onClick={() => setIndex(index)}
                 />
               </SwiperSlide>

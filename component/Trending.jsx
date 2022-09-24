@@ -20,7 +20,7 @@ export function Trending({data}) {
                   {
                     <img
                       src={urlFor(product.image[0])}
-                      alt="kinox product image"
+                      alt="kinox apparel product image"
                     />
                   }{" "}
                   <div className={styles.overlay}>
