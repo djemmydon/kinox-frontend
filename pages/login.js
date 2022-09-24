@@ -43,10 +43,12 @@ function Login() {
     <div className={styles.container}>
            <Head>
         <title>Kinox | Login</title>
-        <meta
-          name="Kinox Apparel"
-          content="Kinox Apparel | Login"
-        />
+        
+          <meta
+            name="description"
+            content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
+            the world to Africa"
+          />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.flex_form}>
