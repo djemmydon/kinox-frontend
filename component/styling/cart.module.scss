@@ -70,7 +70,7 @@
   h1 {
     font-size: 0.8rem;
     color: $dark_red;
-    font-family: $font-big;
+    font-family: $font-small;
   }
   img {
     height: 5rem;
@@ -107,14 +107,14 @@
     height: 100%;
     button {
       background-color: $white;
-      height: 35px;
-      width: 15rem;
+      height: 30px;
+      width: 10rem;
       color: $dark_red;
       font-family: $font_small;
-      font-size: 1.2rem;
-      border-radius: 4px;
+      font-size: 1rem;
+      border-radius: 400px;
       transition: all 0.2s;
-      border: 2px solid black;
+      border: 1px solid black;
 
       &:hover {
         color: $white;

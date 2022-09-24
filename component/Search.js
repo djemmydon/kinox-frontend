@@ -10,7 +10,7 @@ function Search({items:{image, name, price, slug}}) {
     <div className={styles.item}>
       <Link href={`/product/${slug.current}`}>
         <a className={styles.icon}>
-          {<img src={urlFor(image[0])} alt="kinox product image" />}{" "}
+          {<img src={urlFor(image[0])} alt="kinox apparel product image" />}{" "}
           <div className={styles.overlay}>
             <AiFillEye className={styles.icons} size={30} />
           </div>

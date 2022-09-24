@@ -25,11 +25,11 @@ function Footer() {
           <div className={styles.about}>
             <h4>Contact Us</h4>
             <p>
-              <img src="/icons/phone.png" alt="" />
+              <img src="/icons/phone.png" alt="Kinox Apparel on Social Media" />
               <a href="tel:+2347025235337">+2347025235337</a>
             </p>
             <p>
-              <img src="/icons/mail.png" alt="" />
+              <img src="/icons/mail.png" alt="Kinox Apparel on Social Media" />
 
               <a href="mailto:kinoxapparel@gmail.com">
        

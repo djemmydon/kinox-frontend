@@ -39,7 +39,11 @@ function HomeSlide() {
           <SwiperSlide className={styles.home_slide_items}>
             <div className={styles.home_slide_item}>
               <div className={styles.home_slide_img}>
-                <img src="./img/kinox_ban.JPG" alt="" />
+                <img
+                  src="./img/kinox_ban.JPG"
+                  alt="  Blend of creativity, Innovation and
+                  Class. 100% quality certainty and 100% timing and trust are in Kinox Apparel"
+                />
 
                 {/* <Image src="./img/kinox_ban.JPG"  width="100%" height="100%"/> */}
                 <div className={styles.fade_up}></div>
@@ -49,8 +53,8 @@ function HomeSlide() {
                 <h2>We make it happen</h2>
 
                 <p>
-                  Blend of creativity, Innovation and
-                  Class. 100% quality certainty and 100% timing and trust
+                  Blend of creativity, Innovation and Class. 100% quality
+                  certainty and 100% timing and trust
                 </p>
                 <button>Contact Us</button>
               </div>
@@ -60,7 +64,11 @@ function HomeSlide() {
           <SwiperSlide className={styles.home_slide_items}>
             <div className={styles.home_slide_item}>
               <div className={styles.home_slide_img}>
-                <img src="./img/kinox_ban2.JPG" alt="" />
+                <img
+                  src="./img/kinox_ban2.JPG"
+                  alt="You don’t even have to be generically good-looking. Being
+                  well-dressed is enough. Kinox Apparel"
+                />
 
                 <div className={styles.fade_up}></div>
               </div>

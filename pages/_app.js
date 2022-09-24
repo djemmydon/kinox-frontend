@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { BarLoader } from "react-spinners";
 import Image from "next/image";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
@@ -17,9 +18,15 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <StateContext>
+           <Head>
+        <title>Kinox Apparel</title>
+        <meta name="Kinox Apparel" content="Kinox Apparel" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       {loading ? (
         <div className="loading">
-          <Image src="/img/kinox RED.png" alt="Kinox Loading" height="100" width="70" />
+          <Image src="/img/kinox RED.png" alt="Kinox apparel Logo Loading" height="100" width="70" />
           <br />
           <BarLoader
             loading={loading}

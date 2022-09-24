@@ -55,7 +55,7 @@ function Cart(props) {
         <div className={styles.empty_cart}>
           <h1>Your Shopping Cart Is Empty</h1>
           <div>
-            <img src="/img/icons8-buy.gif" alt="" />
+            <img src="/img/icons8-buy.gif" alt="Kinox Apparel Shopping cart" />
           </div>
 
           <Link href="/products">
@@ -68,7 +68,7 @@ function Cart(props) {
         cartItems.map((item, index) => (
           <div key={index} className={styles.ProductDetail}>
             <div>
-              <img src={item.image} alt="" />
+              <img src={item.image} alt="Kinox Apparel Product Image" />
             </div>
 
             <div>
@@ -105,7 +105,7 @@ function Cart(props) {
           <div className={styles.quantity}>
             <h1>
               Total Price: ₦
-              {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}{" "}
+              {cartItems.reduce((a, c) => a + c.quantity * c.price, 0).toLocaleString()}{" "}
             </h1>
             <h1>
               Total Quantity:{cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -114,15 +114,7 @@ function Cart(props) {
           </div>
 
           <div className={styles.button}>
-            <button
-              onClick={() => {
-                router.push("/shipping");
-              }}
-              onMouseUp={props.data}
-              className={styles.button_cart}
-            >
-            Show Cart
-            </button>
+            
             <button
               onClick={() => {
                 router.push("/shipping");
