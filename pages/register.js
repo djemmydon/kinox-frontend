@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { useStateContext } from "../context/StateContex";
 import styles from "../component/styling/register.module.scss";
 import { getError } from "../lib/err";
-import Link from "next/link"
+import Link from "next/link";
 import Head from "next/head";
 
 function Register() {
@@ -43,13 +43,13 @@ function Register() {
 
   return (
     <div className={styles.container}>
-           <Head>
+      <Head>
         <title>Kinox | Sign Up</title>
         <meta
-            name="description"
-            content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
+          name="description"
+          content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
             the world to Africa"
-          />
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.flex_form}>
@@ -71,7 +71,7 @@ function Register() {
               <input {...register("lastName", { required: true })} />
               <span>
                 {errors.lastName?.type === "required" &&
-                  "Last name is required" }
+                  "Last name is required"}
               </span>
             </div>
 
@@ -97,7 +97,8 @@ function Register() {
 
             <button type="submit">Submit</button>
           </form>
-          <h4>Already has an account  
+          <h4>
+            Already has an account
             <Link href="/login">Login here</Link>
           </h4>
         </div>

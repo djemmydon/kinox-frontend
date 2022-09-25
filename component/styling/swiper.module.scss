@@ -34,13 +34,14 @@
       h2 {
         font-size: 4rem;
         font-weight: 700;
-
+        text-shadow: -1px 0px 0px rgba(115, 150, 150, 1);
         text-transform: uppercase;
       }
 
       p {
         font-size: 1rem;
         padding: 10px 0;
+        font-family: $font_small;
       }
 
       button {

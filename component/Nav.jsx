@@ -11,7 +11,6 @@ import {
   AiOutlineUser,
   AiOutlineLogin,
   AiOutlineUserAdd,
-  AiOutlineUsergroupDelete,
 } from "react-icons/ai";
 import styles from "./styling/nav.module.scss";
 import { useStateContext } from "../context/StateContex";
@@ -70,7 +69,7 @@ function Nav() {
 
             <div className={styles.nav_icon_menu}>
               <AiOutlineAlignRight
-                size={30}
+                size={25}
                 color="white"
                 onClick={handleNav}
               />
@@ -111,6 +110,12 @@ function Nav() {
                 )}
               </ul>
             </div>
+            <AiOutlineSearch
+              onClick={() => setSearchOpen(!searchOpen)}
+              size={30}
+              color="white"
+              className={styles.search_mobile}
+            />
 
             <div className={styles.cart}>
               <div className={styles.cart_box} onClick={handleClose}>
@@ -157,7 +162,7 @@ function Nav() {
               </Link>
             </li>
             <li>
-              <Link href="/about">
+              <Link href="/about-us">
                 <a onClick={handleNav}>About Us</a>
               </Link>
             </li>
@@ -205,11 +210,22 @@ function Nav() {
             }
           >
             <div className={styles.serchBody}>
-              <AiOutlineClose
-                className={styles.nav_cancel}
-                size={20}
-                onClick={() => setSearchOpen(false)}
-              />
+              <div className={styles.search_inside}>
+                <AiOutlineClose
+                  className={styles.nav_cancel}
+                  size={20}
+                  onClick={() => setSearchOpen(false)}
+                />
+
+                <input
+                  type="text"
+                  value={value}
+                  id=""
+                  placeholder="Search here..."
+                  onChange={OnChangeHandler}
+                />
+              </div>
+
               {data
                 .filter((item) => {
                   const name = item.name.toLowerCase();

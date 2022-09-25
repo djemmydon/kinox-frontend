@@ -34,7 +34,7 @@ export function Trending({data}) {
                 </div>
 
                 <div className={styles.cart_button}>
-                  <p>{product.price.toLocaleString("en-US")}</p>
+                  <p>₦{product.price.toLocaleString("en-US")}</p>
 
                   <button>View Product</button>
                 </div>
