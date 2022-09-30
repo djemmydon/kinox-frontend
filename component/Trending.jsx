@@ -12,7 +12,7 @@ export function Trending({data}) {
   return (
   
        <div className={styles.productsBody} >
-        {data.map((product) => (
+        {data.sort((a,b) => b._updatedAt.localeCompare(a._updatedAt)).slice(0, 4).map((product) => (
           <div className={styles.item} key={product._id}>
             <Link href={`/product/${product.slug.current}`}>
               <a className={styles.icon}>

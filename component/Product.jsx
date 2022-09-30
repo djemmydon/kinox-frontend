@@ -11,12 +11,14 @@ export function Product({ data }) {
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };
+
+  
   const router = useRouter();
 
   return (
     <div>
       <div className={styles.productsBody}>
-        {data.map((product) => (
+        {data.sort((a,b) => b._updatedAt.localeCompare(a._updatedAt)).map((product) => (
           <div className={styles.item} key={product._id}>
             <Link href={`/product/${product.slug.current}`}>
               <a className={styles.icon}>
@@ -63,7 +65,7 @@ function AllProduct({ data }) {
   return (
     <div>
       <div className={styles.productsBody}>
-        {data.map((product) => (
+        {data.sort((a,b) => b._updatedAt.localeCompare(a._updatedAt)).map((product) => (
           <div className={styles.item} key={product._id}>
             <Link href={`/product/${product.slug.current}`}>
               <a className={styles.icon}>
