@@ -18,9 +18,7 @@ function Products({ products }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     
-<div className='headings'>
-        <h1>Shop</h1>
-      </div>
+
    
           <AllProduct data={products} />
 

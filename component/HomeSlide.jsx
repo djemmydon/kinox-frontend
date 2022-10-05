@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const squareVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
@@ -17,6 +18,8 @@ SwiperCore.use([Autoplay]);
 function HomeSlide() {
   const controls = useAnimation();
   const [ref, inView] = useInView();
+  const router = useRouter();
+
 
   useEffect(() => {
     if (inView) {
@@ -56,7 +59,7 @@ function HomeSlide() {
                   Blend of creativity, Innovation and Class. 100% quality
                   certainty and 100% timing and trust
                 </p>
-                <button>Contact Us</button>
+                <button onClick={() => router.push("/contact")}>Contact Us</button>
               </div>
             </div>
           </SwiperSlide>
@@ -80,7 +83,7 @@ function HomeSlide() {
                   You don’t even have to be generically good-looking. Being
                   well-dressed is enough.
                 </p>
-                <button>Shop Now</button>
+                <button onClick={() => router.push("/products")}>Shop Now</button>
               </div>
             </div>
           </SwiperSlide>

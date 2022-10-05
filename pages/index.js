@@ -43,6 +43,8 @@ export default function Home({ data, review }) {
           title="Are you are brand owner ?"
           title2=" You want to buy in bulk ?"
           header="Click on the button below to talk with the customer care representative"
+          link="https://wa.me/+2347025235337"
+          button="Contact Us Here"
         />
         <HomeSlide />
 

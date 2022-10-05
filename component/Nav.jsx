@@ -94,16 +94,17 @@ function Nav() {
               <ul>
                 {userInfo ? (
                   <li>
-                    <AiOutlineUser color="white" size={25} />
+                    <AiOutlineUser color="white" size={22} style={{marginLeft:"10px"}} />
+                    <span>{userInfo.firstName}</span>
                   </li>
                 ) : (
                   <>
                     <li onClick={() => router.push("/login")}>
-                      <AiOutlineLogin color="white" size={25} />
+                      <AiOutlineLogin color="white" size={22} style={{marginLeft:"10px"}}  />
                       <span>Login</span>
                     </li>
                     <li onClick={() => router.push("/register")}>
-                      <AiOutlineUserAdd color="white" size={25} />
+                      <AiOutlineUserAdd color="white" size={22} style={{marginLeft:"10px"}}  />
                       <span>Register</span>
                     </li>
                   </>
@@ -112,14 +113,14 @@ function Nav() {
             </div>
             <AiOutlineSearch
               onClick={() => setSearchOpen(!searchOpen)}
-              size={30}
+              size={25}
               color="white"
               className={styles.search_mobile}
             />
 
             <div className={styles.cart}>
               <div className={styles.cart_box} onClick={handleClose}>
-                <AiOutlineShoppingCart color="white" size={25} />
+                <AiOutlineShoppingCart color="white" size={23} />
                 <div className={styles.cart_count}>
                   <span>{cart.cartItems.length}</span>
                 </div>
@@ -167,7 +168,7 @@ function Nav() {
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/contact">
                 <a onClick={handleNav}>Contact Us</a>
               </Link>
             </li>

@@ -17,7 +17,7 @@ function HomePopPup(props) {
         <h2>{props.title2}</h2>
         <p>{props.header}</p>
         <div><button onClick={props.popUp}>
-          <Link href="https://wa.me/+2347025235337">Contact Us Here</Link>
+          <Link href={props.link}>{props.button}</Link>
         </button></div>
         
       </div>
