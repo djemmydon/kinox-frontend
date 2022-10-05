@@ -4,7 +4,7 @@ import { StateContext } from "../context/StateContex";
 import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { BarLoader } from "react-spinners";
-import Image from "next/image";
+// import Image from "next/image";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
@@ -30,8 +30,8 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       {loading ? (
-        <div className="loading">
-          <Image src="/img/kinox RED.png" alt="Kinox apparel Logo Loading" height="100" width="70" />
+        <div className="loading" style={{width:"100%"}}>
+          <img src="/img/kinox RED.png" alt="Kinox apparel Logo Loading" style={{width: "50px",}} />
           <br />
           <BarLoader
             loading={loading}

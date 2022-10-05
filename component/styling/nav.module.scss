@@ -41,7 +41,6 @@
     }
     .nav_top {
       display: flex;
-      padding: 0 10px;
       align-items: center;
       justify-content: space-between;
       @media screen and (max-width: 600px) {
@@ -123,8 +122,11 @@
 
     .nav_icon {
       padding: 10px;
+      display:flex;
+      align-items:center;
       @media screen and (max-width: 700px) {
-        display: none;
+      padding-top: 20px;
+        
       }
       ul {
         display: flex;
@@ -167,13 +169,17 @@
           top: -8px;
           right: 6px;
           background-color: red;
-          padding: 0.5px 7px;
+          // padding: 0.5px 7px;
           border-radius: 100px;
+          width:18px;
+          max-height: 100%;
+          margin: 1px 3px;
 
           span {
             font-size: 0.8rem;
             font-family: $font_small;
             color: white;
+            margin: 0 6px;
           }
         }
 

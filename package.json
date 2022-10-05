@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://kinoxoriginal.com",
-
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
-
   "dependencies": {
+    "@formspree/react": "^2.4.0",
     "@paystack/inline-js": "^2.12.3",
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
