@@ -9,10 +9,10 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-const squareVariants = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-  hidden: { opacity: 0, scale: 0 },
-};
+// const squareVariants = {
+//   visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+//   hidden: { opacity: 0, scale: 0 },
+// };
 SwiperCore.use([Autoplay]);
 
 function HomeSlide() {
