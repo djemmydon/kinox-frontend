@@ -18,7 +18,7 @@ function SuccessPopUp(props) {
         <p>{props.header}</p>
         <div>
           <button onClick={props.popUp}>
-            <Link href="https://wa.me/+2347025235337">Contact Us Here</Link>
+            <Link href="https://wa.me/+2347025235337">Contact Uss Here</Link>
           </button>
         </div>
       </div>
