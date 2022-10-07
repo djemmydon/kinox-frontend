@@ -16,10 +16,11 @@ function HomePopPup(props) {
         </div>
         <h2>{props.title2}</h2>
         <p>{props.header}</p>
-        <div><button onClick={props.popUp}>
-          <Link href={props.link}>{props.button}</Link>
-        </button></div>
-        
+        <div>
+          <button onClick={props.popUp}>
+            <Link href={props.link}>{props.button}</Link>
+          </button>
+        </div>
       </div>
     </main>
   ) : (
