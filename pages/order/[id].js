@@ -6,6 +6,7 @@ import { useStateContext } from "../../context/StateContex";
 import { getError } from "../../lib/err";
 import styles from "../../component/styling/placeorder.module.scss";
 import PayWithFlutterwave from "../../component/Payment";
+import OrderPaid from "../../component/pop/OrderPaid";
 // import { IoCheckmarkDoneCircle } from "react-icons/io";
 function reducer(state, action) {
   switch (action.type) {
@@ -121,7 +122,7 @@ function OrderScreen({ params }) {
 
             <h1>Products Price : ₦{totalPrice}</h1>
             <h1>Total Price : ₦{overRawPrice}</h1>
-            {pay === false && (
+           
               <PayWithFlutterwave
                 total={totalPrice}
                 shipping={shippingAddress}
@@ -129,27 +130,12 @@ function OrderScreen({ params }) {
                 order={order}
                 setPay={setPay}
               />
-            )}
-
-            {pay === true && (
-              <div className={styles.delivery}>
-                <img
-                  src="/icons/rider.gif"
-                  alt="Kinox Apparel Delivery In less than 5 working days"
-                />
-
-                <p>
-                  {/* <IoCheckmarkDoneCircle color="green" size={10} /> */}
-                  Payment Successul
-                </p>
-                <span>Your Order Irt </span>
-                <h1 style={{ fontSize: "15px" }}>Order {orderId}</h1>
-              </div>
-            )}
-
-            {/* <button onClick={handlePayment}>Checkout</button> */}
+       
           </div>
         </div>
+
+              {pay &&   <OrderPaid pay={pay}  src="/icons/rider.gif" /> }
+      
       </main>
     </div>
   );
