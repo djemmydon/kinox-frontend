@@ -35,6 +35,8 @@ function OrderReview() {
     }
   }, [cartItems, router]);
 
+
+  console.log(cartItems)
   const handlePayment = async () => {
     try {
       const { data } = await axios.post(

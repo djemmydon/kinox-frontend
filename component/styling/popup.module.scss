@@ -8,8 +8,8 @@
   display: flex;
   justify-items: center;
   display: inline;
-top: 0;
-right: 0;
+  top: 0;
+  right: 0;
   background-color: rgba(0, 0, 0, 0.459);
   height: 100%;
   width: 100%;
@@ -23,11 +23,11 @@ right: 0;
     width: 350px;
     height: 200px;
     display: inline-block;
-    padding:50px 0px;
+    padding: 50px 0px;
     font-size: $font_small;
     color: black !important;
     animation: popOut 0.3s;
-    transition: all 0.4s ease-in-out; 
+    transition: all 0.4s ease-in-out;
     position: relative;
     border-radius: 10px;
     @media screen and (max-width: 500px) {
@@ -47,7 +47,37 @@ right: 0;
       font-weight: 800;
     }
 
- 
+    p {
+      font-size: 0.8rem;
+      font-family: $font_small;
+      color: $black;
+      font-weight: 550;
+      margin-top: 10px;
+    }
+  }
+
+  .popSize {
+    background-color: white;
+    margin-top: 10rem;
+    width: 500px;
+    height: 400px;
+    display: inline-block;
+    padding: 50px 0px;
+    font-size: $font_small;
+    color: black !important;
+    animation: popOut 0.3s;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    border-radius: 10px;
+    @media screen and (max-width: 500px) {
+      width: 300px;
+      height: 400px;
+      padding: 60px 20px;
+
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
 
     p {
       font-size: 0.8rem;
