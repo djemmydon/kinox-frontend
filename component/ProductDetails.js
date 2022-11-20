@@ -119,7 +119,7 @@ function ProductDetailShow({ product, style }) {
 
         <div className={styles.ProductDetailShowText}>
           <h4>{product?.name}</h4>
-          <h5>₦{product?.price.toLocaleString()}.00</h5>
+          <h5>₦{product?.price.toLocaleString()}.00  {product?.price_before && <span>₦{product?.price_before?.toLocaleString("en-US")} </span>}</h5>
           <p>{product?.description}</p>
 
           <div style={style}>

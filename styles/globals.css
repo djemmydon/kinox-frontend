@@ -196,3 +196,13 @@ body {
 
   font-weight: 500;
 }
+
+.gif_design{
+  height: 100%;
+  width: 100%;
+}
+.gif_design img{
+  height: 100%;
+  width: 100%;
+
+}

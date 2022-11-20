@@ -72,6 +72,15 @@
         font-size: 1.3rem;
         font-family: $font_small;
         padding: 10px 0px;
+
+        span{
+          font-size: 1rem;
+          font-family: $font_small;
+          padding: 10px 0px;
+          color: rgb(175, 170, 170);
+          text-decoration: line-through;
+          font-weight: 300;
+        }
       }
 
       p {

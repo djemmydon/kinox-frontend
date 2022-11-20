@@ -49,7 +49,7 @@ export default function Home({ data, review }) {
         <HomeSlide />
 
         <div className="headings">
-          <h1>New in Stored</h1>
+          <h1>New in Store</h1>
         </div>
 
         <Product data={data} />
@@ -60,9 +60,16 @@ export default function Home({ data, review }) {
           </button>
         </div>
 
+        <div className="gif_design">
+         
+          <img src="/img/black_friday.jpg " alt="" />
+        </div>
+
         <div className="headings">
           <h1>Customers Reviews</h1>
         </div>
+
+    
 
         <Review data={review} />
 
@@ -82,7 +89,7 @@ export const getServerSideProps = async () => {
   const review = await client.fetch(reviewQuery);
   return {
     props: {
-      data: products.splice(0, 4),
+      data: products.splice(0, 8),
       review,
       categories,
     },

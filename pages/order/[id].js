@@ -68,7 +68,7 @@ function OrderScreen({ params }) {
     if (!order._id) {
       fetchOrder();
     }
-  }, [router, order, userInfo, orderId]);
+  }, [router, order, userInfo]);
 
   const { id: orderId } = params;
 

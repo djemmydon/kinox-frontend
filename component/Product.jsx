@@ -39,7 +39,7 @@ export function Product({ data }) {
                 </div>
 
                 <div className={styles.cart_button}>
-                  <p>₦{product.price.toLocaleString("en-US")}</p>
+                  <p>₦{product.price.toLocaleString("en-US")} {product?.price_before && <span>₦{product?.price_before?.toLocaleString("en-US")} </span>}</p>
 
                   <button
                     onClick={() => router.push(`/product/${product.slug.current}`)}
@@ -52,6 +52,8 @@ export function Product({ data }) {
           </div>
         ))}
       </div>
+
+ 
     </div>
   );
 }
@@ -68,7 +70,7 @@ function AllProduct({ data }) {
         {data.sort((a,b) => b._updatedAt.localeCompare(a._updatedAt)).map((product) => (
           <div className={styles.item} key={product._id}>
             <Link href={`/product/${product.slug.current}`}>
-              <a className={styles.icon}>
+              <div className={styles.icon}>
                 <div className={styles.image}>
                   {
                     <img
@@ -85,7 +87,7 @@ function AllProduct({ data }) {
                   <h4>{truncate(product.name, 30)}</h4>
 
                   <div className={styles.cart_button}>
-                    <p>₦{product.price.toLocaleString("en-US")}</p>
+                    <p>₦{product.price.toLocaleString("en-US")}  {product?.price_before && <span>₦{product?.price_before?.toLocaleString("en-US")} </span>}</p>
 
                     <button
                       onClick={() => router.push(`/product/${product.slug.current}`)}
@@ -94,11 +96,13 @@ function AllProduct({ data }) {
                     </button>
                   </div>
                 </div>
-              </a>
+              </div>
             </Link>
           </div>
         ))}
       </div>
+
+    
     </div>
   );
 }

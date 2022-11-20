@@ -61,6 +61,14 @@
         color: #f50000;
         font-weight: 700;
         font-family: $font_small;
+
+        span{
+          color: rgb(168, 165, 165);
+        font-size: 12px;
+        text-decoration: line-through;
+        font-weight: 300;
+
+        }
       }
     }
 
@@ -70,6 +78,14 @@
         color: #f50000;
         font-weight: 700;
         font-family: $font_small;
+
+        span{
+          color: rgb(168, 165, 165);
+        font-size: 12px;
+        text-decoration: line-through;
+        font-weight: 300;
+
+        }
       }
 
       display: flex;
