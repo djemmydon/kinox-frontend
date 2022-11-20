@@ -3,7 +3,10 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+module.exports = {
+  webpack5: false,
+  nextConfig
+};
 
 module.exports = {
   env: {

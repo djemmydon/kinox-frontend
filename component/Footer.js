@@ -18,7 +18,7 @@ function Footer() {
       <div className={styles.footer_grid}>
         <div className={styles.grid}>
           <Link href="/" className={styles.name}>
-            <Image src="/img/kinox_white.png" width={40} height={50} />
+            <Image src="/img/kinox_white.png" alt="Kinox logo" width={40} height={50} />
           </Link>
         </div>
         <div className={styles.grid}>
@@ -26,15 +26,15 @@ function Footer() {
             <h4>Contact Us</h4>
             <p>
               <img src="/icons/phone.png" alt="Kinox Apparel on Social Media" />
-              <a href="tel:+2347025235337">+2347025235337</a>
+              <Link href="tel:+2347025235337">+2347025235337</Link>
             </p>
             <p>
               <img src="/icons/mail.png" alt="Kinox Apparel on Social Media" />
 
-              <a href="mailto:kinoxapparel@gmail.com">
+              <Link href="mailto:kinoxapparel@gmail.com">
        
                 kinoxapparel@gmail.com
-              </a>
+              </Link>
             </p>
           </div>
         </div>
@@ -42,13 +42,13 @@ function Footer() {
           <h4>Navigate</h4>
           <div className={styles.grid_items}>
             <Link href="/">
-              <a>Home</a>
+              Home
             </Link>
             <Link href="/products">
-              <a>Products</a>
+              Products
             </Link>
             <Link href="/about">
-              <a>About</a>
+              About
             </Link>
           </div>
         </div>
@@ -57,13 +57,13 @@ function Footer() {
 
           <div className={styles.grid_items}>
             <Link href="/#">
-              <a>Contact</a>
+              Contact
             </Link>
             <Link href="/#">
-              <a>FAQ</a>
+              FAQ
             </Link>
             <Link href="/register">
-              <a>Sigin Up</a>
+              Sigin Up
             </Link>
           </div>
         </div>
@@ -72,7 +72,7 @@ function Footer() {
       <div className={styles.iconsDeveloper}>
         <div className={styles.developer}>
           <span>
-            Developed by <a href="https://wa.me/+2348182377321">Peculiar</a>
+            Developed by <Link href="https://wa.me/+2348182377321">Peculiar</Link>
           </span>
         </div>
 
@@ -81,15 +81,15 @@ function Footer() {
         </div>
 
         <div className={styles.icons}>
-          <a href="https://www.instagram.com/kinox_original/">
+          <Link href="https://www.instagram.com/kinox_original/">
             <AiOutlineInstagram color="white" size={22} />
-          </a>
-          <a href="https://web.facebook.com/profile.php?id=100077430279506">
+          </Link>
+          <Link href="https://web.facebook.com/profile.php?id=100077430279506">
             <AiOutlineFacebook color="white" size={22} />
-          </a>
-          <a href="https://twitter.com/kinoxapparel">
+          </Link>
+          <Link href="https://twitter.com/kinoxapparel">
             <AiOutlineTwitter color="white" size={22} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

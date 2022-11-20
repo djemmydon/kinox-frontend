@@ -63,7 +63,7 @@ function Nav() {
           <div className={styles.nav_top}>
             <div className={styles.nav_logo}>
               <Link href="/">
-                <Image src="/img/kinox_white.png" width={40} height={50} />
+                <Image src="/img/kinox_white.png" alt="Kinox Apparel Image" width={40} height={50} />
               </Link>
             </div>
 
@@ -144,32 +144,32 @@ function Nav() {
           <ul>
             <li>
               <Link href="/">
-                <a onClick={handleNav}>Home</a>
+                <p onClick={handleNav}>Home</p>
               </Link>
             </li>
             <li>
               <Link href="/products">
-                <a onClick={handleNav}>Shop</a>
+                <p onClick={handleNav}>Shop</p>
               </Link>
             </li>
             <li>
               <Link href="/categories/male">
-                <a onClick={handleNav}>Male</a>
+                <p onClick={handleNav}>Male</p>
               </Link>
             </li>
             <li>
               <Link href="/categories/female">
-                <a onClick={handleNav}>Female</a>
+                <p onClick={handleNav}>Female</p>
               </Link>
             </li>
             <li>
               <Link href="/about-us">
-                <a onClick={handleNav}>About Us</a>
+                <p onClick={handleNav}>About Us</p>
               </Link>
             </li>
             <li>
               <Link href="/contact">
-                <a onClick={handleNav}>Contact Us</a>
+                <p onClick={handleNav}>Contact Us</p>
               </Link>
             </li>
           </ul>
@@ -238,10 +238,10 @@ function Nav() {
                 .map((item) => (
                   <div key={item._id} className={styles.serchitem}>
                     <Link href={`/product/${item.slug.current}`}>
-                      <a onClick={() => setSearchOpen(false)}>
+                      <p onClick={() => setSearchOpen(false)}>
                         <h2>{item.name}</h2>
                         <p>₦{item.price.toLocaleString()}</p>
-                      </a>
+                      </p>
                     </Link>
                   </div>
                 ))}

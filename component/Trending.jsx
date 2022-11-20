@@ -15,7 +15,7 @@ export function Trending({data}) {
         {data.sort((a,b) => b._updatedAt.localeCompare(a._updatedAt)).slice(0, 4).map((product) => (
           <div className={styles.item} key={product._id}>
             <Link href={`/product/${product.slug.current}`}>
-              <a className={styles.icon}>
+              <div className={styles.icon}>
                 <div className={styles.image}>
                   {
                     <img
@@ -34,11 +34,11 @@ export function Trending({data}) {
                 </div>
 
                 <div className={styles.cart_button}>
-                  <p>₦{product.price.toLocaleString("en-US")}</p>
+                  <p>₦{product.price.toLocaleString("en-US")} {product?.price_before && <span>₦{product?.price_before?.toLocaleString("en-US")} </span>}</p>
 
                   <button>View Product</button>
                 </div>
-              </a>
+              </div>
             </Link>
           </div>
         ))}
