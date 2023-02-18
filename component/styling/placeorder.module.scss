@@ -20,10 +20,10 @@
       max-height: 100%;
       padding: 10px 5px;
       margin: 15px 0;
-      border-top: 3px red solid;
-      border-bottom: 3px red solid;
+      border-top: 2px rgb(247, 112, 112) solid;
+      border-bottom: 2px rgb(247, 112, 112) solid;
       background-color:$white;
-      border-radius:10px;
+      // border-radius:10px;
 
 
 
@@ -69,15 +69,16 @@
       padding: 10px 10px;
       margin: 15px 0;
       gap: 10px;
-      border-top: 3px red solid;
+      border-top: 1px rgb(247, 112, 112) solid;
 
 
       .product {
+
         display: flex;
         justify-content: space-around;
         gap: 10px;
-        border-top: 1px red solid;
-        border: 2px red solid;
+        border-top: 1px rgb(247, 112, 112) solid;
+        border: 1px rgb(247, 112, 112) solid;
         padding: 10px 0;
         margin: 5px 0px;
         border-radius: 10px;
@@ -90,12 +91,12 @@
 
         p {
           font-size: 0.8rem;
-          text-align: center;
+          
           font-family: $font_small;
         }
 
         img {
-          width: 15%;
+          width: 50px;
           height: 50px;
           object-fit: cover;
         }
@@ -109,23 +110,27 @@
     padding: 10px 5px;
     margin: 15px 0;
     border-radius: 10px;
-    border: 3px red solid;
+    border: 1px rgb(247, 112, 112) solid;
     justify-items: center;
     align-content: center;
     text-align: center;
 
 
     button {
-      padding: 10px 20px;
-      width: 100%;
-      background-color: $light_red;
-      color: $white;
-      font-size: 1rem;
+      margin-top: 3rem;
+      width: 150px ;
+      height: 30px ;
+      
+      color: #010101;
+      font-size: 0.7rem;
       font-family: $font_small;
       transition: 0.2s;
+      border: 1px solid rgb(247, 112, 112) ;
+      border-radius: 10px;
 
       &:hover{
-        background-color:$dark_red;
+        background-color: rgb(247, 112, 112) ;
+        color: #fff;
       }
     }
 

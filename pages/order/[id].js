@@ -5,8 +5,8 @@ import React, { useReducer, useEffect, useState } from "react";
 import { useStateContext } from "../../context/StateContex";
 import { getError } from "../../lib/err";
 import styles from "../../component/styling/placeorder.module.scss";
-import PayWithFlutterwave from "../../component/Payment";
 import OrderPaid from "../../component/pop/OrderPaid";
+import PaystackHook from "../../component/Paystack";
 // import { IoCheckmarkDoneCircle } from "react-icons/io";
 function reducer(state, action) {
   switch (action.type) {
@@ -107,8 +107,12 @@ function OrderScreen({ params }) {
               {orderItems?.map((item, idx) => (
                 <div className={styles.product} key={idx}>
                   <img src={item.image} />
-                  <h1>{item.name}</h1>
+
+                  <div>
+                     <h1>{item.name}</h1>
                   <p>Price: ₦{item.price}</p>
+                  </div>
+                 
                   <p>Quantity: {item.quantity}</p>
                   <p>Size: {item.size}</p>
                 </div>
@@ -123,13 +127,21 @@ function OrderScreen({ params }) {
             <h1>Products Price : ₦{totalPrice}</h1>
             <h1>Total Price : ₦{overRawPrice}</h1>
            
-              <PayWithFlutterwave
+              {/* <PayWithFlutterwave
                 total={totalPrice}
                 shipping={shippingAddress}
                 user={userInfo}
                 order={order}
                 setPay={setPay}
-              />
+            /> */}
+            
+            <PaystackHook
+             total={totalPrice}
+             shipping={shippingAddress}
+              user={userInfo}
+              setPay={setPay}
+              
+            />
        
           </div>
         </div>

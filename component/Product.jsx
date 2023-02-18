@@ -3,7 +3,6 @@ import React from "react";
 import { urlFor } from "../lib/client";
 import styles from "./styling/product.module.scss";
 import { AiFillEye } from "react-icons/ai";
-import * as CurrencyFormat from "react-currency-format";
 import { useRouter } from "next/router";
 // import Image from "next/image";
 
@@ -74,7 +73,7 @@ function AllProduct({ data }) {
                 <div className={styles.image}>
                   {
                     <img
-                      src={urlFor(product.image[0])}
+                      src={urlFor(product?.image[0]) ?? " "}
                       alt="kinox apparel product image"
                     />
                   }{" "}

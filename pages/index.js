@@ -60,14 +60,14 @@ export default function Home({ data, review }) {
           </button>
         </div>
 
-        <div className="gif_design">
+        {/* <div className="gif_design">
          
           <img src="/img/black_friday.jpg " alt="" />
         </div>
 
         <div className="headings">
           <h1>Customers Reviews</h1>
-        </div>
+        </div> */}
 
     
 

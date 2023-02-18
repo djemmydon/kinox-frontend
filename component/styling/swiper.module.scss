@@ -6,7 +6,7 @@
   box-sizing: border-box;
   position: relative;
   .slideHead {
-    height: 600px;
+    height: 100%;
   }
 
   .home_slide_items {
@@ -42,6 +42,7 @@
         font-size: 1rem;
         padding: 10px 0;
         font-family: $font_small;
+        // color: red
       }
 
       button {
@@ -59,16 +60,20 @@
       }
 
       @media screen and (max-width: 768px) {
-        left: 0;
+        left: 2rem;
         width: 100%;
 
-        text-align: center;
+        // text-align: center;
 
         h2 {
           font-size: 3rem;
           font-weight: 700;
           padding-bottom: 2px;
         }
+          p{
+            width:300px;
+          }
+
       }
     }
   }

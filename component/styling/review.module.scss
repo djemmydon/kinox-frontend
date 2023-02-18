@@ -1,11 +1,17 @@
 @import "./mixin.module";
 
+
+
+.review_overlay__zeuX5 {
+  background-color: white;
+
+}
 .review {
   height: 500px;
   overflow: hidden;
-  background-image: url(/img/vision/kinox_visions.jpg);
+  // background-image: url(/img/vision/kinox_visions.jpg);
   position: relative;
-
+  background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -13,6 +19,7 @@
   .test {
     height: 500px;
     width: 500px;
+    
 
     @media screen and (max-width: 600px){
         width: 400px;
@@ -32,6 +39,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    
 
     h4{
         color: white;
