@@ -1,6 +1,5 @@
-
 import React from "react";
-import {  client } from "../lib/client";
+import { client } from "../lib/client";
 
 import AllProduct from "../component/Product";
 import Head from "next/head";
@@ -8,20 +7,20 @@ import Head from "next/head";
 function Products({ products }) {
   return (
     <>
-     <Head>
+      <Head>
         <title>Kinox | Products</title>
         <meta
-            name="description"
-            content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
+          name="description"
+          content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
             the world to Africa"
-          />
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    
-
-   
-          <AllProduct data={products} />
-
+      <div className="headings">
+          <h1>All Products</h1>
+        </div>
+          
+      <AllProduct data={products} />
     </>
   );
 }

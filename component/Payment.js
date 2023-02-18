@@ -1,8 +1,8 @@
 import React from "react";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
-import axios from "axios";
+// import axios from "axios";
 
-export default function PayWithFlutterwave({ total, shipping, user, setPay, order }) {
+export default function PayWithFlutterwave({ total, shipping, user, setPay }) {
   const config = {
     public_key: process.env.NEXT_PUBLIC_FLUTTERWAVE_KEY,
     tx_ref: Date.now(),
