@@ -13,7 +13,7 @@
     "@mui/material": "^5.10.14",
     "@mui/styled-engine-sc": "^5.10.14",
     "@paystack/inline-js": "^2.12.3",
-    "@sanity/client": "^3.3.0",
+    "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",

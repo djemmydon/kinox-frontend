@@ -139,7 +139,7 @@ function Nav() {
               <div className={styles.cart_box} onClick={handleClose}>
                 <AiOutlineShoppingCart color="white" size={23} />
                 <div className={styles.cart_count}>
-                  <span>{cart.cartItems.length}</span>
+                  <p>{cart.cartItems.length}</p>
                 </div>
               </div>
             </div>

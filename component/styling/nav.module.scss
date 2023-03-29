@@ -165,22 +165,30 @@
 
         .cart_count {
           position: absolute;
-          width: 17px;
-          height: 17px;
+          width: 15px;
+          height: 15px;
           top: -0px;
           right: 14px;
-          background-color: red;
           // padding: 0.5px 7px;
           border-radius: 100px;
-     
+          display: flex;
+          justify-content: center;
+          align-items: center;
           margin: 1px 3px;
+          background-color: red;
+
           // padding: -4px 0;
 
-          span {
-            font-size: 0.8rem;
+          p {
+            font-size: 0.7rem;
             font-family: $font_small;
             color: white;
-            margin: 0 6px;
+            text-align: center;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+
+            // margin: 0 6px;
           }
         }
 
