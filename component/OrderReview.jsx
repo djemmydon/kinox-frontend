@@ -122,7 +122,7 @@ function OrderReview() {
     <main className={styles.placeorder}>
       <div className={styles.placeorderFlex}>
         <div className={styles.shippingaddress}>
-          <h2>Billing Address</h2>
+          {/* <h2>Billing Address</h2>
 
           <h5>
             Full Name: <span>{shippingAddress.fullName}</span>{" "}
@@ -146,7 +146,7 @@ function OrderReview() {
             Zip Code: <span>{shippingAddress.zipCode}</span>{" "}
           </h5>
 
-          <Link href="/shipping">Edit</Link>
+          <Link href="/shipping">Edit</Link> */}
 
           <div className={styles.productPreview}>
             <h2>Products</h2>
@@ -167,7 +167,9 @@ function OrderReview() {
           <h1>
             Total Quantity: <span>{totalQuantity}</span>{" "}
           </h1>
-          <h1>Shipping Fee: ₦{shippingFee.toLocaleString()}</h1>
+          <h1>
+            Shipping Fee: <span> ₦{shippingFee.toLocaleString()}</span>
+          </h1>
 
           <h1>
             Products Price : <span>₦{totalPrice.toLocaleString()}</span>{" "}
