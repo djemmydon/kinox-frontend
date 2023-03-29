@@ -9,10 +9,14 @@
   padding: 5px 0px;
   background-color: rgb(243, 243, 243);
 
-  .loading{
+  @media screen and (max-width: 600px) {
+    height: 100%;
+  }
+
+  .loading {
     display: flex;
-      justify-content: center;
-      align-items: center;
+    justify-content: center;
+    align-items: center;
   }
 
   .placeorderFlex {
@@ -32,8 +36,9 @@
       background-color: $white;
       // border-radius:10px;
 
-      @media screen and (max-width: 568px) {
-        width: 400px;
+      @media screen and (max-width: 600px) {
+        width: 100%;
+        margin: 0 1rem;
       }
 
       a {
