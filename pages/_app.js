@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import NProgress from "nprogress";
 import Router from "next/router";
 import { BarLoader } from "react-spinners";
-// import Image from "next/image";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {

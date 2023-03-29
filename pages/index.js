@@ -30,10 +30,10 @@ export default function Home({ data, review }) {
         <meta name="Kinox Apparel" content="Kinox Apparel | Home" />
         <link rel="icon" href="/favicon.ico" />
         <meta
-            name="description"
-            content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
+          name="description"
+          content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
             the world to Africa"
-          />
+        />
       </Head>
 
       <main>
@@ -69,8 +69,9 @@ export default function Home({ data, review }) {
           <h1>Customers Reviews</h1>
         </div> */}
 
-    
-
+        <div className="headings">
+          <h1>What People Say</h1>
+        </div>
         <Review data={review} />
 
         <div></div>

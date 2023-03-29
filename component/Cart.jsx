@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useStateContext } from "../context/StateContex";
 import styles from "./styling/cart.module.scss";
 import { useRouter } from "next/router";
-import axios from "axios";
+// import axios from "axios";
 import toast from "react-hot-toast";
 import {AiOutlineClose} from "react-icons/ai"
 function Cart(props) {
   const router = useRouter();
-  const [totalQuantity, setTotalQuantity] = useState(0);
+ 
 
-  const totalQuan = () => {
-    setTotalQuantity();
-  };
+  // const totalQuan = () => {
+  //   setTotalQuantity();
+  // };
 
   //CALLING THE CART //
   const {
@@ -27,10 +27,10 @@ function Cart(props) {
   };
 
   const handleQuantity = async (item, qty) => {
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    // const { data } = await axios.get(`/api/products/${item._id}`);
 
-    if (data.price > quantity) {
-    }
+    // if (data.price > quantity) {
+    // }
     const quantity = Number(qty);
     dispatch({
       type: "CART_ADD_ITEM",

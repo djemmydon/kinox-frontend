@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -9,6 +9,7 @@ import styles from "../component/styling/register.module.scss";
 import { getError } from "../lib/err";
 import Link from "next/link";
 import Head from "next/head";
+import { ClipLoader } from "react-spinners";
 
 function Register() {
   const {
@@ -17,6 +18,7 @@ function Register() {
   } = useStateContext();
   // const { userInfo } = state;
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -25,6 +27,7 @@ function Register() {
   } = useForm();
 
   const HandleSubmitForm = async ({ firstName, lastName, email, password }) => {
+    setLoading(true);
     try {
       const { data } = await axios.post("/api/users/register", {
         firstName,
@@ -36,6 +39,7 @@ function Register() {
       jsCookie.set("userInfo", JSON.stringify(data));
       router.push("/");
       toast.success(`Register Successfully `);
+      setLoading(false);
     } catch (err) {
       toast.error(getError(err));
     }
@@ -95,7 +99,9 @@ function Register() {
               </span>
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit">
+              {loading ? <ClipLoader color="white" size={20} /> : "Submit"}
+            </button>
           </form>
           <h4>
             Already has an account
