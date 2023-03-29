@@ -3,10 +3,17 @@
 .placeorder {
   box-sizing: border-box;
   width: 100%;
+  height: 100vh;
   display: inline-flex;
   justify-content: center;
   padding: 5px 0px;
   background-color: rgb(243, 243, 243);
+
+  .loading{
+    display: flex;
+      justify-content: center;
+      align-items: center;
+  }
 
   .placeorderFlex {
     display: flex;
@@ -17,23 +24,20 @@
 
     .shippingaddress {
       width: 500px;
-      max-height: 100%;
+      max-height: 500px;
       padding: 10px 5px;
       margin: 15px 0;
       border-top: 2px rgb(247, 112, 112) solid;
       border-bottom: 2px rgb(247, 112, 112) solid;
-      background-color:$white;
+      background-color: $white;
       // border-radius:10px;
 
-
-
-      @media screen and (max-width: 568px){
-      width: 400px;
-        
+      @media screen and (max-width: 568px) {
+        width: 400px;
       }
 
-      a{
-        background-color:black;
+      a {
+        background-color: black;
         border: 2px solid black;
         padding: 3px 30px;
         margin: 6.5px 0px;
@@ -41,8 +45,8 @@
         color: white;
         font-family: $font_small;
 
-        &:hover{
-          background-color:white;
+        &:hover {
+          background-color: white;
           color: $light_black;
         }
       }
@@ -59,8 +63,7 @@
         padding: 5px 0;
         font-family: $font_small;
         font-style: italic;
-        font-weight: 6
-        00;
+        font-weight: 6 00;
       }
     }
 
@@ -71,9 +74,7 @@
       gap: 10px;
       border-top: 1px rgb(247, 112, 112) solid;
 
-
       .product {
-
         display: flex;
         justify-content: space-around;
         gap: 10px;
@@ -91,7 +92,7 @@
 
         p {
           font-size: 0.8rem;
-          
+
           font-family: $font_small;
         }
 
@@ -107,34 +108,34 @@
   .checkout {
     width: 300px;
     height: 300px;
-    padding: 10px 5px;
+    padding: 10px 1rem;
     margin: 15px 0;
     border-radius: 10px;
     border: 1px rgb(247, 112, 112) solid;
     justify-items: center;
     align-content: center;
-    text-align: center;
-
+    background-color: #fff;
 
     button {
-      margin-top: 3rem;
-      width: 150px ;
-      height: 30px ;
-      
+      margin: 2rem auto;
+      width: 100%;
+      height: 30px;
+
       color: #010101;
       font-size: 0.7rem;
       font-family: $font_small;
       transition: 0.2s;
-      border: 1px solid rgb(247, 112, 112) ;
+      border: 1px solid rgb(247, 112, 112);
       border-radius: 10px;
-
-      &:hover{
-        background-color: rgb(247, 112, 112) ;
+      background-color: rgb(247, 112, 112);
+      color: white;
+      &:hover {
+        background-color: rgb(237, 52, 52);
         color: #fff;
       }
     }
 
-    .delivery{
+    .delivery {
       height: 120px;
 
       img {
@@ -142,19 +143,19 @@
         height: 100%;
         padding: 10px;
       }
-      }
+    }
 
-
-    
-    h1{
+    h1 {
       font-size: 0.8rem;
       padding: 5px 0;
       font-family: $font_small;
       font-weight: 300;
+
+      span {
+        font-family: $font_small;
+        float: right;
+        padding-right: 0.5rem;
+      }
     }
-
-
   }
-
-
 }

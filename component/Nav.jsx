@@ -27,12 +27,12 @@ function Nav() {
   // const [searchProduct, setSearchProduct] = useState([]);
   const [value, setValue] = useState("");
   const [data, setData] = useState([]);
-  const { state, dispatch } = useStateContext();
+  const { state } = useStateContext();
   const { cart, userInfo } = state;
   const router = useRouter();
 
   const handleNav = () => setOpenNav(!openNav);
-  const handleSearch = () => setSearchOpen(!searchOpen);
+  // const handleSearch = () => setSearchOpen(!searchOpen);
   function handleClose() {
     setCartOpen(!cartOpen);
   }
@@ -63,7 +63,12 @@ function Nav() {
           <div className={styles.nav_top}>
             <div className={styles.nav_logo}>
               <Link href="/">
-                <Image src="/img/kinox_white.png" alt="Kinox Apparel Image" width={40} height={50} />
+                <Image
+                  src="/img/kinox_white.png"
+                  alt="Kinox Apparel Image"
+                  width={40}
+                  height={50}
+                />
               </Link>
             </div>
 
@@ -94,17 +99,29 @@ function Nav() {
               <ul>
                 {userInfo ? (
                   <li>
-                    <AiOutlineUser color="white" size={22} style={{marginLeft:"10px"}} />
+                    <AiOutlineUser
+                      color="white"
+                      size={22}
+                      style={{ marginLeft: "10px" }}
+                    />
                     <span>{userInfo.firstName}</span>
                   </li>
                 ) : (
                   <>
                     <li onClick={() => router.push("/login")}>
-                      <AiOutlineLogin color="white" size={22} style={{marginLeft:"10px"}}  />
+                      <AiOutlineLogin
+                        color="white"
+                        size={22}
+                        style={{ marginLeft: "10px" }}
+                      />
                       <span>Login</span>
                     </li>
                     <li onClick={() => router.push("/register")}>
-                      <AiOutlineUserAdd color="white" size={22} style={{marginLeft:"10px"}}  />
+                      <AiOutlineUserAdd
+                        color="white"
+                        size={22}
+                        style={{ marginLeft: "10px" }}
+                      />
                       <span>Register</span>
                     </li>
                   </>

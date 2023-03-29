@@ -1,13 +1,14 @@
-import { Pagination } from "swiper";
+// import { Pagination } from "swiper";
 import styles from "./styling/swiper.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import { motion, useAnimation } from "framer-motion";
+import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
+import Image from "next/image";
+// import { useRouter } from "next/router";
 
 // const squareVariants = {
 //   visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
@@ -17,9 +18,8 @@ SwiperCore.use([Autoplay]);
 
 function HomeSlide() {
   const controls = useAnimation();
-  const [ref, inView] = useInView();
-  const router = useRouter();
-
+  const [inView] = useInView();
+  // const router = useRouter();
 
   useEffect(() => {
     if (inView) {
@@ -41,49 +41,76 @@ function HomeSlide() {
         >
           <SwiperSlide className={styles.home_slide_items}>
             <div className={styles.home_slide_item}>
-              <div className={styles.home_slide_img}>
-                <img
-                  src="./img/kinox_ban.JPG"
-                  alt="  Blend of creativity, Innovation and
-                  Class. 100% quality certainty and 100% timing and trust are in Kinox Apparel"
-                />
-
-                {/* <Image src="./img/kinox_ban.JPG"  width="100%" height="100%"/> */}
-                <div className={styles.fade_up}></div>
-              </div>
-
               <div className={styles.home_slide_text}>
-                <h2>We make it happen</h2>
-
+                <h2>{`We make it happen`}</h2>
                 <p>
                   Blend of creativity, Innovation and Class. 100% quality
                   certainty and 100% timing and trust
                 </p>
-                <button onClick={() => router.push("/contact")}>Contact Us</button>
+
+                <div className={styles.button}>
+                  <button>Shop Now</button>
+                </div>
+              </div>
+
+              <div className={styles.home_slide_img}>
+                <Image
+                  src="/img/img2.png"
+                  alt="This is LadyJamsmiC Kinox"
+                  height="1000"
+                  width="1000"
+                />
               </div>
             </div>
           </SwiperSlide>
 
           <SwiperSlide className={styles.home_slide_items}>
             <div className={styles.home_slide_item}>
-              <div className={styles.home_slide_img}>
-                <img
-                  src="./img/kinox_ban2.JPG"
-                  alt="You don’t even have to be generically good-looking. Being
-                  well-dressed is enough. Kinox Apparel"
-                />
+              <div className={styles.home_slide_text}>
+                <h2>{`Women's Fashion`}</h2>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Animi harum beatae atque, repellat fugit itaque!
+                </p>
 
-                <div className={styles.fade_up}></div>
+                <div className={styles.button}>
+                  <button>Shop Now</button>
+                </div>
               </div>
 
+              <div className={styles.home_slide_img}>
+                <Image
+                  src="/img/img1.png"
+                  alt="This is LadyJamsmiC Kinox"
+                  height="1000"
+                  fill=""
+                  width="1000"
+                />
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className={styles.home_slide_items}>
+            <div className={styles.home_slide_item}>
               <div className={styles.home_slide_text}>
-                <h2>100% kinox apparel shirt</h2>
+                <h2>{`100% kinox apparel shirt`}</h2>
                 <p>
-                  {" "}
                   You don’t even have to be generically good-looking. Being
-                  well-dressed is enough.
+                  well-dressed is enough
                 </p>
-                <button onClick={() => router.push("/products")}>Shop Now</button>
+
+                <div className={styles.button}>
+                  <button>Shop Now</button>
+                </div>
+              </div>
+
+              <div className={styles.home_slide_img}>
+                <Image
+                  src="/img/im.png"
+                  alt="This is LadyJamsmiC Kinox"
+                  height="1000"
+                  fill=""
+                  width="1000"
+                />
               </div>
             </div>
           </SwiperSlide>

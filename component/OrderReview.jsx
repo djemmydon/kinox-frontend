@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styling/placeorder.module.scss";
 import { useStateContext } from "../context/StateContex";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import axios from "axios";
 import jsCookie from "js-cookie";
 import toast from "react-hot-toast";
-import { getError } from "../lib/err";
+import { ClipLoader } from "react-spinners";
+
+// import { getError } from "../lib/err";
 import Link from "next/link";
 
 function OrderReview() {
@@ -17,6 +18,7 @@ function OrderReview() {
     cart: { shippingAddress, cartItems },
   } = state;
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.456 => 123.46
   const totalPrice = round2(
@@ -28,6 +30,7 @@ function OrderReview() {
   const shippingFee = totalPrice > 20000 ? 1000 : 0;
 
   const overRawPrice = totalPrice + shippingFee;
+  console.log(shippingAddress);
 
   useEffect(() => {
     if (cartItems.length === 0) {
@@ -35,23 +38,61 @@ function OrderReview() {
     }
   }, [cartItems, router]);
 
+  console.log(cartItems);
+  // const handlePayment = async () => {
+  //   try {
+  //     const { data } = await axios.post(
+  //       `/api/orders`,
+  //       {
+  //         orderItems: cartItems.map((x) => ({
+  //           ...x,
+  //           inStock: undefined,
+  //           slug: undefined,
+  //         })),
+  //         shippingAddress,
+  //         totalQuantity,
+  //         totalPrice,
+  //         shippingFee,
+  //         overRawPrice,
+  //       },
 
-  console.log(cartItems)
+  //       {
+  //         headers: {
+  //           authorization: `Bearer ${userInfo.token}`,
+  //         },
+  //       }
+  //     );
+
+  //     dispatch("REMOVE_CART_ITEM");
+  //     jsCookie.remove("cartItems");
+  //     router.push(`/order/${data}`);
+  //   } catch (error) {
+  //     toast.error(getError(error));
+  //   }
+  // };
+
   const handlePayment = async () => {
-    try {
-      const { data } = await axios.post(
-        `/api/orders`,
+    setLoading(true);
+    await axios
+      .post(
+        `https://kinox-backend.vercel.app/api/v1/order`,
         {
-          orderItems: cartItems.map((x) => ({
+          order: cartItems.map((x) => ({
             ...x,
             inStock: undefined,
             slug: undefined,
           })),
-          shippingAddress,
+          shippingAddress: shippingAddress.address1,
           totalQuantity,
           totalPrice,
           shippingFee,
           overRawPrice,
+          email: userInfo.email,
+          firstName: userInfo.firstName,
+          lastName: userInfo.lastName,
+          phone: shippingAddress.phone,
+          city: shippingAddress.city,
+          country: shippingAddress.country,
         },
 
         {
@@ -59,17 +100,23 @@ function OrderReview() {
             authorization: `Bearer ${userInfo.token}`,
           },
         }
-      );
+      )
+      .then((res) => {
+        try {
+          console.log(res.data);
+          toast.success(`Order Created Successfully`);
 
-      dispatch("REMOVE_CART_ITEM");
-      jsCookie.remove("cartItems");
-      router.push(`/order/${data}`);
-    } catch (error) {
-      toast.error(getError(error));
-    }
+          dispatch("REMOVE_CART_ITEM");
+          jsCookie.remove("cartItems");
+          router.push(`/order/${res.data._id}`);
+
+          setLoading(true);
+        } catch (error) {
+          toast.error(error.message);
+          console.log(error);
+        }
+      });
   };
-
-
 
   return (
     <main className={styles.placeorder}>
@@ -117,13 +164,21 @@ function OrderReview() {
         </div>
 
         <div className={styles.checkout}>
-          <h1>Total Quantity : {totalQuantity}</h1>
+          <h1>
+            Total Quantity: <span>{totalQuantity}</span>{" "}
+          </h1>
           <h1>Shipping Fee: ₦{shippingFee.toLocaleString()}</h1>
 
-          <h1>Products Price : ₦{totalPrice.toLocaleString()}</h1>
-          <h1>Total Price : ₦{overRawPrice.toLocaleString()}</h1>
+          <h1>
+            Products Price : <span>₦{totalPrice.toLocaleString()}</span>{" "}
+          </h1>
+          <h1>
+            Total Price : <span>₦{overRawPrice.toLocaleString()}</span>{" "}
+          </h1>
 
-          <button onClick={handlePayment}>Order Now</button>
+          <button onClick={handlePayment}>
+            {loading ? <ClipLoader color="white" size={20} /> : "Order Now"}
+          </button>
         </div>
       </div>
     </main>

@@ -122,11 +122,10 @@
 
     .nav_icon {
       padding: 10px;
-      display:flex;
-      align-items:center;
+      display: flex;
+      align-items: center;
       @media screen and (max-width: 700px) {
-      padding-top: 20px;
-        
+        padding-top: 20px;
       }
       ul {
         display: flex;
@@ -160,20 +159,22 @@
       padding: 0 20px;
       cursor: pointer;
       .cart_box {
-        background-color: rgb(117, 34, 34);
         padding: 5px 5px;
+
         border-radius: 5px;
 
         .cart_count {
           position: absolute;
-          top: -8px;
-          right: 6px;
+          width: 17px;
+          height: 17px;
+          top: -0px;
+          right: 14px;
           background-color: red;
           // padding: 0.5px 7px;
           border-radius: 100px;
-          width:18px;
-          max-height: 100%;
+     
           margin: 1px 3px;
+          // padding: -4px 0;
 
           span {
             font-size: 0.8rem;
@@ -330,8 +331,8 @@
     border-radius: 5px;
     inset: 0;
     z-index: 100;
-    transform: scale(0);
-    transition: all 0.2s;
+    transform: translateY(-300%);
+    transition: all 0.4s;
     box-shadow: -2px 2px 5px 3px rgba(0, 0, 0, 0.11);
     -webkit-box-shadow: -2px 2px 5px 3px rgba(0, 0, 0, 0.11);
     -moz-box-shadow: -2px 2px 5px 3px rgba(0, 0, 0, 0.11);
@@ -353,7 +354,7 @@
   }
 
   .search_active {
-    transform: scale(1);
+    transform: translate(0);
     height: 300px;
 
     @media screen and (max-width: 600px) {

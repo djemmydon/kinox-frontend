@@ -1,72 +1,74 @@
 @import "./mixin.module";
 
-
-
 .review_overlay__zeuX5 {
   background-color: white;
-
+  padding: 2rem 0;
 }
 .review {
-  height: 500px;
+  height: 400px;
+ 
   overflow: hidden;
+  padding: 2rem 0;
   // background-image: url(/img/vision/kinox_visions.jpg);
   position: relative;
   background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
 
-
   .test {
-    height: 500px;
+    height: 100%;
     width: 500px;
-    
 
-    @media screen and (max-width: 600px){
-        width: 400px;
-            
-        }
-        @media screen and (max-width: 400px){
-        width: 300px;
-            
-        }
-
+    @media screen and (max-width: 600px) {
+      width: 400px;
+    }
+    @media screen and (max-width: 400px) {
+      width: 300px;
+    }
   }
 
   .review_text {
     text-align: center;
-    margin-top: 10rem ;
-    padding-top: 1rem;
+    width: 200px;
+    margin: 2rem 0;
+    padding: 4rem;
     display: flex;
     align-items: center;
     flex-direction: column;
-    
-
-    h4{
-        color: white;
-        font-family: $font_small;
-        padding: 0.5rem;
-        font-size:1rem;
-        font-weight: 400;
+    background-color: #ffffff;
+    flex-shrink: 0 !important;
+    border-radius: 2rem;
+    h4 {
+      color: #000000;
+      font-family: $font_small;
+      padding: 0.5rem;
+      font-size: 1rem;
+      font-weight: 400;
     }
 
-    p{
-        color: white;
+    p {
+      color: #ff0000;
+      font-family: $font_small;
+      font-size: 0.8rem;
+
+      span {
         font-family: $font_small;
-        
-        span{
-        font-family: $font_small;
-            color: #ffadad;
-            font-style: italic;
-        }
+        color: #f26868;
+        font-style: italic;
+      }
     }
   }
 
-  .overlay{
-    background-color: rgba(43, 40, 40, 0.87);
+  .overlay {
+    background: url(/img/bann.jpg);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+
+    @media screen and (max-width: 800px) {
+      background: #fffdfd;
+    }
   }
 }

@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { useStateContext } from "../context/StateContex";
 import styles from "../component/styling/register.module.scss";
 import { getError } from "../lib/err";
-import Link from "next/link"
+import Link from "next/link";
 import Head from "next/head";
 
 function Login() {
@@ -41,14 +41,14 @@ function Login() {
 
   return (
     <div className={styles.container}>
-           <Head>
+      <Head>
         <title>Kinox | Login</title>
-        
-          <meta
-            name="description"
-            content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
+
+        <meta
+          name="description"
+          content=" Kinox Apparel rebranding fashion, making quality affordable and bringing
             the world to Africa"
-          />
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.flex_form}>
@@ -81,9 +81,9 @@ function Login() {
           </form>
         </div>
         <h4>
-            Not have an account
-            <Link  href="/register">Sign up here</Link>
-          </h4>
+          Not have an account
+          <Link href="/register">Sign up here</Link>
+        </h4>
       </div>
     </div>
   );

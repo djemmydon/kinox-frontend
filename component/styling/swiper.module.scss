@@ -5,16 +5,38 @@
   height: 100%;
   box-sizing: border-box;
   position: relative;
+
   .slideHead {
+    height: 600px;
+    @media screen and (max-width: 800px) {
+      height: 400px;
+    }
+    @media screen and (max-width: 600px) {
+      height: 300px;
+    }
+    max-width: 100%;
+    background-color: #710004;
+  }
+  .home_slide_items {
+    width: 100%;
     height: 100%;
   }
-
-  .home_slide_items {
-    max-height: 600px;
+  .home_slide_item {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    max-width: 100%;
+    align-content: center;
 
     .home_slide_img {
-      width: 100%;
-      height: 700px;
+      height: 600px;
+      @media screen and (max-width: 800px) {
+        height: 400px;
+      }
+
+      @media screen and (max-width: 600px) {
+        height: 300px;
+      }
 
       img {
         width: 100%;
@@ -24,23 +46,30 @@
     }
 
     .home_slide_text {
-      position: absolute;
-      width: 600px;
+      width: 500px;
       height: 100%;
-      top: 30%;
-      left: 10%;
-      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+      font-family: "Poppins", sans-serif;
+
+      color: #fff;
+
+   
 
       h2 {
-        font-size: 4rem;
+        font-size: 3rem;
         font-weight: 700;
         text-shadow: -1px 0px 0px rgba(115, 150, 150, 1);
         text-transform: uppercase;
+        font-family: "Poppins", sans-serif;
+        padding: 0;
+        margin: 0;
       }
 
       p {
-        font-size: 1rem;
-        padding: 10px 0;
+        font-size: 0.8rem;
         font-family: $font_small;
         // color: red
       }
@@ -59,21 +88,32 @@
         }
       }
 
-      @media screen and (max-width: 768px) {
-        left: 2rem;
+      @media screen and (max-width: 800px) {
+        padding-left: 1rem;
         width: 100%;
 
         // text-align: center;
 
         h2 {
-          font-size: 3rem;
+          font-size: 2rem;
           font-weight: 700;
           padding-bottom: 2px;
         }
-          p{
-            width:300px;
-          }
+        p {
+          width: 100%;
+        }
+      }
 
+      @media screen and (max-width: 600px) {
+        height: 300px;
+        width: 250px;
+        h2{
+          font-size: 1.5rem;
+        }
+
+        button{
+          padding: 2px 20px;
+        }
       }
     }
   }
