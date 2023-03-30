@@ -69,8 +69,8 @@ function HomeSlide() {
               <div className={styles.home_slide_text}>
                 <h2>{`Women's Fashion`}</h2>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Animi harum beatae atque, repellat fugit itaque!
+                  To be the first and the best plug everybody would think of,
+                  and patronise when it comes to anything fashion.
                 </p>
 
                 <div className={styles.button}>
@@ -92,7 +92,7 @@ function HomeSlide() {
           <SwiperSlide className={styles.home_slide_items}>
             <div className={styles.home_slide_item}>
               <div className={styles.home_slide_text}>
-                <h2>{`100% kinox apparel shirt`}</h2>
+                <h2>{`Bringing the world to Africa `}</h2>
                 <p>
                   You don’t even have to be generically good-looking. Being
                   well-dressed is enough
