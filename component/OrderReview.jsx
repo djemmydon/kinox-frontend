@@ -9,7 +9,6 @@ import toast from "react-hot-toast";
 import { ClipLoader } from "react-spinners";
 
 // import { getError } from "../lib/err";
-import Link from "next/link";
 
 function OrderReview() {
   const { state, dispatch } = useStateContext();
