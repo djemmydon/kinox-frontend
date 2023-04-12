@@ -18,7 +18,6 @@
     border-radius: 10px;
 
     height: 400px;
-    background-color: rgb(247, 197, 197);
     padding: 10px 15px;
     display: inline-flex;
     flex-direction: column;
@@ -47,23 +46,23 @@
         }
         input {
           width: 300px;
-          height: 30px;
-          outline: none;
+          height: 40px;
+          outline: grey solid 2px;
           border: none;
           font-family: $font_small;
           font-size: 0.8rem;
 
-          border-radius: 15px;
+          border-radius: 5px;
           padding: 0 10px;
         }
         textarea {
           width: 300px;
           height: 100px;
           outline: none;
-          border: none;
+          outline: grey solid 2px;
           font-family: $font_small;
           font-size: 0.8rem;
-          border-radius: 15px;
+          border-radius: 5px;
           padding: 5px 10px;
           @media screen and (max-width: 500px) {
             max-width: 100%;
@@ -74,16 +73,21 @@
         }
 
         button {
-          width: 100px;
+          margin: 2rem auto;
+          width: 100%;
           height: 40px;
+    
+          color: #010101;
+          font-size: 0.7rem;
           font-family: $font_small;
-          font-size: 1rem;
-          border-radius: 15px;
-          transition: all 0.2s ease-in-out;
-
+          transition: 0.2s;
+          border: 1px solid rgb(189, 2, 2);
+          border-radius: 10px;
+          background-color: rgb(255, 0, 0);
+          color: white;
           &:hover {
-            background-color: rgb(253, 22, 22);
-            color: white;
+            background-color: rgb(237, 52, 52);
+            color: #fff;
           }
         }
       }
@@ -95,17 +99,17 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-content:flex-end;
+    align-content: flex-end;
+    gap: 2rem;
 
     @media screen and (max-width: 500px) {
       width: 100%;
-    
     }
 
     height: 400px;
 
     p {
-      font-size: 20px;
+      font-size: 15px;
       font-family: $font_small;
       font-weight: 600;
       color: $dark_red;
@@ -115,18 +119,18 @@
     span {
       font-family: $font_small;
       font-size: 1rem;
-      padding: 10px 0;
+      padding: 20px 0;
     }
     a {
       font-family: $font_small;
       font-size: 1rem;
-      text-decoration: underline;
-      
+      // text-decoration: underline;
+      color: $dark_red;
     }
 
     h1 {
       font-size: 1.3rem;
-      margin:5px 0;
+      margin: 5px 0;
       font-family: $font_small;
     }
 

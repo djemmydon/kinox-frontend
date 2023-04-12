@@ -11,10 +11,8 @@ import {
 } from "react-icons/ai";
 import HomePopPup from "./pop/HomePopPup";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 function ContactForm() {
   const [popUp, setPopUp] = useState(false);
-  const router = useRouter();
 
 //   const popUpHandler = () => {
 //     setPopUp(false);
@@ -44,7 +42,7 @@ function ContactForm() {
         <div className={styles.socialS}>
           <div>
             {" "}
-            <p>Opposite Emmanuel Baptist Church, Agodi Gate, Ibadan Nigeria,</p>
+            <p>No 4, Akinloye Street Iwo Road Ibadan, Oyo State, Nigeria</p>
             <span>Monday-Saturday | 9:00 am-5pm </span>
             <a
               href="tel:+2347025235337
