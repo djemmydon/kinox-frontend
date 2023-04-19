@@ -7,7 +7,7 @@ import axios from "axios";
 import jsCookie from "js-cookie";
 import toast from "react-hot-toast";
 import { ClipLoader } from "react-spinners";
-
+import * as fbq from "../lib/jspixel";
 // import { getError } from "../lib/err";
 
 function OrderReview() {
@@ -107,6 +107,7 @@ function OrderReview() {
 
           dispatch("REMOVE_CART_ITEM");
           jsCookie.remove("cartItems");
+          fbq.event("Purchase", { currency: "NGN", value: res.data.price });
           router.push(`/order/${res.data._id}`);
 
           setLoading(true);

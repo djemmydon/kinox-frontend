@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { useStateContext } from "../context/StateContex";
-import { urlFor, client, urlForThumbnail } from "../lib/client";
-import Image from "next/image";
+import { urlFor, urlForThumbnail } from "../lib/client";
 import styles from "./styling/product_details.module.scss";
-import { BiUpArrow, BiDownArrow } from "react-icons/bi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { toast } from "react-hot-toast";
 import Select from "react-select";
+import Size from "../component/pop/Size";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
+import { FreeMode, Navigation, Thumbs } from "swiper";
 import axios from "axios";
 
 function ProductDetailShow({ product, style }) {
@@ -27,7 +26,11 @@ function ProductDetailShow({ product, style }) {
     { value: "M", label: "M" },
     { value: "L", label: "L" },
     { value: "XL", label: "XL" },
-    { value: "XXL", label: "XXL" },
+    { value: "2XL", label: "2XL" },
+    { value: "3XL", label: "3XL" },
+    { value: "4XL", label: "4XL" },
+    { value: "5XL", label: "5XL" },
+    { value: "6XL", label: "6XL" },
   ];
 
   const [sizes, setSizes] = useState(size.label);
@@ -38,6 +41,7 @@ function ProductDetailShow({ product, style }) {
 
   const [disable, setDisable] = useState(false);
   const [index, setIndex] = useState(0);
+  const [openSize, setOpenSize] = useState(false);
 
   const handleAddToCart = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
@@ -45,8 +49,8 @@ function ProductDetailShow({ product, style }) {
     const size = existItem ? existItem.size == sizes : sizes;
     const { data } = await axios.get(`/api/products/${product._id}`);
 
-    if (data.price > quantity) {
-    }
+    // if (data.price > quantity) {
+    // }
     dispatch({
       type: "CART_ADD_ITEM",
       payload: {
@@ -119,7 +123,12 @@ function ProductDetailShow({ product, style }) {
 
         <div className={styles.ProductDetailShowText}>
           <h4>{product?.name}</h4>
-          <h5>₦{product?.price.toLocaleString()}.00  {product?.price_before && <span>₦{product?.price_before?.toLocaleString("en-US")} </span>}</h5>
+          <h5>
+            ₦{product?.price.toLocaleString()}.00{" "}
+            {product?.price_before && (
+              <span>₦{product?.price_before?.toLocaleString("en-US")} </span>
+            )}
+          </h5>
           <p>{product?.description}</p>
 
           <div style={style}>
@@ -128,6 +137,15 @@ function ProductDetailShow({ product, style }) {
               options={size}
               onChange={sizeHandler}
             />
+
+            <p
+              onClick={() => {
+                setOpenSize(true);
+              }}
+              className={styles.size_tag}
+            >
+              Size Guide
+            </p>
           </div>
           {/* 
           <select
@@ -144,11 +162,15 @@ function ProductDetailShow({ product, style }) {
             className={disable ? styles.btn : ""}
             disabled={disable}
             onClick={handleAddToCart}
+
+            
           >
             Add to Cart
           </button>
         </div>
       </div>
+
+      <Size openSize={openSize} setOpenSize={setOpenSize} />
     </div>
   );
 }
