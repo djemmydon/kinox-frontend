@@ -5,6 +5,12 @@
   height: 100%;
   padding: 3rem 0.5rem;
 
+  .size_tag{
+    text-decoration: underline;
+    color: red;
+    size: 1rem;
+    cursor: pointer;
+  }
   .ProductDetailShowFlex {
     display: flex;
     flex-wrap: wrap;
@@ -125,4 +131,6 @@
       grid-template-columns: repeat(auto-fit, minmax(100%, 100%));
     }
   }
+
+
 }
