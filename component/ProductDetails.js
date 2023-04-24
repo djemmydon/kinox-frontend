@@ -12,6 +12,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
+import Zoom from "react-img-zoom";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import axios from "axios";
 
@@ -47,7 +48,7 @@ function ProductDetailShow({ product, style }) {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const size = existItem ? existItem.size == sizes : sizes;
-    const { data } = await axios.get(`/api/products/${product._id}`);
+    // const { data } = await axios.get(`/api/products/${product._id}`);
 
     // if (data.price > quantity) {
     // }
@@ -96,6 +97,12 @@ function ProductDetailShow({ product, style }) {
           >
             <SwiperSlide>
               <img src={urlFor(product?.image && product?.image[index])} />
+              {/* <Zoom
+               zoomScale={2}
+               width={500}
+                height={600}
+                img={urlFor(product?.image && product?.image[index])}
+              /> */}
             </SwiperSlide>
           </Swiper>
 
@@ -162,8 +169,6 @@ function ProductDetailShow({ product, style }) {
             className={disable ? styles.btn : ""}
             disabled={disable}
             onClick={handleAddToCart}
-
-            
           >
             Add to Cart
           </button>
