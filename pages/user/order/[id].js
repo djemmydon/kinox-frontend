@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 import React, { useReducer, useEffect, useState } from "react";
 import { useStateContext } from "../../../context/StateContex";
 import { getError } from "../../../lib/err";
-import OrderPaid from "../../../component/pop/OrderPaid";
-import PaystackHook from "../../../component/Paystack";
 import { ClipLoader } from "react-spinners";
 import { client } from "../../../lib/client";
 import styles from "../../../component/styling/placeorder.module.scss";
@@ -31,7 +29,7 @@ function reducer(state, action) {
 }
 
 function OrderScreen({ params }) {
-  const [{ order }, dispatch] = useReducer(reducer, {
+  const [dispatch] = useReducer(reducer, {
     error: "",
     loading: true,
     order: {},
@@ -40,16 +38,15 @@ function OrderScreen({ params }) {
   const { state } = useStateContext();
   const { userInfo } = state;
   const { router } = useRouter();
-  const [pay, setPay] = useState(false);
-  const [discountLoading, setDiscountLoading] = useState(false);
+  // const [pay, setPay] = useState(false);
+  // const [discountLoading, setDiscountLoading] = useState(false);
 
   const [countryList, setCountryList] = useState(null);
   const [stateList, setStateList] = useState(null);
 
   const { id } = params;
   const [fetchData, setFetchData] = useState(null);
-  const datas = fetchData;
-
+  
   const [formData, setFormData] = useState(null);
 
   const handleChange = (e) => {
@@ -86,7 +83,7 @@ function OrderScreen({ params }) {
     };
 
     fetchOrder();
-  }, [router, userInfo, id]);
+  }, [router, userInfo, id, params]);
 
   const paidTransaction = async () => {
     const data = await client.fetch(`*[_type == 'order' ]`);
@@ -95,12 +92,13 @@ function OrderScreen({ params }) {
 
     await axios.put("/api/orders/pay", { id: check._id }).then((res) => {
       toast.success("Payment Succefully");
+      console.log(res)
     });
   };
   const onSuccess = (reference) => {
     paidTransaction();
     console.log(reference);
-    setPay(true);
+    // setPay(true);
   };
 
   // you can call this function anything

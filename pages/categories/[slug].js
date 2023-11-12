@@ -1,7 +1,7 @@
 import React from "react";
 import AllProduct from "../../component/Product";
 import { client } from "../../lib/client";
-import Link from "next/link";
+// import Link from "next/link";
 
 function Category({ product }) {
   // console.log(product.map((item) => {item.category.name}));

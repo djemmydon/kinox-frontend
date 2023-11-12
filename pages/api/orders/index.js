@@ -1,7 +1,6 @@
-import axios from "axios";
+
 import nc from "next-connect";
 import { isAuth } from "../../../lib/auth";
-import { SanityClient } from "sanity";
 import { createClient } from "next-sanity"; 
 
 const handler = nc();
@@ -9,8 +8,7 @@ const handler = nc();
 handler.use(isAuth);
 
 handler.post(async (req, res) => {
-  const projectId = "jbcyg7kh";
-  // console.log(req.userInfo?._id, "uhweihuehihuihfueh");
+
 
   const sanity = {
     projectId: "jbcyg7kh",

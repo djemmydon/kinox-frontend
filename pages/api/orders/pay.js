@@ -1,6 +1,5 @@
-import axios from "axios";
+
 import nc from "next-connect";
-import { isAuth } from "../../../lib/auth";
 import { createClient } from "next-sanity";
 
 const handler = nc();
