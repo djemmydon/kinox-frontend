@@ -8,10 +8,10 @@ import { client } from "../../lib/client";
 
 
 function Index({ products }) {
-  const { state, dispatch } = useStateContext();
+  const { state } = useStateContext();
   const {
     userInfo,
-    cart: { shippingAddress, cartItems },
+
   } = state;
 
   console.log(products)
