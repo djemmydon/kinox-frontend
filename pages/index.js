@@ -3,13 +3,14 @@ import Head from "next/head";
 import { client } from "../lib/client";
 import Product from "../component/Product";
 import HomeSlide from "../component/HomeSlide";
+import Category from "../component/Category";
 import { useRouter } from "next/router";
 
 import React, { useState, useEffect } from "react";
 import HomePopPup from "../component/pop/HomePopPup";
 import Review from "../component/Review";
 
-export default function Home({ data, review }) {
+export default function Home({ data, review, categories }) {
   const [popUp, setPopUp] = useState(false);
   const router = useRouter();
 
@@ -52,6 +53,7 @@ export default function Home({ data, review }) {
           <h1>New in Store</h1>
         </div>
 
+        <Category categories={categories} />
         <Product data={data} />
 
         <div className="button-push">

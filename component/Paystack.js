@@ -10,7 +10,7 @@ const PaystackHook = ({ total, user, setPay }) => {
     reference: (new Date()).getTime().toString(),
     email: user.email,
     amount: total * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_KEY,
+    publicKey: process.env.NEXT_PUBLIC_TESTING,
 };
 
 // you can call this function anything

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Poppins:wght@200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
 * {
   margin: 0;
@@ -185,11 +186,10 @@ body {
   .warning {
     height: 100%;
     max-width: 100%;
-  
+
     box-shadow: none;
   }
 }
-
 
 .warning span {
   font-size: 0.8rem;
@@ -198,12 +198,11 @@ body {
   font-weight: 500;
 }
 
-.gif_design{
+.gif_design {
   height: 100%;
   width: 100%;
 }
-.gif_design img{
+.gif_design img {
   height: 100%;
   width: 100%;
-
 }

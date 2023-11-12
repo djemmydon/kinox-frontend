@@ -1,6 +1,8 @@
 import axios from "axios";
 import nc from "next-connect";
 import { isAuth } from "../../../lib/auth";
+import { SanityClient } from "sanity";
+import { createClient } from "next-sanity"; 
 
 const handler = nc();
 
@@ -8,38 +10,28 @@ handler.use(isAuth);
 
 handler.post(async (req, res) => {
   const projectId = "jbcyg7kh";
-  const dataset = "production";
-  const tokenWithAccess =
-    "sk5JHFPaa8OK0GVfzEMv8bJwnBj1Mw5cjipg4rHsdR0WxbLXyBae73FL89nuER7fsKaNilcQAFxlxT6lx2AX4FydDIIpStVjzP9XOO4Ib5FATFcMhkE7DiSGjatH7m7bQ8N5XC4gZjNqvjHKzb8fYY0TaW6VbcubQ9widDBbqIWRCVeZOH8h";
+  // console.log(req.userInfo?._id, "uhweihuehihuihfueh");
 
-  const { data } = await axios.post(
-    `https://${projectId}.api.sanity.io/v1/data/mutate/${dataset}?returnIds=true`,
-    {
-      mutations: [
-        {
-          create: {
-            _type: "order",
-            createdAt: new Date().toISOString(),
-            ...req.body,
-            firstName: req.user.firstName,
-            user: {
-              _type: "reference",
-              _ref: req.user._id,
-            },
-          },
-        },
-      ],
+  const sanity = {
+    projectId: "jbcyg7kh",
+    dataset: "production",
+    token:
+      "sk9HrFrIzduRTcbFyEjKbJXb7TA2lYp4EbUSPOapRq18Fys3QKxbcjdwEWfv8NWITtymnkHL1SHfN95gWgBrpSBtSHRaLqHv6J4BDnwDdFXbhjb8N8QpGlyveYa3B9THiZhRFrAAFKBFAxNQhj154L5zQMh5jnCTaNLeuTBssa2ZtvfVhyUV",
+  };
+
+  const clients = createClient(sanity);
+
+  // console.log(req.body.userInfo, "uhweihuehihuihfueh");
+  const order = await clients.create({
+    _type: "order",
+    ...req.body,
+    user: {
+      _type: "reference",
+      _ref: req.body.userId,
     },
-    {
-      headers: {
-        "Content-type": "application/json",
-        authorization: `Bearer ${tokenWithAccess}`,
-      },
-    }
-  );
+  });
 
-  res.status(201).send(data.results[0].id);
- 
+  res.status(201).send(order);
 });
 
 export default handler;

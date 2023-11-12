@@ -8,8 +8,9 @@
   justify-content: center;
   padding: 5px 0px;
   background-color: rgb(243, 243, 243);
+  font-family: $font_small;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     height: 100%;
   }
 
@@ -21,145 +22,272 @@
 
   .placeorderFlex {
     display: flex;
-    flex-wrap: wrap;
+
     width: 100%;
-    justify-content: center;
-    gap: 2rem;
-
-    .shippingaddress {
-      width: 500px;
-      max-height: 500px;
-      padding: 10px 5px;
-      margin: 15px 0;
-      border-top: 2px rgb(247, 112, 112) solid;
-      border-bottom: 2px rgb(247, 112, 112) solid;
-      background-color: $white;
-      // border-radius:10px;
-
-      @media screen and (max-width: 600px) {
-        width: 100%;
-        margin: 0 1rem;
-      }
-
-      a {
-        background-color: black;
-        border: 2px solid black;
-        padding: 3px 30px;
-        margin: 6.5px 0px;
-        font-size: 1rem;
-        color: white;
-        font-family: $font_small;
-
-        &:hover {
-          background-color: white;
-          color: $light_black;
-        }
-      }
-
-      h5 {
-        font-size: 0.8rem;
-        padding: 5px 0;
-        font-family: $font_small;
-        font-weight: 300;
-      }
-
-      span {
-        font-size: 0.8rem;
-        padding: 5px 0;
-        font-family: $font_small;
-        font-style: italic;
-        font-weight: 6 00;
-      }
+    height: 100vh;
+    @media screen and (max-width: 800px) {
+      flex-wrap: wrap;
+      height: 100%;
     }
 
-    .productPreview {
-      max-height: 100%;
-      padding: 10px 10px;
-      margin: 15px 0;
-      gap: 10px;
-      border-top: 1px rgb(247, 112, 112) solid;
+    .contactInformation {
+      width: 55%;
+      background-color: rgb(255, 255, 255);
+      @media screen and (max-width: 800px) {
+        width: 100%;
+      }
 
-      .product {
+      .form {
         display: flex;
-        justify-content: space-around;
-        gap: 10px;
-        border-top: 1px rgb(247, 112, 112) solid;
-        border: 1px rgb(247, 112, 112) solid;
-        padding: 10px 0;
-        margin: 5px 0px;
-        border-radius: 10px;
+        justify-content: center;
+        margin-top: 30px;
 
         h1 {
-          font-size: 0.8rem;
-          width: 150px;
-          font-family: $font_small;
+          font-size: 1.5rem;
+        }
+      }
+      .formBody {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 10px;
+
+        .formItem {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          label {
+            font-family: $font_small;
+            font-size: 12px;
+          }
+          input,
+          select,
+          textarea {
+            width: 500px;
+            border: 2px solid rgb(222, 222, 222);
+            height: 40px;
+            border-radius: 10px;
+            padding: 10px;
+            resize: none;
+            font-family: $font_small;
+            font-weight: 700;
+
+            option {
+              font-family: $font_small;
+              font-weight: 700;
+            }
+
+            @media screen and (max-width: 1000px) {
+              width: 400px;
+            }
+
+            @media screen and (max-width: 600px) {
+              width: 300px;
+            }
+          }
+
+          textarea {
+            height: 100px;
+          }
         }
 
-        p {
-          font-size: 0.8rem;
+        .formName {
+          display: flex;
+          @media screen and (max-width: 600px) {
+            flex-direction: column;
+          }
+          gap: 10px;
 
-          font-family: $font_small;
+          input {
+            width: 245px;
+            @media screen and (max-width: 1000px) {
+              width: 200px;
+            }
+
+            @media screen and (max-width: 600px) {
+              width: 300px;
+            }
+          }
         }
+        .formLocation {
+          display: flex;
+          gap: 10px;
+          @media screen and (max-width: 600px) {
+            flex-direction: column;
+          }
 
-        img {
-          width: 50px;
-          height: 50px;
-          object-fit: cover;
+          input,
+          select {
+            width: 160px;
+
+            @media screen and (max-width: 1000px) {
+              width: 130px;
+            }
+            @media screen and (max-width: 600px) {
+              width: 300px;
+            }
+          }
         }
       }
     }
-  }
 
-  .checkout {
-    width: 300px;
-    height: 300px;
-    padding: 10px 1rem;
-    margin: 15px 0;
-    border-radius: 10px;
-    border: 1px rgb(247, 112, 112) solid;
-    justify-items: center;
-    align-content: center;
-    background-color: #fff;
+    .orderDetails {
+      width: 45%;
+      background-color: rgb(237, 238, 240);
+      height: 100vh;
+      padding: 2rem 2rem;
+      display: flex;
+      flex-direction: column;
 
-    button {
-      margin: 2rem auto;
-      width: 100%;
-      height: 40px;
-
-      color: #010101;
-      font-size: 0.7rem;
-      font-family: $font_small;
-      transition: 0.2s;
-      border: 1px solid rgb(189, 2, 2);
-      border-radius: 10px;
-      background-color: rgb(255, 0, 0);
-      color: white;
-      &:hover {
-        background-color: rgb(237, 52, 52);
-        color: #fff;
-      }
-    }
-
-    .delivery {
-      height: 120px;
-
-      img {
+      @media screen and (max-width: 800px) {
         width: 100%;
         height: 100%;
-        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
       }
-    }
 
-    h1 {
-      font-size: 0.8rem;
-      padding: 5px 0;
-      font-family: $font_small;
-      font-weight: 300;
+      .products {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .productItem {
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          .productImage {
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
 
-      span {
-        font-family: $font_small;
-        float: right;
-        padding-right: 0.5rem;
+            .productQuantity {
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 18px;
+              height: 18px;
+              border-radius: 100px;
+              background-color: #fff;
+              display: flex;
+              justify-content: center;
+
+              span {
+                color: #000000;
+                font-family: $font_small;
+                font-size: 11px;
+              }
+            }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .productText {
+            width: 150px;
+
+            @media screen and (max-width: 600px) {
+              width: 200px;
+            }
+
+            @media screen and (max-width: 400px) {
+              width: 150px;
+            }
+
+            p {
+              font-family: $font_small;
+              // font-weight: 600;
+              font-size: 12px;
+            }
+
+            span {
+              font-family: $font_small;
+              font-weight: 500;
+              font-size: 12px;
+            }
+          }
+          .productPrice {
+            p {
+              font-family: $font_small;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+      .formInput {
+        padding: 10px;
+        display: flex;
+        flex-wrap: nowrap;
+        input {
+          width: 200px;
+          border: 2px solid rgb(222, 222, 222);
+          height: 40px;
+          border-radius: 5px;
+          padding: 10px;
+          resize: none;
+          font-family: $font_small;
+          @media screen and (max-width: 600px) {
+            width: 250px;
+          }
+          @media screen and (max-width: 400px) {
+            width: 200px;
+          }
+        }
+
+        button {
+          width: 70px;
+          background-color: rgb(0, 0, 0);
+          color: white;
+          border: 2px solid rgb(222, 222, 222);
+          height: 40px;
+          border-radius: 5px;
+          margin-left: 10px;
+          font-family: $font_small;
+        }
+      }
+
+      .totalPrice {
+        width: 300px;
+
+        .totalItems {
+          display: flex;
+          justify-content: space-between;
+          padding: 5px 10px;
+          @media screen and (max-width: 600px) {
+            padding: 5px 0px;
+          }
+
+          p {
+            font-family: $font_small;
+            font-weight: 400;
+            font-size: 14px;
+          }
+          span {
+            font-family: $font_small;
+            font-weight: 600;
+            color: grey;
+            font-size: 14px;
+          }
+        }
+      }
+      .submitForm {
+        button {
+          width: 300px;
+          background-color: #8f0000;
+          color: white;
+          border: 2px solid rgb(255, 255, 255);
+          height: 40px;
+          border-radius: 5px;
+          font-family: $font_small;
+        }
       }
     }
   }

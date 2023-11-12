@@ -1,30 +1,67 @@
 @import "./mixin.module";
 
+// .category_items {
+//   position: relative;
+//   margin: 1rem 10px;
+//   width: 100%;
+
+//   img {
+//     max-width: 100%;
+//   }
+
+//   .category_items_text {
+//     background-color: rgb(245, 241, 241);
+//     border-radius:10px;
+//     padding: 10px 10px;
+
+//     h2 {
+//       font-size: 1.5rem;
+//       font-family: $font_big;
+//     }
+
+//     a {
+//       font-family: $font_small;
+//       font-size: 1.3rem;
+//       text-decoration: wavy;
+//       font-weight: 700;
+//       color: $dark_red;
+//     }
+//   }
+// }
+
+.category_items_Body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+  gap: 1rem;
+  justify-content: center;
+}
 .category_items {
+  background-color: red;
+  height: 200px;
+  overflow: hidden;
   position: relative;
-  margin: 1rem 10px;
-  width: 100%;
+  div {
+    background-color: rgba(0, 0, 0, 0.362);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
 
   img {
-    max-width: 100%;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
   }
 
-  .category_items_text {
-    background-color: rgb(245, 241, 241);
-    border-radius:10px;
-    padding: 10px 10px;
-
-    h2 {
-      font-size: 1.5rem;
-      font-family: $font_big;
-    }
-
-    a {
-      font-family: $font_small;
-      font-size: 1.3rem;
-      text-decoration: wavy;
-      font-weight: 700;
-      color: $dark_red;
-    }
+  h2 {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    padding: 10px;
+    color: #fff;
   }
 }
+
+// Sweat shirt,
