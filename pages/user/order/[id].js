@@ -11,6 +11,7 @@ import { Country, State } from "country-state-city";
 import { usePaystackPayment } from "react-paystack";
 import toast from "react-hot-toast";
 import { Stepper } from "react-form-stepper";
+import Image from "next/image";
 
 // import { IoCheckmarkDoneCircle } from "react-icons/io";
 function reducer(state, action) {
@@ -46,7 +47,7 @@ function OrderScreen({ params }) {
 
   const { id } = params;
   const [fetchData, setFetchData] = useState(null);
-  
+
   const [formData, setFormData] = useState(null);
 
   const handleChange = (e) => {
@@ -92,7 +93,7 @@ function OrderScreen({ params }) {
 
     await axios.put("/api/orders/pay", { id: check._id }).then((res) => {
       toast.success("Payment Succefully");
-      console.log(res)
+      console.log(res);
     });
   };
   const onSuccess = (reference) => {
@@ -151,7 +152,7 @@ function OrderScreen({ params }) {
               {fetchData?.orderItems.map((item) => (
                 <div className={styles.productItem} key={item?._key}>
                   <div className={styles.productImage}>
-                    <img src={item?.image} alt="" />
+                    <Image src={item?.image} alt="" />
                     <div className={styles.productQuantity}>
                       <span>{item?.quantity}</span>
                     </div>
@@ -240,7 +241,7 @@ function OrderScreen({ params }) {
                             (item) => item.countryCode === formData?.country
                           )
                           .map((item) => (
-                            <option>{item.name}</option>
+                            <option key={item.name}>{item.name}</option>
                           ))}
                       </select>
                     </div>

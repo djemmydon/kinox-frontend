@@ -9,6 +9,7 @@ import { BarLoader } from "react-spinners";
 import Head from "next/head";
 import * as fbq from "../lib/jspixel";
 import Script from "next/script";
+import Image from "next/image";
 
 function MyApp({ Component, pageProps }) {
   NProgress.configure({ showSpinner: false });
@@ -78,7 +79,9 @@ function MyApp({ Component, pageProps }) {
 
         {loading ? (
           <div className="loading" style={{ width: "100%" }}>
-            <img
+            <Image
+              width={50}
+              height={60}
               src="/img/kinox RED.png"
               alt="Kinox apparel Logo Loading"
               style={{ width: "50px" }}
