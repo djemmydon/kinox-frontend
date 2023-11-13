@@ -1,0 +1,256 @@
+@import "./mixin.module";
+
+.userBody {
+  display: flex;
+  height: 100%;
+  gap: 2rem;
+  margin: 2rem 3rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 700px) {
+    margin: 2rem 1rem;
+  }
+
+  .sideBar {
+    width: 70%;
+
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgb(206, 206, 206);
+    @media screen and (max-width: 700px) {
+      width: 100%;
+    }
+
+    .sideBarBody {
+      ul {
+        display: flex;
+        flex-direction: row;
+        gap: 0.3rem;
+        list-style: none;
+        margin: 10px 1rem;
+
+        li {
+          padding: 10px;
+          border-radius: 10px;
+          transition: 0.3s ease-in-out;
+          cursor: pointer;
+          font-family: $font_small;
+
+          &:hover {
+            background-color: rgb(244, 240, 240);
+          }
+        }
+      }
+    }
+  }
+  .mainContent {
+    width: 70%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 1px 1px 5px rgb(205, 205, 205);
+    @media screen and (max-width: 700px) {
+      width: 100%;
+      box-shadow: none;
+    }
+    .homePage {
+      border-bottom: 1px solid rgb(208, 207, 207);
+      height: 80px;
+      padding: 10px;
+
+      h1 {
+        font-family: $font_small;
+        font-size: 1.4rem;
+      }
+      p {
+        font-family: $font_small;
+        font-size: 0.8rem;
+        color: rgb(242, 0, 0);
+      }
+    }
+
+    .headerOverview {
+      margin-left: 0.5rem;
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
+    .homeCard {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+
+      .card {
+        width: 300px;
+        height: 150px;
+        background-color: rgb(104, 104, 104);
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        @media screen and (max-width: 700px) {
+          width: 100%;
+        }
+        .cardText {
+          h2 {
+            color: #fff;
+            font-family: $font_small;
+          }
+          p {
+            color: #fff;
+            font-family: $font_small;
+          }
+        }
+
+        &:nth-child(2) {
+          background-color: #000;
+        }
+        &:nth-child(3) {
+          background-color: #ffffff;
+          box-shadow: 0px 0px 10px rgb(205, 205, 205);
+          .cardText {
+            h2 {
+              color: #000;
+              font-family: $font_small;
+            }
+            p {
+              color: red;
+              font-family: $font_small;
+            }
+          }
+        }
+      }
+    }
+
+    .orderContent {
+      h1 {
+        font-size: 1.5rem;
+        font-family: $font_small;
+        margin: 1rem 1rem;
+      }
+      .orderBody {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 2rem;
+        gap: 2rem;
+        @media screen and (max-width: 700px) {
+          margin: 1rem 0rem;
+        }
+
+        .orderItem {
+          box-shadow: 1px 1px 5px rgb(205, 205, 205);
+          border-radius: 10px;
+
+          .orderItemHead {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+
+            @media screen and (max-width: 500px) {
+              flex-direction: column;
+            }
+            .orderId {
+              h6 {
+                font-family: $font_small;
+                font-size: 13px;
+              }
+              p {
+                font-family: $font_small;
+                font-size: 1rem;
+                font-weight: 700;
+                color: rgb(255, 179, 0);
+              }
+            }
+
+            .buttonBody {
+              display: flex;
+              @media screen and (max-width: 500px) {
+                flex-direction: row;
+              }
+              button {
+                margin-top: 2px;
+                width: 100px;
+                background-color: rgb(255, 255, 255);
+                color: rgb(0, 0, 0);
+                border: 2px solid rgb(222, 222, 222);
+                height: 40px;
+                border-radius: 5px;
+                margin-left: 10px;
+                font-family: $font_small;
+                font-weight: 700;
+                font-size: 12px;
+                &:nth-child(2) {
+                  background-color: rgb(169, 0, 0);
+                  color: rgb(255, 255, 255);
+                }
+              }
+            }
+          }
+
+          .orderContact {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 2rem;
+            border-bottom: 0.6px solid rgb(219, 217, 217);
+            padding-bottom: 15px;
+            @media screen and (max-width: 700px) {
+              margin: 2rem 1rem;
+              flex-direction: column;
+            }
+            h2 {
+              font-size: 1.1rem;
+              font-family: $font_small;
+            }
+
+            div {
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+
+              span {
+                font-size: 0.9rem;
+                font-family: $font_small;
+              }
+            }
+          }
+
+          .orderProduct {
+            margin: 1rem 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            .orderProductItem {
+              display: flex;
+              width: 250px;
+              gap: 10px;
+
+              img {
+                width: 70px;
+                object-fit: cover;
+                height: 70px;
+                border-radius: 5px;
+              }
+
+              div {
+                margin: 10px 0;
+                p {
+                  font-size: 0.8rem;
+                  font-family: $font_small;
+                }
+                span {
+                  font-size: 0.9rem;
+                  font-family: $font_small;
+                  font-weight: 700;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

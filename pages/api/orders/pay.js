@@ -1,40 +1,28 @@
-import axios from "axios";
+
 import nc from "next-connect";
-import { isAuth } from "../../../lib/auth";
+import { createClient } from "next-sanity";
 
 const handler = nc();
 
-handler.use(isAuth);
-
 handler.put(async (req, res) => {
-  const projectId = "jbcyg7kh";
-  const dataset = "production";
-  const tokenWithAccess =
-    "sk5JHFPaa8OK0GVfzEMv8bJwnBj1Mw5cjipg4rHsdR0WxbLXyBae73FL89nuER7fsKaNilcQAFxlxT6lx2AX4FydDIIpStVjzP9XOO4Ib5FATFcMhkE7DiSGjatH7m7bQ8N5XC4gZjNqvjHKzb8fYY0TaW6VbcubQ9widDBbqIWRCVeZOH8h";
+  const sanity = {
+    projectId: "jbcyg7kh",
+    dataset: "production",
+    token:
+      "sk9HrFrIzduRTcbFyEjKbJXb7TA2lYp4EbUSPOapRq18Fys3QKxbcjdwEWfv8NWITtymnkHL1SHfN95gWgBrpSBtSHRaLqHv6J4BDnwDdFXbhjb8N8QpGlyveYa3B9THiZhRFrAAFKBFAxNQhj154L5zQMh5jnCTaNLeuTBssa2ZtvfVhyUV",
+  };
 
-  await axios.post(
-    `https://${projectId}.api.sanity.io/v1/data/mutate/${dataset}?returnIds=true`,
-    {
-      mutations: [
-        {
-          path: {
-            id: req.query.id,
-            set: {
-              isPaid: true,
-              paidAt: new Date().toISOString(),
-            },
-          },
-        },
-      ],
-    },
-    {
-      headers: {
-        "Content-type": "application/json",
-        authorization:`Bearer ${tokenWithAccess}`,
-      },
-    }
-  );
-  res.send({ message: "Order Successfully" });
+  const clients = createClient(sanity);
+
+  console.log(req.body.id);
+  const order = clients
+    .patch(req.body.id)
+    .set({
+      isPaid: true,
+    })
+    .commit();
+
+  res.send({ message: "Order Successfully", order });
 });
 
 export default handler;

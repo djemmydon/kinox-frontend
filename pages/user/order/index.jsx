@@ -1,5 +1,5 @@
 import React from "react";
-import AllOrders from "../../component/AllOrders";
+import AllOrders from "../../../component/AllOrders";
 
 function Order({ order }) {
   return (
