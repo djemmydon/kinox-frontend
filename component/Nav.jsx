@@ -98,7 +98,7 @@ function Nav() {
             <div className={styles.nav_icon}>
               <ul>
                 {userInfo ? (
-                  <li>
+                  <li onClick={() => router.push("/user")}>
                     <AiOutlineUser
                       color="white"
                       size={22}

@@ -117,7 +117,7 @@ function Cart(props) {
             
             <button
               onClick={() => {
-                router.push("/shipping");
+                router.push("/placeorder");
               }}
               onMouseUp={props.data}
             >

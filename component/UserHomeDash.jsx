@@ -6,7 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 function UserHomeDash({ styles, user, order }) {
-  const adminShow = user?.isAdmin ? order : order.slice(1, 7);
+  const adminShow = user?.isAdmin ? order : order?.filter((item) => item?.user._ref === user?._id);
+  console.log(adminShow)
 
   //  Search for user that is influencer
   const calculate =
@@ -77,7 +78,7 @@ function UserHomeDash({ styles, user, order }) {
                 <div className={styles.buttonBody}>
                   <button>Cancel Order</button>
                   <button
-                    onClick={() => pushToPage.push(`/order/user/${item?._id}`)}
+                    onClick={() => pushToPage.push(`/user/order/${item?._id}`)}
                   >
                     Track Order
                   </button>
