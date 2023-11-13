@@ -8,6 +8,9 @@
     "build": "next build",
     "start": "next start"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@formspree/react": "^2.4.0",
     "@mui/styled-engine-sc": "^5.10.14",
