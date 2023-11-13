@@ -46,7 +46,7 @@ function OrderScreen({ params }) {
 
   const { id } = params;
   const [fetchData, setFetchData] = useState(null);
-  
+
   const [formData, setFormData] = useState(null);
 
   const handleChange = (e) => {
@@ -90,10 +90,16 @@ function OrderScreen({ params }) {
     const check = data.find((item) => item?._id === id);
     console.log(check);
 
-    await axios.put("/api/orders/pay", { id: check._id }).then((res) => {
-      toast.success("Payment Succefully");
-      console.log(res)
-    });
+    await axios
+      .put("/api/orders/pay", {
+        id: check._id,
+        orderId: check._id,
+        price: check.overRawPrice,
+      })
+      .then((res) => {
+        toast.success("Payment Succefully");
+        console.log(res);
+      });
   };
   const onSuccess = (reference) => {
     paidTransaction();

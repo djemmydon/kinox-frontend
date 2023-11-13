@@ -147,7 +147,9 @@ function OrderReview() {
       totalQuantity,
       overRawPrice,
       coupon,
-      
+      userId: userInfo._id,
+      email: userInfo.email,
+
       orderItems: cartItems.map((x) => ({
         ...x,
         inStock: undefined,
@@ -174,9 +176,9 @@ function OrderReview() {
 
           dispatch("REMOVE_CART_ITEM");
           jsCookie.remove("cartItems");
-          jsCookie.set("orderId", )
+          jsCookie.set("orderId");
           fbq.event("Purchase", { currency: "NGN", value: res.data.price });
-          router.push(`/order/${res.data._id}`);
+          router.push(`/user/order/${res.data._id}`);
           setorderId(res.data?._id);
 
           setLoading(true);
