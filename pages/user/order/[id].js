@@ -117,7 +117,7 @@ function OrderScreen({ params }) {
     reference: new Date().getTime().toString(),
     email: userInfo.email,
     amount: fetchData?.overRawPrice * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: process.env.NEXT_PUBLIC_TESTING,
+    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_KEY,
   };
 
   const initializePayment = usePaystackPayment(config);
