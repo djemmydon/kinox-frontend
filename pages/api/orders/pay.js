@@ -79,7 +79,7 @@ handler.put(async (req, res) => {
           <p>Your payment for order #${req.body.orderId} has been received successfully.<p/> <br />
           <h3> Order Details: <h3/> <br />
   <br />
-  <h4>Amount:$${req.body.price} <h4/>
+  <h4>Amount:${req.body.price} <h4/>
 <br />
 <h4>Order Id:${req.body.orderId} <h4/>
 <br />

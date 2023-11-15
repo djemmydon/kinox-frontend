@@ -99,6 +99,7 @@ function OrderScreen({ params }) {
       .then((res) => {
         toast.success("Payment Succefully");
         console.log(res);
+        router.push("/user");
       });
   };
   const onSuccess = (reference) => {

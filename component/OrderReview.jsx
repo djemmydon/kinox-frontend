@@ -20,7 +20,16 @@ function OrderReview() {
     userInfo,
     cart: { shippingAddress, cartItems },
   } = state;
+
+
   const router = useRouter();
+
+  useEffect(() => {
+    if (!userInfo?.isAdmin) {
+      router.push("/login");
+    }
+  }, [userInfo, router]);
+
   const [loading, setLoading] = useState(false);
   const [orderId, setorderId] = useState("");
   const [discountLoading, setDiscountLoading] = useState(false);
@@ -323,12 +332,12 @@ function OrderReview() {
           <div className={styles.totalPrice}>
             <div className={styles.totalItems}>
               <p>Subtotal</p>
-              <span>₦1600</span>
+              <span>₦{totalPrice}</span>
             </div>
 
             <div className={styles.totalItems}>
               <p>Shipping Fee</p>
-              <span>₦1600</span>
+              <span>Free</span>
             </div>
 
             <div className={styles.totalItems}>
