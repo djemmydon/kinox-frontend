@@ -17,7 +17,7 @@ export function Product({ data }) {
     <div>
       <div className={styles.productsBody}>
         {data
-          .sort((a, b) => b._updatedAt.localeCompare(a._updatedAt))
+          .sort((a, b) => b._createdAt.localeCompare(a._createdAt))
           .map((product) => (
             <div className={styles.item} key={product._id}>
               <Link href={`/product/${product.slug.current}`}>
