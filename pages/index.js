@@ -53,7 +53,6 @@ export default function Home({ data, review, categories }) {
           <h1>New in Store</h1>
         </div>
 
-        <Category categories={categories} />
         <Product data={data} />
 
         <div className="button-push">
@@ -70,6 +69,7 @@ export default function Home({ data, review, categories }) {
         <div className="headings">
           <h1>Customers Reviews</h1>
         </div> */}
+        <Category categories={categories} />
 
         <div className="headings">
           <h1>What People Say</h1>
