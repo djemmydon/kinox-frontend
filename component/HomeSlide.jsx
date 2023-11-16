@@ -42,7 +42,7 @@ function HomeSlide() {
           <SwiperSlide className={styles.home_slide_items}>
             <div className={styles.home_slide_item}>
               <div className={styles.home_slide_text}>
-                <h2>{`We make it happen`}</h2>
+                <h2>{`LOVE EXIST FOREVER`}</h2>
                 <p>
                   Blend of creativity, Innovation and Class. 100% quality
                   certainty and 100% timing and trust
@@ -55,8 +55,8 @@ function HomeSlide() {
 
               <div className={styles.home_slide_img}>
                 <Image
-                  src="/img/img2.png"
-                  alt="This is LadyJamsmiC Kinox"
+                  src="/img/COMPANION.png"
+                  alt="KINOX LOVE EXIST FOREVER"
                   height="1000"
                   width="1000"
                 />
@@ -80,7 +80,7 @@ function HomeSlide() {
 
               <div className={styles.home_slide_img}>
                 <Image
-                  src="/img/img1.png"
+                  src="/img/COMPANION2.png"
                   alt="This is LadyJamsmiC Kinox"
                   height="1000"
                   fill=""
@@ -89,7 +89,7 @@ function HomeSlide() {
               </div>
             </div>
           </SwiperSlide>
-          <SwiperSlide className={styles.home_slide_items}>
+          {/* <SwiperSlide className={styles.home_slide_items}>
             <div className={styles.home_slide_item}>
               <div className={styles.home_slide_text}>
                 <h2>{`Bringing the world to Africa `}</h2>
@@ -113,7 +113,7 @@ function HomeSlide() {
                 />
               </div>
             </div>
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </main>
     </>

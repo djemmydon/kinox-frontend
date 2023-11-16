@@ -92,7 +92,9 @@ export const getServerSideProps = async () => {
   const review = await client.fetch(reviewQuery);
   return {
     props: {
-      data: products.splice(0, 8),
+      data: products
+        
+        .sort((a, b) => b._createdAt.localeCompare(a._createdAt)).splice(0, 8),
       review,
       categories,
     },
