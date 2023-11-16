@@ -133,7 +133,7 @@ function OrderReview() {
 
   const config = {
     reference: new Date().getTime().toString(),
-    email: userInfo.email,
+    email: userInfo?.email,
     amount: totalPrice * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: process.env.NEXT_PUBLIC_TESTING,
   };
