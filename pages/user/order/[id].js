@@ -37,7 +37,7 @@ function OrderScreen({ params }) {
 
   const { state } = useStateContext();
   const { userInfo } = state;
-  const { router } = useRouter();
+  const  router  = useRouter();
   // const [pay, setPay] = useState(false);
   // const [discountLoading, setDiscountLoading] = useState(false);
 
@@ -115,9 +115,9 @@ function OrderScreen({ params }) {
 
   const config = {
     reference: new Date().getTime().toString(),
-    email: userInfo.email,
+    email: userInfo?.email,
     amount: fetchData?.overRawPrice * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_KEY,
+    publicKey: "pk_live_f69a6a0f165b0b87afd826de08ac480a49ae5aa9",
   };
 
   const initializePayment = usePaystackPayment(config);

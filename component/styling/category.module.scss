@@ -30,13 +30,19 @@
 // }
 
 .category_items_Body {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  padding: 2rem;
+  gap: 10px;
+  @media screen and (max-width: 600px) {
+    padding: 0 0rem;
+  }
+
 }
 .category_items {
   background-color: red;
+  width: 200px;
   height: 200px;
   overflow: hidden;
   position: relative;
