@@ -12,10 +12,10 @@
       height: 400px;
     }
     @media screen and (max-width: 600px) {
-      height: 300px;
+      height: 400px;
     }
     max-width: 100%;
-    background-color: #710004;
+    background-color: #a3a3a3;
   }
   .home_slide_items {
     width: 100%;
@@ -36,7 +36,7 @@
       }
 
       @media screen and (max-width: 600px) {
-        height: 300px;
+        height: 400px;
       }
 
       img {
@@ -90,6 +90,8 @@
       @media screen and (max-width: 800px) {
         padding-left: 1rem;
         width: 100%;
+        margin-top: 3rem;
+        text-align: center;
 
         // text-align: center;
 

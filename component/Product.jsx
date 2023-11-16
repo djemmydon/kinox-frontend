@@ -17,7 +17,7 @@ export function Product({ data }) {
     <div>
       <div className={styles.productsBody}>
         {data
-          .sort((a, b) => b._updatedAt.localeCompare(a._updatedAt))
+          .sort((a, b) => b._createdAt.localeCompare(a._createdAt))
           .map((product) => (
             <div className={styles.item} key={product._id}>
               <Link href={`/product/${product.slug.current}`}>
@@ -74,50 +74,48 @@ function AllProduct({ data }) {
   return (
     <div>
       <div className={styles.productsBody}>
-        {data
-          .sort((a, b) => b._updatedAt.localeCompare(a._updatedAt))
-          .map((product) => (
-            <div className={styles.item} key={product._id}>
-              <Link href={`/product/${product.slug.current}`}>
-                <div className={styles.icon}>
-                  <div className={styles.image}>
-                    {
-                      <img
-                        src={urlFor(product?.image[0]) ?? " "}
-                        alt="kinox apparel product image"
-                      />
-                    }{" "}
-                    <div className={styles.overlay}>
-                      <AiFillEye className={styles.icons} size={30} />
-                    </div>
-                  </div>
-
-                  <div className={styles.text_side}>
-                    <h4>{truncate(product.name, 30)}</h4>
-
-                    <div className={styles.cart_button}>
-                      <p>
-                        ₦{product.price.toLocaleString("en-US")}{" "}
-                        {product?.price_before && (
-                          <span>
-                            ₦{product?.price_before?.toLocaleString("en-US")}{" "}
-                          </span>
-                        )}
-                      </p>
-
-                      <button
-                        onClick={() =>
-                          router.push(`/product/${product.slug.current}`)
-                        }
-                      >
-                        View Product
-                      </button>
-                    </div>
+        {data.map((product) => (
+          <div className={styles.item} key={product._id}>
+            <Link href={`/product/${product.slug.current}`}>
+              <div className={styles.icon}>
+                <div className={styles.image}>
+                  {
+                    <img
+                      src={urlFor(product?.image[0]) ?? " "}
+                      alt="kinox apparel product image"
+                    />
+                  }{" "}
+                  <div className={styles.overlay}>
+                    <AiFillEye className={styles.icons} size={30} />
                   </div>
                 </div>
-              </Link>
-            </div>
-          ))}
+
+                <div className={styles.text_side}>
+                  <h4>{truncate(product.name, 30)}</h4>
+
+                  <div className={styles.cart_button}>
+                    <p>
+                      ₦{product.price.toLocaleString("en-US")}{" "}
+                      {product?.price_before && (
+                        <span>
+                          ₦{product?.price_before?.toLocaleString("en-US")}{" "}
+                        </span>
+                      )}
+                    </p>
+
+                    <button
+                      onClick={() =>
+                        router.push(`/product/${product.slug.current}`)
+                      }
+                    >
+                      View Product
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );
