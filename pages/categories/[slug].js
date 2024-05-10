@@ -35,6 +35,7 @@ export const getStaticPaths = async () => {
 
   const category = await client.fetch(query);
 
+  console.log(category)
   const paths = category.map((items) => ({
     params: { slug: items?.slug.current },
   }));

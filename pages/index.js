@@ -1,19 +1,47 @@
-import Head from "next/head";
+import Head from 'next/head';
 
-import { client } from "../lib/client";
-import Product from "../component/Product";
-import HomeSlide from "../component/HomeSlide";
-import Category from "../component/Category";
-import { useRouter } from "next/router";
+import { client } from '../lib/client';
+import Product from '../component/Product';
+import HomeSlide from '../component/HomeSlide';
+import Category from '../component/Category';
+import { useRouter } from 'next/router';
 
-import React, { useState, useEffect } from "react";
-import HomePopPup from "../component/pop/HomePopPup";
-import Review from "../component/Review";
+import React, { useState, useEffect } from 'react';
+import HomePopPup from '../component/pop/HomePopPup';
+import Review from '../component/Review';
+import axios from 'axios';
 
-export default function Home({ data, review, categories }) {
+// { data, review, categories }
+export default function Home() {
   const [popUp, setPopUp] = useState(false);
+  const [data, setData] = useState([]);
+  const [review, setReview] = useState([]);
+  const [categories, setCategories] = useState([]);
   const router = useRouter();
 
+  useEffect(() => {
+    const query = `*[_type == 'product' ]`;
+    const reviewQuery = `*[_type == 'review']`;
+    const queryCategoty = `*[_type == 'category']`;
+    const fetchData = async () => {
+      const categories = await axios.get(
+        `https://jbcyg7kh.api.sanity.io/v2021-10-21/data/query/production?query=${queryCategoty}`
+      );
+      setCategories(categories.data.result);
+      const products = await axios.get(
+        `https://jbcyg7kh.api.sanity.io/v2021-10-21/data/query/production?query=${query}`
+      );
+      setData(products.data.result.sort((a, b) => b._createdAt.localeCompare(a._createdAt))
+      .splice(0, 8),);
+
+      const review = await axios.get(
+        `https://jbcyg7kh.api.sanity.io/v1/data/query/production?query=${reviewQuery}`
+      );
+      setReview(review.data.result);
+    };
+
+    fetchData();
+  }, []);
   const popUpHandler = () => {
     setPopUp(false);
   };
@@ -29,7 +57,11 @@ export default function Home({ data, review, categories }) {
       <Head>
         <title>Kinox | Home</title>
         <meta name="Kinox Apparel" content="Kinox Apparel | Home" />
+
+        <meta name="viewport" content="width=device-width, user-scalable=0" />
+
       <meta name="viewport" content="width=device-width, user-scalable=0" />
+
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
@@ -57,7 +89,7 @@ export default function Home({ data, review, categories }) {
         <Product data={data} />
 
         <div className="button-push">
-          <button onClick={() => router.push("/products")}>
+          <button onClick={() => router.push('/products')}>
             See All Products
           </button>
         </div>
@@ -94,8 +126,9 @@ export const getServerSideProps = async () => {
   return {
     props: {
       data: products
-        
-        .sort((a, b) => b._createdAt.localeCompare(a._createdAt)).splice(0, 8),
+
+        .sort((a, b) => b._createdAt.localeCompare(a._createdAt))
+        .splice(0, 8),
       review,
       categories,
     },

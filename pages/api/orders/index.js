@@ -125,12 +125,80 @@ handler.post(async (req, res) => {
     </body>
   </html>
 `;
+  const admin = `
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Add your custom styles here */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .header {
+        background-color: #5e0079;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px 5px 0 0;
+      }
+      .header h1 {
+        margin: 0;
+        color: #333;
+        font-size:1rem;
+        color:black;
+      }
+      .content {
+        padding: 15px;
+      }
+      .cta-button {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <div>
+    </div>
+      <div class="header">
+        <h1 style="color:#fff;">Kinox Apparel</h1>
+      </div>
+      <div class="content">
+        <div> Hi,<br />
+
+        <p>We're excited to inform you that a new order has been placed on your website <p/> <br />
+     
+
+      </div>
+    </div>
+  </body>
+</html>
+`;
 
   await transporter.sendMail({
     from: "kinoxapparel@gmail.com",
     to: req.body.email,
     subject: "You have new Order",
     html: onRegisterTemplate,
+  });
+
+  await transporter.sendMail({
+    from: "kinoxapparel@gmail.com",
+    to: "kinoxapparel@gmail.com",
+    subject: "You have new Order",
+    html: admin,
   });
 
   res.status(201).send(order);

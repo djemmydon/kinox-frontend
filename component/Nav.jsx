@@ -246,7 +246,7 @@ function Nav() {
 
               {data
                 .filter((item) => {
-                  const name = item.name.toLowerCase();
+                  const name = item?.name
                   const searchTerm = value.toLowerCase();
 
                   return searchTerm && name.startsWith(searchTerm);
