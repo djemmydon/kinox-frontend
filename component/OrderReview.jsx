@@ -25,7 +25,7 @@ function OrderReview() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!userInfo?.isAdmin) {
+    if (!userInfo) {
       router.push("/login");
     }
   }, [userInfo, router]);
@@ -40,8 +40,8 @@ function OrderReview() {
 
   // Form data
   const [country, setCountry] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState(userInfo?.firstName);
+  const [lastName, setLastName] = useState(userInfo?.lastName);
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [states, setStates] = useState("");

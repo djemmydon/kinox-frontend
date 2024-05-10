@@ -1,19 +1,22 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import styles from "../styling/admin_home.module.scss";
+import Link from 'next/link';
+import React, { useState } from 'react';
+import styles from '../styling/admin_home.module.scss';
+import { useRouter } from "next/router";
+
 
 const HomeAdmin = ({ order, users }) => {
   const [orderPay, setOrderPay] = useState(false);
+  const pushToPage = useRouter();
 
-  console.log(orderPay)
+  console.log(order);
 
   const handleClick = (e) => {
     e.preventDefault();
-    e.target.value
+    e.target.value;
     console.log(e.target.value);
-       if(e.target.value) {
-        setOrderPay(!orderPay)
-       }
+    if (e.target.value) {
+      setOrderPay(!orderPay);
+    }
   };
   return (
     <div className={styles.body}>
@@ -31,18 +34,18 @@ const HomeAdmin = ({ order, users }) => {
             </tr>
           </thead>
           <tbody>
-            {order?.map((item) => (
+            {order?.sort((a, b) => b.influencer === true).map((item) => (
               <tr key={item._id}>
                 <td>{item._id}</td>
                 <td className={styles.name}>{item.shippingAddress.fullName}</td>
                 <td>{item.shippingAddress.phone}</td>
                 <td>{item.shippingAddress.city}</td>
-                <td>₦{item.totalPrice.toLocaleString("en-US")}</td>
+                <td>₦{item.overRawPrice?.toLocaleString('en-US')}</td>
                 <td>
-                  <form className={styles.toggleBody} value={item._id} >
+                  <form className={styles.toggleBody} value={item._id}>
                     <button
-                    value={item._id}
-                    onClick={handleClick}
+                      value={item._id}
+                      onClick={handleClick}
                       className={
                         item._id
                           ? `${styles.toggle}  ${styles.active}`
@@ -52,8 +55,8 @@ const HomeAdmin = ({ order, users }) => {
                   </form>
                 </td>
                 <td>
-                  {" "}
-                  <button type="">View Order</button>{" "}
+                  {' '}
+                  <button type="" onClick={() => pushToPage.push(`/user/order/${item._id}`)}>View Order</button>{' '}
                 </td>
               </tr>
             ))}
@@ -67,6 +70,7 @@ const HomeAdmin = ({ order, users }) => {
               <th>User_Id</th>
               <th>User_Name</th>
               <th>User_Email</th>
+              <th>Influencer</th>
             </tr>
           </thead>
           <tbody>
@@ -77,6 +81,7 @@ const HomeAdmin = ({ order, users }) => {
                   {item.firstName} {item.lastName}
                 </td>
                 <td>{item.email}</td>
+                <td>{item.influencer ? "True" : "False"}</td>
               </tr>
             ))}
           </tbody>

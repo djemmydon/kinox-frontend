@@ -1,10 +1,24 @@
-import React from "react";
-import { client } from "../lib/client";
+import React, { useEffect, useState } from 'react';
+import { client } from '../lib/client';
 
-import AllProduct from "../component/Product";
-import Head from "next/head";
+import AllProduct from '../component/Product';
+import Head from 'next/head';
+import axios from 'axios';
 
-function Products({ products }) {
+function Products() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const query = `*[_type == 'product' ]`;
+    const fetchData = async () => {
+      const products = await axios.get(
+        `https://jbcyg7kh.api.sanity.io/v2021-10-21/data/query/production?query=${query}`
+      );
+      setProducts(products.data.result.sort((a, b) => b._createdAt.localeCompare(a._createdAt)));
+    };
+
+    fetchData();
+  }, []);
   return (
     <>
       <Head>
@@ -17,9 +31,9 @@ function Products({ products }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="headings">
-          <h1>All Products</h1>
-        </div>
-          
+        <h1>All Products</h1>
+      </div>
+
       <AllProduct data={products} />
     </>
   );

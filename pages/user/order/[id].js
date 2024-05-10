@@ -37,10 +37,11 @@ function OrderScreen({ params }) {
 
   const { state } = useStateContext();
   const { userInfo } = state;
-  const  router  = useRouter();
+  const router = useRouter();
   // const [pay, setPay] = useState(false);
   // const [discountLoading, setDiscountLoading] = useState(false);
 
+  const [delivered, setDelivered] = useState(null);
   const [countryList, setCountryList] = useState(null);
   const [stateList, setStateList] = useState(null);
 
@@ -72,18 +73,26 @@ function OrderScreen({ params }) {
     }
     const fetchOrder = async () => {
       try {
-        const data = await client.fetch(`*[_type == 'order' ]`);
-        const check = data.find((item) => item._id === params.id);
+        const query = `*[_type == 'order' ]`;
+        const categories = await axios.get(
+          `https://jbcyg7kh.api.sanity.io/v2021-10-21/data/query/production?query=${query}`
+        );
+        const check = categories.data?.result.find(
+          (item) => item._id === params.id
+        );
         console.log(params);
         setFetchData(check);
         setFormData({ ...check?.shippingAddress });
       } catch (err) {
-        dispatch({ type: "FAIL_REQUEST", payload: getError(err) });
+        // dispatch({ type: 'FAIL_REQUEST', payload: getError(err) });
+        console.log(err);
       }
     };
 
     fetchOrder();
   }, [router, userInfo, id, params]);
+
+  console.log(fetchData);
 
   const paidTransaction = async () => {
     const data = await client.fetch(`*[_type == 'order' ]`);
@@ -117,7 +126,8 @@ function OrderScreen({ params }) {
     reference: new Date().getTime().toString(),
     email: userInfo?.email,
     amount: fetchData?.overRawPrice * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: "pk_live_f69a6a0f165b0b87afd826de08ac480a49ae5aa9",
+    publicKey: process.env.NEXT_PUBLIC_TESTING,
+    // publicKey: "pk_live_f69a6a0f165b0b87afd826de08ac480a49ae5aa9",
   };
 
   const initializePayment = usePaystackPayment(config);
@@ -129,7 +139,31 @@ function OrderScreen({ params }) {
     size: "1.5em",
   };
 
+  const isDelivered = async () => {
+    const data = await client.fetch(`*[_type == 'order' ]`);
+    const check = data.find((item) => item?._id === id);
+    console.log(check);
+
+    client
+      .patch(check._id)
+      .set({ isDelivered: delivered })
+      .commit()
+      .then((res) => {
+        toast.success("Delivered Succefully");
+      });
+    // await axios
+    //   .put('/api/orders/delivered', {
+    //     id: check._id,
+    //     orderId: check._id,
+    //   })
+    //   .then((res) => {
+    //     toast.success('Delivered Succefully');
+    //     console.log(res);
+    //     // router.push('/user');
+    //   });
+  };
   console.log(fetchData?.isDelivered);
+  console.log(delivered);
   return (
     <main className={styles.placeorder}>
       {!fetchData ? (
@@ -146,12 +180,9 @@ function OrderScreen({ params }) {
                   { label: "Initiate Order" },
                   { label: "Payment" },
                   { label: "Delivered" },
-                  { label: "Completed" },
                 ]}
                 styleConfig={ConnectStyleProps}
-                activeStep={
-                  fetchData?.isPaid ? 1 : fetchData?.isDelivered ? 3 : 0
-                }
+                activeStep={fetchData?.isPaid && !fetchData?.isDelivered  ? 0 : fetchData?.isDelivered && fetchData?.isPaid ? 2 : 0}
               />
             </div>
             <div className={styles.products}>
@@ -202,6 +233,33 @@ function OrderScreen({ params }) {
                 </button>
               )}
             </div>
+
+            {userInfo?.isAdmin && (
+              <>
+                <h2 style={{ fontSize: 15, paddingTop: 10, paddingBottom: 10 }}>
+                  Delivery Status
+                </h2>
+                <select
+                  style={{ height: 50, width: 150 }}
+                  value={delivered}
+                  onChange={(e) => setDelivered(e.target.value)}
+                >
+                  <option value="false">Not Delivered</option>
+
+                  <option value="true">Delivered</option>
+                </select>
+
+                {delivered && (
+                  <button
+                    className={styles.button}
+                    onClick={isDelivered}
+                    style={{ height: 50, width: 150 }}
+                  >
+                    Confirm
+                  </button>
+                )}
+              </>
+            )}
           </div>
           <div className={styles.contactInformation}>
             <div className={styles.form}>
