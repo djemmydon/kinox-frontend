@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { client } from "../lib/client";
+import jsCookie from "js-cookie";
 import {
   AiOutlineShoppingCart,
   AiOutlineSearch,
@@ -54,6 +55,11 @@ function Nav() {
 
   const onSearchTerm = (searchTerm) => {
     console.log("search", searchTerm);
+  };
+
+  const handleLogout = () => {
+    router.reload()
+    jsCookie.remove("userInfo");
   };
 
   return (
@@ -190,18 +196,29 @@ function Nav() {
               </Link>
             </li>
           </ul>
-
+          {/* Login Logout */}
           <div className={styles.nav_icon}>
-            <ul>
-              <li onClick={handleNav}>
-                <AiOutlineUserAdd color="white" size={25} />
-                <span onClick={() => router.push("/register")}>Register</span>
-              </li>
-              <li onClick={handleNav}>
-                <AiOutlineLogin color="white" size={25} />
-                <span onClick={() => router.push("/login")}>Login</span>
-              </li>
-            </ul>
+            {userInfo ? (
+              <ul>
+          
+                <li onClick={handleNav}>
+                  <AiOutlineLogin color="white" size={25} />
+                  <span onClick={handleLogout} style={{color: "red"}}>Logout</span>
+                </li>
+              </ul>
+            ) : (
+              <ul>
+        
+        <li onClick={handleNav}>
+                  <AiOutlineUserAdd color="white" size={25} />
+                  <span onClick={() => router.push("/register")}>Register</span>
+                </li>
+                <li onClick={handleNav}>
+                  <AiOutlineLogin color="white" size={25} />
+                  <span onClick={() => router.push("/login")} >Login</span>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
 
@@ -246,7 +263,7 @@ function Nav() {
 
               {data
                 .filter((item) => {
-                  const name = item?.name
+                  const name = item?.name;
                   const searchTerm = value.toLowerCase();
 
                   return searchTerm && name.startsWith(searchTerm);

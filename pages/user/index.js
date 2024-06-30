@@ -18,7 +18,7 @@ function Index({ products }) {
   return (
     <div className={styles.userBody}>
       <div className={styles.sideBar}>
-        <UserSideBar styles={styles} />
+        {/* <UserSideBar styles={styles} /> */}
       </div>
       <div className={styles.mainContent}>
         <UserHomeDash user={userInfo} order={products}  styles={styles} />
