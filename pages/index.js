@@ -57,7 +57,11 @@ export default function Home() {
       <Head>
         <title>Kinox | Home</title>
         <meta name="Kinox Apparel" content="Kinox Apparel | Home" />
+
         <meta name="viewport" content="width=device-width, user-scalable=0" />
+
+      <meta name="viewport" content="width=device-width, user-scalable=0" />
+
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
