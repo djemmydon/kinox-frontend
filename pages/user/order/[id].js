@@ -174,17 +174,11 @@ function OrderScreen({ params }) {
         <div className={styles.placeorderFlex}>
           <div className={styles.orderDetails}>
             <div>
-              <Stepper
-                connectorStyleConfig={connectorStyleProps}
-                steps={[
-                  { label: "Initiate Order" },
-                  { label: "Payment" },
-                  { label: "Delivered" },
-                ]}
-                styleConfig={ConnectStyleProps}
-                activeStep={fetchData?.isPaid && !fetchData?.isDelivered  ? 0 : fetchData?.isDelivered && fetchData?.isPaid ? 2 : 0}
-              />
+              <h1 style={{ fontSize: 20, marginLeft: 10 }}>
+                Delivery Information
+              </h1>
             </div>
+
             <div className={styles.products}>
               {fetchData?.orderItems.map((item) => (
                 <div className={styles.productItem} key={item?._key}>
@@ -220,10 +214,18 @@ function OrderScreen({ params }) {
                 <p>Total</p>
                 <span>₦{fetchData?.overRawPrice.toLocaleString()}</span>
               </div>
+              <div className={styles.totalItems}>
+                <p>Status</p>
+                <span>{fetchData?.isPaid ? "Paid" : "Not Paid"}</span>
+              </div>
+              <div className={styles.totalItems}>
+                <p>Delivery</p>
+                <span>{fetchData?.isDelivered ? "Delivered" : "Not Delivered"}</span>
+              </div>
             </div>
 
             <div className={styles.submitForm}>
-              {fetchData?.isPaid ? null : (
+              {fetchData?.isDelivered ? null : (
                 <button
                   onClick={() => {
                     initializePayment(onSuccess, onClose);
@@ -235,12 +237,12 @@ function OrderScreen({ params }) {
             </div>
 
             {userInfo?.isAdmin && (
-              <>
+              <div style={{ marginLeft: 10 }}>
                 <h2 style={{ fontSize: 15, paddingTop: 10, paddingBottom: 10 }}>
                   Delivery Status
                 </h2>
                 <select
-                  style={{ height: 50, width: 150 }}
+                  style={{ height: 40, width: "100%" }}
                   value={delivered}
                   onChange={(e) => setDelivered(e.target.value)}
                 >
@@ -251,14 +253,20 @@ function OrderScreen({ params }) {
 
                 {delivered && (
                   <button
-                    className={styles.button}
                     onClick={isDelivered}
-                    style={{ height: 50, width: 150 }}
+                    style={{
+                      height: 40,
+                      width: 150,
+                      backgroundColor: "red",
+                      color: "white",
+                      marginTop: 15,
+                      width: "100%",
+                    }}
                   >
                     Confirm
                   </button>
                 )}
-              </>
+              </div>
             )}
           </div>
           <div className={styles.contactInformation}>
