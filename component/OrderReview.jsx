@@ -72,12 +72,12 @@ function OrderReview() {
     setDiscountLoading(true);
     const data = await client.fetch(`*[_type == 'user' ]`);
     const check = data.find((item) => item.coupon === coupon);
-
+    console.log(check, coupon)
     if (check?.coupon === coupon) {
       console.log(check);
       const calculate = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
-
-      setTotalPrice(calculate - 1500);
+      const percentage = calculate * 0.05
+      setTotalPrice(calculate - percentage);
       toast.success(`${check.coupon} Coupon initiated`);
 
       setDiscountLoading(false);
@@ -86,7 +86,7 @@ function OrderReview() {
       setDiscountLoading(false);
     }
   };
-
+// EMEKA123 EMEKA321
   const totalQuantity = cartItems.reduce((a, c) => a + c.quantity, 0);
 
   const shippingFee = totalPrice > 20000 ? 1000 : 0;

@@ -10,6 +10,7 @@ import { getError } from "../lib/err";
 import Link from "next/link";
 import Head from "next/head";
 import { ClipLoader } from "react-spinners";
+import { FaRegEye } from "react-icons/fa";
 
 function Login() {
   const {
@@ -38,7 +39,9 @@ function Login() {
       toast.success(`Login Successfully `);
       setLoading(false);
     } catch (error) {
+
       toast.error(getError(error));
+      setLoading(false)
     }
   };
 
