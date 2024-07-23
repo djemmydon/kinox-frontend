@@ -162,7 +162,7 @@ function OrderScreen({ params }) {
     //     // router.push('/user');
     //   });
   };
-  console.log(fetchData?.isDelivered);
+  console.log(fetchData?.shippingFee);
   console.log(delivered);
   return (
     <main className={styles.placeorder}>
@@ -207,7 +207,7 @@ function OrderScreen({ params }) {
 
               <div className={styles.totalItems}>
                 <p>Shipping Fee</p>
-                <span>Free</span>
+                <span>₦{!fetchData?.shippingFee <= 0 ? fetchData?.shippingFee.toLocaleString() : "0"}</span>
               </div>
 
               <div className={styles.totalItems}>
@@ -225,7 +225,7 @@ function OrderScreen({ params }) {
             </div>
 
             <div className={styles.submitForm}>
-              {fetchData?.isDelivered ? null : (
+              {fetchData?.isPaid ? null : (
                 <button
                   onClick={() => {
                     initializePayment(onSuccess, onClose);

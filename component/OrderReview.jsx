@@ -158,6 +158,7 @@ function OrderReview() {
       coupon,
       userId: userInfo._id,
       email: userInfo.email,
+      shippingFee,
 
       orderItems: cartItems.map((x) => ({
         ...x,
@@ -197,6 +198,9 @@ function OrderReview() {
         }
       });
   };
+
+
+
 
   return (
     <main className={styles.placeorder}>
@@ -337,12 +341,12 @@ function OrderReview() {
 
             <div className={styles.totalItems}>
               <p>Shipping Fee</p>
-              <span>Free</span>
+              <span>₦{shippingFee}</span>
             </div>
 
             <div className={styles.totalItems}>
               <p>Total</p>
-              <span>₦{totalPrice}</span>
+              <span>₦{overRawPrice}</span>
             </div>
           </div>
 
