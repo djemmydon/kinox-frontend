@@ -29,7 +29,10 @@ function Index({ products }) {
 
 export default Index;
 export const getServerSideProps = async () => {
-  const query = `*[_type == 'order' ]`;
+  const query = `*[_type == 'order' ]{
+    ...,
+    isPaid
+  }`;
 
   const products= await client.fetch(query);
   // const products = product.filter((item) => item.coupon);

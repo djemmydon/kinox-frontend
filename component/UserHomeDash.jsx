@@ -7,11 +7,11 @@ import { useRouter } from "next/router";
 
 function UserHomeDash({ styles, user, order }) {
   const adminShow = user?.isAdmin ? order : order?.filter((item) => item?.user._ref === user?._id);
-  console.log(user)
+  
 
   //  Search for user that is influencer
   const calculate =
-    order.filter((item) => item?.coupon === user.coupon).length * 1500;
+    order.filter((item) => item?.coupon === user.coupon && item?.isPaid === true).length * 1500;
   const totalOrderForInfluencer = order.filter(
     (item) => item?.coupon === user.coupon
   ).length;
@@ -49,7 +49,7 @@ function UserHomeDash({ styles, user, order }) {
           <div className={styles.card}>
             <AiOutlineCopy color="red" size={60} />
             <div className={styles.cardText}>
-              <h2>{user?.coupon}</h2>
+              <h2>EMEKA321</h2>
               <p>Coupon Code</p>
             </div>
           </div>
