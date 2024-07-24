@@ -114,7 +114,7 @@ handler.post(async (req, res) => {
   </ul>
   <br />
 
-                   <h3>Total Amount:30000 <h3/> <br />
+                   <h3>Total Amount:${req.body.totalPrice} <h3/> <br />
 
           <p>Track your  Order</p>
           <a href="https://www.kinoxoriginal.com" style="color:#fff;" class="cta-button">Trade Order</a>
