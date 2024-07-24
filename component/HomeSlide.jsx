@@ -29,6 +29,7 @@ function HomeSlide() {
   return (
     <>
       <main className={styles.home_slide}>
+
         <Swiper
           loop="true"
           speed={1200}
@@ -115,6 +116,7 @@ function HomeSlide() {
             </div>
           </SwiperSlide> */}
         </Swiper>
+        
       </main>
     </>
   );

@@ -155,6 +155,7 @@ function OrderReview() {
       firstName,
       totalQuantity,
       overRawPrice,
+      totalPrice,
       coupon,
       userId: userInfo._id,
       email: userInfo.email,

@@ -15,6 +15,7 @@ import {
 function Footer() {
   return (
     <div className={styles.container}>
+      
       <div className={styles.footer_grid}>
         <div className={styles.grid}>
           <Link href="/" className={styles.name}>
