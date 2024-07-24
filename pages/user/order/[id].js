@@ -104,6 +104,7 @@ function OrderScreen({ params }) {
         id: check._id,
         orderId: check._id,
         price: check.overRawPrice,
+        fetchData
       })
       .then((res) => {
         toast.success("Payment Succefully");

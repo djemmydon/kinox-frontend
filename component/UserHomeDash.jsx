@@ -7,13 +7,13 @@ import { useRouter } from "next/router";
 
 function UserHomeDash({ styles, user, order }) {
   const adminShow = user?.isAdmin ? order : order?.filter((item) => item?.user._ref === user?._id);
-  
+  console.log(adminShow)
 
   //  Search for user that is influencer
   const calculate =
-    order.filter((item) => item?.coupon === user.coupon && item?.isPaid === true).length * 1500;
+    order.filter((item) => item?.coupon === user?.coupon && item?.isPaid === true).length * 1500;
   const totalOrderForInfluencer = order.filter(
-    (item) => item?.coupon === user.coupon
+    (item) => item?.coupon === user?.coupon && item?.isPaid === true
   ).length;
 
   console.log(calculate);
@@ -57,11 +57,11 @@ function UserHomeDash({ styles, user, order }) {
       )}
 
       <div className={styles.orderContent}>
-        <h1>Your Orders</h1>
+        <h1>Your Orders({adminShow?.length})</h1>
 
         <div className={styles.orderBody}>
           {adminShow.map((item) => (
-            <div className={styles.orderItem}>
+            <div key={item?._id} className={styles.orderItem}>
               <div className={styles.orderItemHead}>
                 <div className={styles.orderId}>
                   <h6>

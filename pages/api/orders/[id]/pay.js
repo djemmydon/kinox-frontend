@@ -2,6 +2,7 @@ import axios from "axios";
 import nc from "next-connect";
 import { isAuth } from "../../../../lib/auth";
 
+
 handler.use(isAuth);
 const handler = nc();
 handler.put(async (req, res) => {
@@ -32,6 +33,9 @@ handler.put(async (req, res) => {
       },
     }
   );
+ 
+
+
 
   res.status(201).send({ message: "Message" });
 });
